@@ -1,15 +1,14 @@
+import mikePhoto from "../assets/team/mike.jpg";
+import gabrielPhoto from "../assets/team/gabriel.jpg";
+import miguelPhoto from "../assets/team/miguel.jpg";
+
 export type TeamMember = {
   name: string;
   role: string;
   initials: string;
   /**
-   * Portrait image URL. Left undefined for now → the Team section renders an
-   * on-brand sunrise initials placeholder.
-   *
-   * TODO(Gabriel): drop the real photos into `src/assets/team/` and wire them
-   * up, e.g.:
-   *   import mikePhoto from "../assets/team/mike.jpg";
-   *   ...then set `photo: mikePhoto` on the matching member below.
+   * Portrait image. Falls back to an on-brand sunrise initials placeholder
+   * when undefined.
    */
   photo?: string;
 };
@@ -22,15 +21,18 @@ export const team: TeamMember[] = [
     name: "Mike Panero",
     role: "Digital strategist, filmmaker & paid-ads lead",
     initials: "MP",
+    photo: mikePhoto,
   },
   {
     name: "Gabriel Tenório",
     role: "Video editor & scriptwriter",
     initials: "GT",
+    photo: gabrielPhoto,
   },
   {
     name: "Miguel Ricardo",
     role: "AI strategist & automation",
     initials: "MR",
+    photo: miguelPhoto,
   },
 ];

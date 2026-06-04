@@ -21,7 +21,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           {/* Identity */}
           <div>
-            <Logo variant="white" className="text-[1.15rem]" />
+            <Logo kind="full" variant="white" className="h-16" />
             <p className="mt-5 max-w-xs text-[0.98rem] leading-relaxed text-white/70">
               We get local businesses seen, booked, and growing — the whole
               pipeline, from the first script to the ads that bring real

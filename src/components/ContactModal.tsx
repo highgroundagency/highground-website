@@ -146,7 +146,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   "linear-gradient(100deg, var(--sun-orange), var(--sun-amber) 55%, var(--sun-gold))",
               }}
             >
-              <Logo variant="white" className="text-[0.95rem]" />
+              <Logo kind="mark" variant="white" className="h-9" />
               <button
                 type="button"
                 onClick={onClose}

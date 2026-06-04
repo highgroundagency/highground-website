@@ -67,8 +67,9 @@ export function Nav() {
             className="rounded-lg transition-opacity hover:opacity-90"
           >
             <Logo
+              kind="mark"
               variant={dark ? "white" : "color"}
-              className="text-[1.02rem] sm:text-[1.08rem]"
+              className="h-8 sm:h-9"
             />
           </a>
 
@@ -124,7 +125,7 @@ export function Nav() {
             }}
           >
             <div className="flex h-16 items-center justify-between px-5">
-              <Logo variant="white" className="text-[1.02rem]" />
+              <Logo kind="mark" variant="white" className="h-8" />
               <button
                 type="button"
                 className="grid h-11 w-11 place-items-center rounded-xl text-[1.5rem] text-white"

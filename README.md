@@ -27,34 +27,20 @@ npm run build    # type-check + production build → dist/
 npm run preview  # preview the production build
 ```
 
-## 🔧 Assets to drop in (the stuff to upload)
+## Assets
 
-Everything renders today with on-brand placeholders, so the site is never
-broken. Swap them for the real files when ready — no other code changes needed.
+### ✅ Logo + team photos — wired in
 
-### Logo — `src/assets/`
+- **Logo** (`src/assets/logo-full.webp`, `logo-mark.webp`): the real lockup,
+  optimized to WebP. The slim nav uses the sun+wave mark; the footer uses the
+  full lockup. Dark backgrounds knock it out to white via a CSS filter (no
+  separate white file needed). Details in `src/assets/README.md`.
+- **Team photos** (`src/assets/team/*.jpg`): real portraits, optimized and
+  imported in `src/data/team.ts`.
 
-The logo currently renders as a crisp inline SVG (`src/components/Logo.tsx`) that
-recolors itself for light/dark/mono use. When you upload the real files, drop
-them in `src/assets/` and follow the `TODO(Gabriel)` note in `Logo.tsx`:
+To replace either later, swap the file (same name) or update the import.
 
-| File | Use |
-|---|---|
-| `high-ground-agency-logo-transparent.png` | full color (light backgrounds) |
-| `high-ground-agency-logo-white.png` | white knockout (dark sections, footer) |
-| `high-ground-agency-logo-navy.png` | navy mono (tight uses) |
-
-### Team photos — `src/assets/team/`
-
-Portraits show a sunrise initials placeholder until you add photos. To wire them
-up, drop the images in `src/assets/team/` and set the `photo` field in
-`src/data/team.ts` (there's a `TODO(Gabriel)` with the exact snippet):
-
-- **Mike Panero** — Digital strategist, filmmaker & paid-ads lead
-- **Gabriel Tenório** — Video editor & scriptwriter
-- **Miguel Ricardo** — AI strategist & automation
-
-### Other TODOs (search the code for `TODO(Gabriel)`)
+### ⏳ Still placeholders (search the code for `TODO(Gabriel)`)
 
 - **Hero demo reel** — vertical video + poster (`src/components/sections/Hero.tsx`).
   The phone shows an on-brand placeholder until then; the play button lazy-loads
