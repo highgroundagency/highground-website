@@ -1,0 +1,31 @@
+/* High Ground Agency — color tokens (sampled from the real logo).
+   These short-named variables are for hand-written CSS, SVG fills, and
+   inline gradient styles. The same values are mapped into Tailwind
+   utilities via @theme in index.css. Keep the two in sync. */
+:root {
+  /* SUN — sunrise gradient, top (deep) → bottom (gold) */
+  --sun-orange: #e8743a; /* deep coral-orange, top of sun */
+  --sun-amber: #f4a24f; /* mid */
+  --sun-gold: #f6c672; /* lower */
+  --sun-pale: #f8d98a; /* lightest — glow / highlights */
+
+  /* OCEAN — wave */
+  --sea-azure: #4e96c6; /* bright wave crest */
+  --sea-blue: #2e86c4; /* primary ocean blue */
+  --sea-mid: #2c6fa6; /* mid water */
+  --navy: #1a3e66; /* BRAND navy — wordmark + headings on light */
+  --deep-sea: #14283a; /* underwater section base (not pure black) */
+  --abyss: #0c1b2a; /* ocean floor / darkest */
+
+  /* NEUTRALS — warm, sunlit */
+  --cream: #fbf6ec; /* primary light page background */
+  --sand: #f2e9d8; /* soft alt background */
+  --ink: #16263a; /* body text on light (warm near-navy) */
+  --line: #e3d8c4; /* hairline borders on light */
+
+  /* SKY — pre-dawn hero gradient */
+  --sky-low: #fbe3b0; /* pale gold at the horizon */
+  --sky-mid: #f7c98f; /* peach */
+  --sky-high: #bfd9ec; /* soft blue */
+  --sky-top: #7fb2da; /* clear blue, top of sky */
+}
