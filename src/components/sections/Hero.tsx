@@ -82,26 +82,20 @@ export function Hero() {
               <p className="mt-6 max-w-xl text-[1.125rem] leading-relaxed text-ink/80">
                 From the first script to the final ad, High Ground films it,
                 edits it, posts it, and runs the ads that bring you real
-                customers. Start with a free trial — you only pay once you see
-                it working.
+                customers. Start with a low-cost trial and see it work for
+                yourself before you commit.
               </p>
             </RevealItem>
 
             <RevealItem>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button size="lg" onClick={openContact}>
-                  Start free
+                  Get started
                 </Button>
-                <Button size="lg" variant="ghost" href="#work">
-                  See our work
+                <Button size="lg" variant="ghost" href="#how">
+                  See how it works
                 </Button>
               </div>
-            </RevealItem>
-
-            <RevealItem>
-              <p className="mt-5 font-mono text-[0.78rem] uppercase tracking-[0.14em] text-ink/55">
-                Free trial · no upfront cost · cancel anytime.
-              </p>
             </RevealItem>
           </Reveal>
         </motion.div>

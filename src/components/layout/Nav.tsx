@@ -9,7 +9,7 @@ import { useContact } from "../ContactModal";
 const LINKS = [
   { label: "Services", href: "#services" },
   { label: "How it works", href: "#how" },
-  { label: "Work", href: "#work" },
+  { label: "What we need", href: "#expectations" },
   { label: "About", href: "#about" },
 ];
 
@@ -58,7 +58,7 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div className={`transition-colors duration-300 ${barClass}`}>
         <nav
-          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-[4.5rem] sm:px-8"
+          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8"
           aria-label="Primary"
         >
           <a
@@ -67,9 +67,9 @@ export function Nav() {
             className="rounded-lg transition-opacity hover:opacity-90"
           >
             <Logo
-              kind="mark"
+              kind="full"
               variant={dark ? "white" : "color"}
-              className="h-8 sm:h-9"
+              className="h-11 sm:h-14"
             />
           </a>
 
@@ -88,7 +88,7 @@ export function Nav() {
               ))}
             </ul>
             <Button onClick={openContact} size="md">
-              Start free
+              Get started
             </Button>
           </div>
 
@@ -125,7 +125,7 @@ export function Nav() {
             }}
           >
             <div className="flex h-16 items-center justify-between px-5">
-              <Logo kind="mark" variant="white" className="h-8" />
+              <Logo kind="full" variant="white" className="h-11" />
               <button
                 type="button"
                 className="grid h-11 w-11 place-items-center rounded-xl text-[1.5rem] text-white"
@@ -174,7 +174,7 @@ export function Nav() {
                   openContact();
                 }}
               >
-                Start free
+                Get started
               </Button>
             </div>
           </motion.div>

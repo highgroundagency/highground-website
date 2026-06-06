@@ -1,6 +1,5 @@
 import { useId, useState } from "react";
 import { Eyebrow } from "../ui/Eyebrow";
-import { Card } from "../ui/Card";
 import { Reveal, RevealItem } from "../ui/Reveal";
 import { Button } from "../ui/Button";
 import { PlusIcon } from "../ui/icons";
@@ -31,7 +30,7 @@ export function HowItWorks() {
               id="how-title"
               className="mt-5 text-[clamp(2rem,4.4vw,3.5rem)] font-semibold leading-[1.05] text-navy"
             >
-              See it work before you pay a cent.
+              See it work before you close with us.
             </h2>
           </RevealItem>
         </Reveal>
@@ -80,22 +79,14 @@ export function HowItWorks() {
           </Reveal>
         </div>
 
-        {/* Reassurance + CTA */}
-        <Reveal className="mt-14">
-          <Card className="flex flex-col items-start gap-6 border-sun-gold/40 !bg-sun-gold/10 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-[1.3rem] font-semibold text-navy">
-                No big upfront cost. No long contract.
-              </h3>
-              <p className="mt-1.5 text-ink/75">
-                If it's not right for you, you walk away — no cost, no hard
-                feelings.
-              </p>
-            </div>
-            <Button size="lg" className="shrink-0" onClick={openContact}>
-              Start your free trial
-            </Button>
-          </Card>
+        {/* CTA */}
+        <Reveal className="mt-14 flex flex-col items-center gap-4 text-center">
+          <p className="text-[1.05rem] text-ink/75">
+            No long contract. You keep going only if it's working for you.
+          </p>
+          <Button size="lg" onClick={openContact}>
+            Get started
+          </Button>
         </Reveal>
 
         {/* FAQ */}

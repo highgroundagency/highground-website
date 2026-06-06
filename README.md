@@ -47,9 +47,10 @@ To replace either later, swap the file (same name) or update the import.
   the real video on click.
 - **Contact destination** — the CTA form logs the lead to the console for now.
   Wire it to email / a Calendly link / your CRM in `src/components/ContactModal.tsx`.
-- **Real testimonials** — placeholders in `src/components/sections/Proof.tsx`.
 - **Favicon / social image** — a simple sun mark lives at `public/favicon.svg`;
   generate a 1200×630 OG image when you can.
+
+(The fake testimonials were removed; that section is now "What we need from you".)
 
 ## Project structure
 
@@ -57,19 +58,21 @@ To replace either later, swap the file (same name) or update the import.
 src/
   components/
     layout/    Nav, Footer
-    sections/  Hero, Problem, Services, HowItWorks, Proof, Team, FinalCTA
+    sections/  Hero, Problem, Services, HowItWorks, Expectations, Team, FinalCTA
     motion/    WaveLayer, Sun, Gull, Bubbles, LightRays
     ui/        Button, Eyebrow, Reveal, Card, icons
     Logo.tsx   ContactModal.tsx
-  data/        services, team, steps, faqs
+  data/        services, team, steps, faqs, expectations
   hooks/       useReducedMotion, useSectionTheme
   styles/      index.css (Tailwind + theme), tokens.css (brand colors)
 ```
 
 ## House rules (please keep these)
 
-- **No prices / dollar amounts anywhere.** The offer is always framed as a free
-  trial → low monthly fee only once it's working.
+- **The offer / pricing (per owner decision):** the strategy call is free, then a
+  **low-cost trial — $400 to start plus the ad spend the client chooses** — and
+  they continue at the regular monthly rate only if they're happy. Don't call it
+  a "free trial" (it isn't) and don't add "no upfront cost" language.
 - **Never** use the strings "Panero Creative" or "Based on California" (both were
   errors in the old draft). The name is **High Ground Agency**; the place is
   **Aptos / Santa Cruz County, California** ("based in California").

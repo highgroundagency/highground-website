@@ -5,7 +5,7 @@ import { Hero } from "./components/sections/Hero";
 import { Problem } from "./components/sections/Problem";
 import { Services } from "./components/sections/Services";
 import { HowItWorks } from "./components/sections/HowItWorks";
-import { Proof } from "./components/sections/Proof";
+import { Expectations } from "./components/sections/Expectations";
 import { Team } from "./components/sections/Team";
 import { FinalCTA } from "./components/sections/FinalCTA";
 
@@ -26,7 +26,7 @@ export default function App() {
         <Problem />
         <Services />
         <HowItWorks />
-        <Proof />
+        <Expectations />
         <Team />
         <FinalCTA />
       </main>

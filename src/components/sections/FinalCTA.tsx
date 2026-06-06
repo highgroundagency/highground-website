@@ -56,17 +56,14 @@ export function FinalCTA() {
           <RevealItem>
             <p className="mx-auto mt-6 max-w-xl text-[1.15rem] leading-relaxed text-navy/80">
               Book a free call and we'll show you exactly how we'd grow your
-              business — free trial included.
+              business — and what your first month looks like.
             </p>
           </RevealItem>
           <RevealItem>
-            <div className="mt-9 flex flex-col items-center gap-4">
+            <div className="mt-9 flex justify-center">
               <Button size="lg" variant="navy" onClick={openContact}>
                 Book your free call
               </Button>
-              <p className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-navy/65">
-                Free trial · no upfront cost · cancel anytime
-              </p>
             </div>
           </RevealItem>
         </Reveal>

@@ -152,6 +152,25 @@ export function PlusIcon({ className }: IconProps) {
   );
 }
 
+export function ClockIcon({ className }: IconProps) {
+  return (
+    <svg {...svgProps(className)}>
+      <circle cx="12" cy="12" r="9" {...stroke} />
+      <path d="M12 7.5V12l3 2" {...stroke} />
+    </svg>
+  );
+}
+
+export function WalletIcon({ className }: IconProps) {
+  return (
+    <svg {...svgProps(className)}>
+      <rect x="3" y="6" width="18" height="13" rx="2.5" {...stroke} />
+      <path d="M3 10h18" {...stroke} />
+      <circle cx="16.5" cy="14.5" r="1.4" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function InstagramIcon({ className }: IconProps) {
   return (
     <svg {...svgProps(className)}>

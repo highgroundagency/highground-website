@@ -4,22 +4,25 @@ export type Faq = {
 };
 
 /**
- * Last-objection answers shown with the free-trial steps. Every answer
- * stays on-message: risk reversal, no price, no fabricated guarantees
- * (brief §2). Keep the voice owner-to-owner.
+ * Straight answers — honest about the cost, clear about what we need back.
+ * Keep the voice owner-to-owner.
  */
 export const faqs: Faq[] = [
   {
-    q: "How does the free trial actually work?",
-    a: "We start with a quick strategy call, then produce and run real work for you — on us. You only continue at a low monthly fee if you're happy with what you see.",
+    q: "How does the trial work?",
+    a: "We start with a free strategy call, then run a real trial: $400 to start, plus the ad spend you choose. We script, shoot, and run actual ads for you so you can see it working before you commit to anything ongoing.",
   },
   {
-    q: "Do I have to sign a long contract?",
-    a: "No. There's no big upfront cost and no long lock-in. If it's not right for you, you walk away — no cost, no hard feelings.",
+    q: "Is it really free?",
+    a: "No — and we won't pretend it is. The strategy call is free. The trial is a low-cost run ($400 + your ad spend) so you can see real results first, then continue at our regular rate only if you want to.",
   },
   {
-    q: "I've never done marketing before. Is that a problem?",
-    a: "That's exactly who we build for. You don't lift a finger — we handle strategy, filming, editing, posting, and the ads. You keep doing what you do best.",
+    q: "What happens after the trial?",
+    a: "If you love the results, you continue at our regular monthly rate. If it's not for you, you walk away — no long contract, no hard feelings.",
+  },
+  {
+    q: "What do you need from me?",
+    a: "Two things. Call your leads back within five minutes — the lead is hot, they just watched your ad — and give us about a day a month to film fresh content. We handle everything else.",
   },
   {
     q: "What kind of businesses do you work with?",

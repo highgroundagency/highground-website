@@ -5,7 +5,7 @@ import { useContact } from "../ContactModal";
 const NAV = [
   { label: "Services", href: "#services" },
   { label: "How it works", href: "#how" },
-  { label: "Work", href: "#work" },
+  { label: "What we need", href: "#expectations" },
   { label: "About", href: "#about" },
 ];
 
@@ -54,7 +54,7 @@ export function Footer() {
                   onClick={openContact}
                   className="text-sun-gold transition-colors hover:text-sun-pale"
                 >
-                  Start free
+                  Get started
                 </button>
               </li>
             </ul>

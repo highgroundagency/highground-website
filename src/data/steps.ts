@@ -6,8 +6,9 @@ export type Step = {
 };
 
 /**
- * The free-trial path — risk reversal made simple (brief §7.5).
- * No numbers, no price: you only pay once you see it working.
+ * The real path (brief §7.5, updated): the strategy call is free, the trial is
+ * a low-cost paid run so they can see it work, then they continue at the
+ * regular rate if they like it. No "free trial" fiction.
  */
 export const steps: Step[] = [
   {
@@ -18,13 +19,15 @@ export const steps: Step[] = [
   },
   {
     n: "02",
-    title: "Free trial",
-    blurb: "We produce and run real work for you — on us. You see it live.",
+    title: "Your trial run",
+    blurb:
+      "We script, shoot, and run real ads for your business so you can see it work — live, on your own audience.",
+    note: "$400 to start + the ad spend you choose.",
   },
   {
     n: "03",
-    title: "You decide",
+    title: "You continue",
     blurb:
-      "Keep going at a low monthly fee only if you love the results. That's it.",
+      "Love the results? Keep going at our regular monthly rate. If it's not for you, you walk away.",
   },
 ];

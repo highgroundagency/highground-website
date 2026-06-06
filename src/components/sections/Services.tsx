@@ -6,9 +6,6 @@ import { services } from "../../data/services";
 import type { Service } from "../../data/services";
 
 export function Services() {
-  const main = services.filter((s) => !s.secondary);
-  const extra = services.filter((s) => s.secondary);
-
   return (
     <section
       id="services"
@@ -41,46 +38,12 @@ export function Services() {
           </RevealItem>
         </Reveal>
 
-        <Reveal
-          stagger
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {main.map((s) => (
+        <Reveal stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
             <RevealItem key={s.id} className="h-full">
               <ServiceCard service={s} />
             </RevealItem>
           ))}
-        </Reveal>
-
-        {/* Also included */}
-        {extra.map((s) => {
-          const Icon = ServiceIcons[s.icon];
-          return (
-            <Reveal key={s.id} className="mt-5">
-              <Card className="flex flex-col items-start gap-5 !bg-white/60 sm:flex-row sm:items-center">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-sun-gold/20 text-[1.5rem] text-sun-orange">
-                  <Icon />
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-[1.15rem] font-semibold text-navy">
-                      {s.title}
-                    </h3>
-                    <span className="rounded-full bg-navy/5 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-sea-mid">
-                      Also included
-                    </span>
-                  </div>
-                  <p className="mt-1 text-ink/75">{s.blurb}</p>
-                </div>
-              </Card>
-            </Reveal>
-          );
-        })}
-
-        <Reveal className="mt-10">
-          <p className="font-display text-[1.2rem] font-medium italic text-navy">
-            You don't lift a finger — we run the whole thing.
-          </p>
         </Reveal>
       </div>
     </section>

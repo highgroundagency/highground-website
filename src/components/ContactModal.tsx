@@ -169,8 +169,8 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   You're on the list.
                 </h2>
                 <p className="mx-auto mt-2 max-w-sm text-ink/75">
-                  Thanks — we'll reach out shortly to set up your free call and
-                  map out your free trial. No cost, no pressure.
+                  Thanks — we'll reach out shortly to set up your free strategy
+                  call and map out exactly how we'd grow you. No pressure.
                 </p>
                 <div className="mt-6">
                   <Button variant="navy" onClick={onClose}>
@@ -184,11 +184,11 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   id="contact-title"
                   className="text-[1.55rem] font-semibold leading-tight text-navy"
                 >
-                  Start your free trial.
+                  Let's get started.
                 </h2>
                 <p className="mt-1.5 text-[0.95rem] text-ink/70">
-                  Tell us a little about your business and we'll set up a free
-                  call. You only pay once you see it working.
+                  Tell us a bit about your business and we'll set up a free
+                  strategy call — and map out exactly how we'd grow you.
                 </p>
 
                 <div className="mt-5 grid gap-4">
@@ -260,13 +260,10 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-col gap-3">
+                <div className="mt-6">
                   <Button type="submit" size="lg" className="w-full">
                     Request my free call
                   </Button>
-                  <p className="text-center text-xs text-ink/55">
-                    Free trial · no upfront cost · cancel anytime.
-                  </p>
                 </div>
               </form>
             )}

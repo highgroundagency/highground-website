@@ -5,8 +5,6 @@ export type Service = {
   title: string;
   blurb: string;
   icon: ServiceIcon;
-  /** Smaller "also included" card rather than a headline offering. */
-  secondary?: boolean;
 };
 
 /**
@@ -49,6 +47,5 @@ export const services: Service[] = [
     blurb:
       "Follow-ups that nurture every lead on autopilot, so nobody slips through the cracks.",
     icon: "email",
-    secondary: true,
   },
 ];
