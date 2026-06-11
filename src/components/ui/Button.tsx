@@ -26,7 +26,7 @@ const liftPress =
   "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]";
 
 const variantClasses: Record<Variant, string> = {
-  primary: `text-white shadow-[var(--shadow-sun)] hover:shadow-[var(--shadow-sun-lg)] ${liftPress}`,
+  primary: `btn-shine text-white shadow-[var(--shadow-sun)] hover:shadow-[var(--shadow-sun-lg)] ${liftPress}`,
   navy: `bg-navy text-cream hover:bg-[#16365a] shadow-[0_18px_40px_-18px_rgba(26,62,102,0.6)] ${liftPress}`,
   cream: `bg-cream text-navy shadow-[0_18px_40px_-18px_rgba(0,0,0,0.35)] hover:bg-white ${liftPress}`,
   ghost: `text-navy border border-navy/25 hover:bg-navy/5 ${liftPress}`,

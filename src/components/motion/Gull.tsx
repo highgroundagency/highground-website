@@ -7,20 +7,30 @@ type GullProps = {
   duration?: number;
   /** Quiet gap between glides so it stays a delight, not a distraction. */
   repeatDelay?: number;
+  /** Initial delay before the first glide — lets a flock feel staggered. */
+  delay?: number;
+  /** Size multiplier — smaller gulls read as farther away. */
+  scale?: number;
 };
 
 /**
- * A single white gull that glides across the sky on a gentle arc, built from
- * the logo's wing curve (brief §7.2 / §8). Auto-moving, so it's hidden under
- * prefers-reduced-motion.
+ * A white gull that glides across the sky on a gentle arc, built from the
+ * logo's wing curve (brief §7.2 / §8). Render a few with different scales,
+ * delays, and durations for a natural flock. Auto-moving, so it's hidden
+ * under prefers-reduced-motion.
  */
 export function Gull({
   className = "",
   duration = 24,
   repeatDelay = 7,
+  delay = 0,
+  scale = 1,
 }: GullProps) {
   const reduced = useReducedMotion();
   if (reduced) return null;
+
+  const w = Math.round(46 * scale);
+  const h = Math.round(20 * scale);
 
   return (
     <motion.div
@@ -29,9 +39,9 @@ export function Gull({
       initial={{ x: "-12vw", y: 0, opacity: 0 }}
       animate={{
         x: ["-12vw", "28vw", "64vw", "112vw"],
-        y: [0, -26, 8, -14],
+        y: [0, -26 * scale, 8 * scale, -14 * scale],
         rotate: [0, -6, 4, -3],
-        opacity: [0, 1, 1, 0],
+        opacity: [0, 0.55 + 0.45 * scale, 0.55 + 0.45 * scale, 0],
       }}
       transition={{
         duration,
@@ -39,9 +49,10 @@ export function Gull({
         ease: "easeInOut",
         repeat: Infinity,
         repeatDelay,
+        delay,
       }}
     >
-      <svg width="46" height="20" viewBox="0 0 46 20" fill="none" aria-hidden="true">
+      <svg width={w} height={h} viewBox="0 0 46 20" fill="none" aria-hidden="true">
         <path
           d="M2 12 Q12 2 22.5 11"
           stroke="white"

@@ -1,14 +1,19 @@
 import { useId, useState } from "react";
+import { motion } from "framer-motion";
 import { Eyebrow } from "../ui/Eyebrow";
 import { Reveal, RevealItem } from "../ui/Reveal";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { Button } from "../ui/Button";
 import { PlusIcon } from "../ui/icons";
 import { steps } from "../../data/steps";
 import { faqs } from "../../data/faqs";
 import { useContact } from "../ContactModal";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export function HowItWorks() {
   const { open: openContact } = useContact();
+  const reduced = useReducedMotion();
 
   return (
     <section
@@ -37,15 +42,32 @@ export function HowItWorks() {
 
         {/* Steps */}
         <div className="relative mt-14">
-          {/* connecting line (desktop) */}
-          <div
-            className="absolute left-[16.66%] right-[16.66%] top-7 hidden h-0.5 lg:block"
+          {/* connecting line (desktop) — draws itself toward the sun */}
+          <motion.div
+            className="absolute left-[16.66%] right-[16.66%] top-7 hidden h-0.5 origin-left lg:block"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, var(--sun-orange), var(--sun-gold))",
             }}
+            initial={reduced ? undefined : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-20% 0px" }}
+            transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}
             aria-hidden="true"
-          />
+          >
+            <motion.span
+              className="absolute -right-2 -top-[7px] h-4 w-4 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 35%, var(--sun-pale), var(--sun-orange))",
+                boxShadow: "0 0 16px rgba(244,162,79,0.85)",
+              }}
+              initial={reduced ? undefined : { opacity: 0, scale: 0.4 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.25, duration: 0.45, ease: EASE }}
+            />
+          </motion.div>
 
           <Reveal stagger className="grid gap-10 lg:grid-cols-3">
             {steps.map((s) => (
@@ -69,8 +91,10 @@ export function HowItWorks() {
                     {s.blurb}
                   </p>
                   {s.note && (
-                    <p className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-sea-mid">
-                      {s.note}
+                    <p className="mt-3">
+                      <span className="inline-block rounded-full border border-sun-amber/50 bg-sun-gold/15 px-3 py-1 font-mono text-[0.66rem] uppercase tracking-[0.1em] text-navy/75">
+                        {s.note}
+                      </span>
                     </p>
                   )}
                 </div>

@@ -52,8 +52,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem; /* offset for sticky nav when anchor-jumping */
+    scroll-padding-top: 6rem; /* offset for sticky nav when anchor-jumping */
     -webkit-text-size-adjust: 100%;
+    /* Brand scrollbar (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--sea-mid) var(--sand);
+  }
+
+  /* Brand scrollbar (WebKit) — a little sun-to-sea horizon */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--sand);
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    border: 3px solid var(--sand);
+    background: linear-gradient(180deg, var(--sun-amber), var(--sea-blue));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--sun-orange), var(--sea-mid));
   }
 
   body {
@@ -122,6 +141,29 @@
   opacity: 0.04;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Shine sweep across primary buttons on hover */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+.btn-shine:hover::after {
+  transform: translateX(130%) skewX(-18deg);
+  transition: transform 0.7s ease;
 }
 
 /* Animated gradient underline for text links */
@@ -194,6 +236,34 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translate3d(-2.5%, 0, 0);
+  }
+  to {
+    transform: translate3d(2.5%, 0, 0);
+  }
+}
+
+@keyframes glitter-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes ray-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

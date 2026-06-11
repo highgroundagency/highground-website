@@ -1,6 +1,7 @@
 import { ContactProvider } from "./components/ContactModal";
 import { Nav } from "./components/layout/Nav";
 import { Footer } from "./components/layout/Footer";
+import { ScrollProgress } from "./components/motion/ScrollProgress";
 import { Hero } from "./components/sections/Hero";
 import { Problem } from "./components/sections/Problem";
 import { Services } from "./components/sections/Services";
@@ -19,6 +20,7 @@ export default function App() {
         Skip to content
       </a>
 
+      <ScrollProgress />
       <Nav />
 
       <main id="main">

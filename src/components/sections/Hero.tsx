@@ -1,12 +1,15 @@
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { Sun } from "../motion/Sun";
 import { WaveLayer } from "../motion/WaveLayer";
+import type { Wave } from "../motion/WaveLayer";
 import { Gull } from "../motion/Gull";
+import { Clouds } from "../motion/Clouds";
 import { Eyebrow } from "../ui/Eyebrow";
 import { Button } from "../ui/Button";
 import { Reveal, RevealItem } from "../ui/Reveal";
-import { PlayIcon } from "../ui/icons";
+import { PlayIcon, ArrowDownIcon } from "../ui/icons";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useContact } from "../ContactModal";
 
@@ -21,6 +24,18 @@ import { useContact } from "../ContactModal";
 const HERO_VIDEO: string | undefined = undefined;
 const HERO_POSTER: string | undefined = undefined;
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+// Frontmost wave is fully opaque sea-mid so the hero's bottom edge fuses
+// seamlessly into the Problem section (which starts at the same color).
+const HERO_WAVES: Wave[] = [
+  { color: "var(--sea-azure)", opacity: 0.5, duration: 28, amplitude: 22, baseline: 64 },
+  { color: "var(--sea-blue)", opacity: 0.75, duration: 20, amplitude: 28, baseline: 98 },
+  { color: "var(--sea-mid)", opacity: 1, duration: 14, amplitude: 32, baseline: 132 },
+];
+
+const TITLE_WORDS = ["We", "get", "your", "business", "seen,", "booked,", "and"];
+
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
@@ -33,6 +48,23 @@ export function Hero() {
   // Sun lags behind the foreground as you scroll away (parallax).
   const sunY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+
+  const titleContainer: Variants = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: reduced ? 0 : 0.055, delayChildren: 0.12 },
+    },
+  };
+  const titleWord: Variants = reduced
+    ? {
+        hidden: { opacity: 0 },
+        show: { opacity: 1, transition: { duration: 0.3 } },
+      }
+    : {
+        hidden: { y: "115%" },
+        show: { y: "0%", transition: { duration: 0.6, ease: EASE } },
+      };
 
   return (
     <section
@@ -45,6 +77,9 @@ export function Hero() {
           "linear-gradient(180deg, var(--sky-top) 0%, var(--sky-high) 34%, var(--sky-mid) 66%, var(--sky-low) 100%)",
       }}
     >
+      {/* Drifting pre-dawn clouds */}
+      <Clouds className="-z-10" />
+
       {/* Sun on the horizon (parallax) */}
       <motion.div
         className="absolute left-1/2 top-[46%] -z-10 -translate-x-1/2 sm:left-[62%]"
@@ -53,15 +88,29 @@ export function Hero() {
         <Sun className="relative" size={520} />
       </motion.div>
 
-      {/* Gliding gull */}
-      <Gull className="left-0 top-[22%] -z-10" />
+      {/* A small flock at different depths */}
+      <Gull className="left-0 top-[20%] -z-10" duration={26} repeatDelay={8} />
+      <Gull className="left-0 top-[13%] -z-10" duration={34} repeatDelay={14} delay={6} scale={0.7} />
+      <Gull className="left-0 top-[29%] -z-10" duration={30} repeatDelay={11} delay={13} scale={0.5} />
 
       {/* Ocean + layered waves */}
-      <WaveLayer className="-z-10 h-[34vh] min-h-[220px]" />
-      {/* Soft fade into the next section */}
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-b from-transparent to-cream/70" />
+      <WaveLayer className="-z-10 h-[34vh] min-h-[220px]" waves={HERO_WAVES} />
 
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-28 pb-32 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-24 lg:pb-24">
+      {/* Sun glitter — the reflection shimmering on the water */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/2 -z-10 h-[26vh] w-24 -translate-x-1/2 sm:left-[62%]"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(248,217,138,0.9), rgba(246,198,114,0.35) 55%, rgba(246,198,114,0))",
+          clipPath: "polygon(40% 0, 60% 0, 100% 100%, 0 100%)",
+          filter: "blur(6px)",
+          mixBlendMode: "screen",
+          animation: reduced ? undefined : "glitter-pulse 5s ease-in-out infinite",
+        }}
+      />
+
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-28 pb-32 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-24 lg:pb-28">
         {/* Copy */}
         <motion.div style={reduced ? undefined : { y: copyY }}>
           <Reveal stagger>
@@ -71,12 +120,33 @@ export function Hero() {
               </Eyebrow>
             </RevealItem>
 
-            <RevealItem>
-              <h1 className="mt-5 text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-navy">
-                We get your business seen, booked, and{" "}
-                <span className="text-sun-gradient">growing.</span>
-              </h1>
-            </RevealItem>
+            <motion.h1
+              className="mt-5 text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[1.04] tracking-[-0.02em] text-navy"
+              variants={titleContainer}
+              initial="hidden"
+              animate="show"
+            >
+              {TITLE_WORDS.map((w) => (
+                <Fragment key={w}>
+                  <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
+                    <motion.span
+                      className="inline-block will-change-transform"
+                      variants={titleWord}
+                    >
+                      {w}
+                    </motion.span>
+                  </span>{" "}
+                </Fragment>
+              ))}
+              <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
+                <motion.span
+                  className="text-sun-gradient inline-block will-change-transform"
+                  variants={titleWord}
+                >
+                  growing.
+                </motion.span>
+              </span>
+            </motion.h1>
 
             <RevealItem>
               <p className="mt-6 max-w-xl text-[1.125rem] leading-relaxed text-ink/80">
@@ -105,6 +175,20 @@ export function Hero() {
           <PhoneDemo />
         </Reveal>
       </div>
+
+      {/* Scroll cue — fades as soon as you start moving */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
+        style={{ opacity: cueOpacity }}
+        aria-hidden="true"
+      >
+        <div
+          className="grid h-11 w-11 place-items-center rounded-full border border-white/50 bg-white/10 text-[1.1rem] text-white/90 backdrop-blur-sm"
+          style={{ animation: reduced ? undefined : "soft-bob 2.6s ease-in-out infinite" }}
+        >
+          <ArrowDownIcon />
+        </div>
+      </motion.div>
     </section>
   );
 }
@@ -116,7 +200,7 @@ function PhoneDemo() {
 
   return (
     <div
-      className="relative w-[clamp(220px,72vw,300px)]"
+      className="relative w-[clamp(230px,72vw,310px)]"
       style={
         reduced ? undefined : { animation: "soft-bob 7s ease-in-out infinite" }
       }
@@ -155,7 +239,44 @@ function PhoneDemo() {
   );
 }
 
-/** On-brand placeholder scene shown until the real reel is wired up. */
+/* ----- Tiny social-UI glyphs for the reel mock (decorative only) ----- */
+const glyph = {
+  fill: "none",
+  stroke: "white",
+  strokeWidth: 1.8,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+function ReelActions() {
+  return (
+    <div
+      className="absolute bottom-20 right-2.5 z-10 flex flex-col items-center gap-4 drop-shadow-[0_1px_3px_rgba(10,22,34,0.5)]"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" className="h-6 w-6">
+        <path
+          d="M12 20.5S5.2 16.2 2.9 12C1.2 8.9 3 5.2 6.4 5.2c2.1 0 3.5 1.1 4.6 2.7h2c1.1-1.6 2.5-2.7 4.6-2.7 3.4 0 5.2 3.7 3.5 6.8C18.8 16.2 12 20.5 12 20.5z"
+          {...glyph}
+        />
+      </svg>
+      <svg viewBox="0 0 24 24" className="h-6 w-6">
+        <path
+          d="M21 11.5a8 8 0 0 1-11.6 7.2L4 20l1.3-4.1A8 8 0 1 1 21 11.5z"
+          {...glyph}
+        />
+      </svg>
+      <svg viewBox="0 0 24 24" className="h-6 w-6">
+        <path d="M21.5 3 11 13M21.5 3l-6.8 17.5L11 13 3.5 9.8z" {...glyph} />
+      </svg>
+      <svg viewBox="0 0 24 24" className="h-5 w-5">
+        <path d="M7 4h10v16l-5-3.6L7 20z" {...glyph} />
+      </svg>
+    </div>
+  );
+}
+
+/** On-brand reel mock shown until the real vertical video is wired up. */
 function PosterScene({ onPlay }: { onPlay?: () => void }) {
   return (
     <div
@@ -167,7 +288,7 @@ function PosterScene({ onPlay }: { onPlay?: () => void }) {
     >
       {/* mini sun */}
       <div
-        className="absolute left-1/2 top-[46%] h-24 w-24 -translate-x-1/2 rounded-full"
+        className="absolute left-1/2 top-[44%] h-24 w-24 -translate-x-1/2 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 50% 40%, var(--sun-pale), var(--sun-gold) 55%, var(--sun-orange) 100%)",
@@ -187,11 +308,26 @@ function PosterScene({ onPlay }: { onPlay?: () => void }) {
           fill="var(--sea-blue)"
           opacity="0.85"
         />
-        <path
-          d="M0 88 Q75 70 150 88 T300 88 V120 H0 Z"
-          fill="var(--navy)"
-        />
+        <path d="M0 88 Q75 70 150 88 T300 88 V120 H0 Z" fill="var(--navy)" />
       </svg>
+
+      {/* reel progress bar */}
+      <div className="absolute inset-x-3 top-2.5 z-10 h-[3px] overflow-hidden rounded-full bg-white/30" aria-hidden="true">
+        <div className="h-full w-2/3 rounded-full bg-white/90" />
+      </div>
+
+      {/* side action stack */}
+      <ReelActions />
+
+      {/* screen sheen */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10"
+        style={{
+          background:
+            "linear-gradient(115deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 28%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* play affordance */}
       {onPlay ? (
@@ -199,7 +335,7 @@ function PosterScene({ onPlay }: { onPlay?: () => void }) {
           type="button"
           onClick={onPlay}
           aria-label="Play demo reel"
-          className="group absolute inset-0 grid place-items-center"
+          className="group absolute inset-0 z-10 grid place-items-center"
         >
           <span className="grid h-16 w-16 place-items-center rounded-full bg-white/90 text-[1.6rem] text-navy shadow-lg transition-transform group-hover:scale-105">
             <PlayIcon />
@@ -216,12 +352,33 @@ function PosterScene({ onPlay }: { onPlay?: () => void }) {
         </div>
       )}
 
-      {/* caption */}
-      <div className="absolute inset-x-0 bottom-0 p-4">
-        <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-white/85">
-          {/* TODO(Gabriel): real demo reel goes here */}
-          Your business, on camera
-        </p>
+      {/* caption block */}
+      <div className="absolute inset-x-0 bottom-0 z-[5] p-4 pr-14">
+        <div
+          className="pointer-events-none absolute inset-0 -top-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(10,22,34,0) 0%, rgba(10,22,34,0.45) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative">
+          <p className="text-[0.78rem] font-semibold text-white">
+            @highgroundagency
+          </p>
+          <p className="mt-0.5 text-[0.72rem] leading-snug text-white/85">
+            {/* TODO(Gabriel): real demo reel goes here */}
+            Your next ad — shot, cut &amp; posted by us
+          </p>
+          <p className="mt-1.5 flex items-center gap-1.5 font-mono text-[0.6rem] uppercase tracking-[0.08em] text-white/70">
+            <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden="true">
+              <path d="M9 18V6l9-2v11" {...glyph} />
+              <circle cx="6.5" cy="18" r="2.5" {...glyph} />
+              <circle cx="15.5" cy="15" r="2.5" {...glyph} />
+            </svg>
+            High Ground · original audio
+          </p>
+        </div>
       </div>
     </div>
   );

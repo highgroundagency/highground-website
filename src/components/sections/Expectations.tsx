@@ -51,11 +51,17 @@ export function Expectations() {
         </Reveal>
 
         <Reveal stagger className="mt-12 grid gap-5 md:grid-cols-3">
-          {expectations.map((e) => {
+          {expectations.map((e, i) => {
             const Icon = ICONS[e.icon];
             return (
               <RevealItem key={e.title} className="h-full">
-                <Card className="flex h-full flex-col">
+                <Card className="relative flex h-full flex-col">
+                  <span
+                    className="absolute right-6 top-6 font-mono text-[0.78rem] font-bold text-sun-amber/60"
+                    aria-hidden="true"
+                  >
+                    0{i + 1}
+                  </span>
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-sun-gold/20 text-[1.5rem] text-sun-orange">
                     <Icon />
                   </span>
