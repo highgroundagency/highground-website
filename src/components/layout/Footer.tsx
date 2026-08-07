@@ -76,13 +76,15 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                {/* TODO(Gabriel): replace with the real phone number. */}
-                <a
-                  href="tel:+10000000000"
+                {/* TODO(Gabriel): swap for `<a href="tel:+1831XXXXXXX">` once the
+                    business number exists — a dead tel: link would misdial. */}
+                <button
+                  type="button"
+                  onClick={openContact}
                   className="text-white/75 transition-colors hover:text-white"
                 >
-                  Call or text us
-                </a>
+                  Book a free call
+                </button>
               </li>
             </ul>
             <div className="mt-5 flex items-center gap-3">

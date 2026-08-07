@@ -115,7 +115,7 @@ export function Hero() {
         <motion.div style={reduced ? undefined : { y: copyY }}>
           <Reveal stagger>
             <RevealItem>
-              <Eyebrow className="text-sea-mid">
+              <Eyebrow className="text-navy/75">
                 Marketing &amp; content — Aptos, California
               </Eyebrow>
             </RevealItem>

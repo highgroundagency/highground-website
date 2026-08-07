@@ -96,14 +96,6 @@ export const ServiceIcons: Record<
 
 /* ------------------------------- UI icons ------------------------------- */
 
-export function ArrowRightIcon({ className }: IconProps) {
-  return (
-    <svg {...svgProps(className)}>
-      <path d="M4 12h15M13 6l6 6-6 6" {...stroke} />
-    </svg>
-  );
-}
-
 export function ArrowDownIcon({ className }: IconProps) {
   return (
     <svg {...svgProps(className)}>

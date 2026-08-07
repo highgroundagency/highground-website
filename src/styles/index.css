@@ -53,7 +53,14 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem; /* offset for sticky nav when anchor-jumping */
+    /* Non-static scroll container so scroll-linked animation offsets are
+       measured explicitly (silences Framer's dev warning; no layout impact —
+       fixed elements and section-scoped absolutes are unaffected). */
+    position: relative;
     -webkit-text-size-adjust: 100%;
+    /* Keep the scrollbar gutter reserved so locking scroll (modal, mobile
+       menu) never causes a horizontal layout jump. */
+    scrollbar-gutter: stable;
     /* Brand scrollbar (Firefox) */
     scrollbar-width: thin;
     scrollbar-color: var(--sea-mid) var(--sand);
@@ -124,9 +131,10 @@
   text-transform: uppercase;
 }
 
-/* Sun-gradient text fill (for accent words) */
+/* Sun-gradient text fill (for accent words). Ends on amber (not gold) so the
+   lightest glyphs keep enough contrast against the pale sky behind them. */
 .text-sun-gradient {
-  background-image: linear-gradient(100deg, var(--sun-orange), var(--sun-gold));
+  background-image: linear-gradient(100deg, var(--sun-orange), var(--sun-amber));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

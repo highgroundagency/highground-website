@@ -141,6 +141,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
     <div>
       <button
         type="button"
+        id={`${id}-button`}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={`${id}-panel`}
@@ -159,6 +160,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
       <div
         id={`${id}-panel`}
         role="region"
+        aria-labelledby={`${id}-button`}
         className={`grid transition-all duration-300 ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
