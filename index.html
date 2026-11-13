@@ -416,6 +416,31 @@ video:fullscreen{object-fit:contain;border-radius:0;aspect-ratio:auto;width:100%
 .trk li:nth-child(even)::before{background:var(--orange)}
 @media (max-width:520px){.float.f1{right:-4px}.float{font-size:12px;padding:9px 12px}.float b{font-size:18px}}
 
+/* Beliefs: sales first, one brand universe */
+.beliefs{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-top:72px}
+.belief{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:10px 48px;align-items:center;padding:38px 44px;border-radius:26px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(20,39,78,.4)}
+.belief>div{display:flex;flex-direction:column;gap:14px;min-width:0}
+.belief h3{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.02em}
+.belief p{font-size:17px}
+.vanity{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:0;padding:0;list-style:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;white-space:nowrap}
+.vanity li{position:relative;color:#8A97AB;padding:0 4px}
+.vanity li svg{position:absolute;left:-4%;top:42%;width:108%;height:.5em;overflow:visible}
+.vanity li.win{color:var(--navy);font-weight:800;font-size:19px;padding:8px 18px;margin:4px 0 0 -8px}
+.vanity li.win svg{inset:0;width:100%;height:100%}
+.reveal.in .vanity li:nth-child(2) .mark{animation-delay:1.2s}.reveal.in .vanity li:nth-child(3) .mark{animation-delay:1.5s}.reveal.in .vanity li.win .mark{animation-delay:2s}
+.orbit{position:relative;width:210px;height:210px;margin:14px auto;flex:none}
+.orbit::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed #A9CCE6}
+.orbit b{position:absolute;inset:50% auto auto 50%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;line-height:1.15;color:var(--navy);box-shadow:0 14px 28px -10px rgba(241,163,91,.8)}
+.orbit i{position:absolute;inset:0;animation:spin 36s linear infinite}
+.orbit span{position:absolute;width:84px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:#fff;border:1.5px solid #BBD3EA;font-family:'Montserrat',sans-serif;font-style:normal;font-weight:700;font-size:13px;color:var(--navy);box-shadow:0 8px 16px -8px rgba(20,39,78,.4);animation:spin 36s linear infinite reverse}
+.orbit span:nth-child(1){left:calc(50% - 42px);top:-16px}
+.orbit span:nth-child(2){right:-42px;top:calc(50% - 16px)}
+.orbit span:nth-child(3){left:calc(50% - 42px);bottom:-16px}
+.orbit span:nth-child(4){left:-42px;top:calc(50% - 16px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.belief{grid-template-columns:minmax(0,1fr) 300px;gap:10px 28px;padding:30px}}
+@media (max-width:620px){.beliefs{margin-top:52px}.belief{grid-template-columns:minmax(0,1fr);padding:26px 22px}.orbit{margin:26px auto 20px}.vanity{margin-top:6px}}
+
 /* How it works */
 .steps{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));counter-reset:s}
 .step{position:relative;display:flex;flex-direction:column;gap:12px;padding:34px 30px 30px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 34px -24px rgba(20,39,78,.3)}
@@ -857,6 +882,31 @@ footer p{color:#C9D6E8;font-size:16px}
         <b>Tracked on every campaign</b>
         <ul class="trk stag reveal"><li>Leads</li><li>Cost per lead</li><li>Clicks</li><li>Watch time</li><li>A/B tests</li><li>Bookings</li><li>Return on ad spend</li></ul>
       </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="beliefs">
+      <article class="belief reveal">
+        <div>
+          <span class="eyebrow">What I care about</span>
+          <h3>Sales. Not pretty videos.</h3>
+          <p>Plenty of marketers want to make the best-looking content they can. I care about how much money is landing in your bank account — and exactly where it's coming from. Every ad, post and page gets judged by that.</p>
+        </div>
+        <ul class="vanity" aria-label="What matters: money in your account, not views, likes or pretty videos">
+          <li>Views<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M2 6 C30 3 70 8 98 4"/></svg></li>
+          <li>Likes<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M2 6 C30 3 70 8 98 4"/></svg></li>
+          <li>Pretty videos<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M2 6 C30 3 70 8 98 4"/></svg></li>
+          <li class="win">Money in your account<svg viewBox="0 0 330 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M152.4 9.0 C65.1 8.0 7.0 23.3 7.0 41.0 C7.0 58.7 84.1 73.0 171.3 72.0 C258.6 71.0 323.0 55.7 323.0 38.0 C323.0 20.3 244.4 9.0 157.1 11.0 C117.6 11.0 78.1 14.0 59.1 19.0"/></svg></li>
+        </ul>
+      </article>
+      <article class="belief reveal">
+        <div>
+          <span class="eyebrow">How I build it</span>
+          <h3>Your business is a universe.</h3>
+          <p>Think of a film universe: many different movies, one world. Your ads, your website, your social media and your logo should all feel like they come from the same place — so people recognize you everywhere they see you.</p>
+        </div>
+        <div class="orbit" aria-hidden="true"><b>Your<br>brand</b><i><span>Ads</span><span>Website</span><span>Social</span><span>Logo</span></i></div>
+      </article>
     </div>
   </div>
 </section>
