@@ -184,6 +184,12 @@ em.uline{font-style:italic}
 .fine{font-size:12px;color:#6A7A91;margin-top:10px;text-align:center}
 
 /* 2 · Your numbers */
+.seg2{display:inline-flex;padding:5px;border-radius:999px;background:#fff;border:1.5px solid #C9D9EA;box-shadow:0 14px 30px -22px rgba(20,39,78,.4)}
+.seg2 button{all:unset;cursor:pointer;padding:11px 22px;border-radius:999px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--muted);white-space:nowrap;transition:all .2s ease}
+.seg2 button.on{background:linear-gradient(140deg,#14274E,#1F5E9E);color:#fff;box-shadow:0 8px 16px -8px rgba(20,39,78,.6)}
+.seg2 button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+#stage:not(.is-rec) .rec-only{display:none}
+.is-rec .numbar{grid-template-columns:repeat(4,minmax(0,1fr)) auto}
 .numbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:22px;align-items:end;padding:22px 26px;border-radius:22px;background:#fff;border:1px solid var(--pale-2);box-shadow:0 22px 44px -26px rgba(20,39,78,.3)}
 .clear{all:unset;cursor:pointer;height:66px;padding:0 6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:#8A97AB;border-bottom:0}
 .clear:hover{color:var(--blue)}
@@ -537,7 +543,7 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
       <div class="t-copy stag">
         <span class="eyebrow">More booked jobs for your business</span>
         <h1>The High Ground System that <span class="swoosh">actually works.<svg viewBox="0 0 260 10" preserveAspectRatio="none" aria-hidden="true"><path class="u1" pathLength="1" d="M3 5.5 C32 2.5 76 1.5 130 2.5 C180 3.5 220 5 257 2.5"/><path class="u2" pathLength="1" d="M248 6.8 C196 8.6 126 7.6 40 8.6"/></svg></span></h1>
-        <p>I look at what your business actually needs, build the whole engine — brand, website, content, ads and follow-up — and run it for you.</p>
+        <p>We look at what your business actually needs, build the whole engine — brand, website, content, ads and follow-up — and run it for you.</p>
         <ul class="perks">
           <li><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>Predictable<br>leads</li>
           <li><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-6M12 20V9M18 20V4"/></svg>Follow-up<br>that converts</li>
@@ -612,13 +618,17 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
 
   <!-- 2 · Your numbers -->
   <section class="slide pale" data-title="Your numbers">
-    <div class="head">
-      <span class="eyebrow">Where you are today</span>
-      <h2>Let's put <em class="uline">your</em> numbers on the board.</h2>
+    <div class="head-row">
+      <div class="head">
+        <span class="eyebrow">Where you are today</span>
+        <h2>Let's put <em class="uline">your</em> numbers on the board.</h2>
+      </div>
+      <div class="seg2" role="group" aria-label="How customers pay"><button type="button" data-mode="0">One-time jobs</button><button type="button" data-mode="1">Recurring customers</button></div>
     </div>
     <div class="numbar">
-      <label class="fld"><span>Jobs a month</span><div class="inp"><input data-k="jobs" inputmode="numeric" placeholder="12" autocomplete="off"><small>jobs</small></div></label>
-      <label class="fld"><span>Average job</span><div class="inp"><i>$</i><input data-k="avg" inputmode="numeric" placeholder="2,500" autocomplete="off"></div></label>
+      <label class="fld"><span data-l1="Jobs / customers a month" data-l2="Recurring customers"></span><div class="inp"><input data-k="jobs" inputmode="numeric" placeholder="12" autocomplete="off"><small data-l1="a month" data-l2="right now"></small></div></label>
+      <label class="fld"><span data-l1="Average job / customer" data-l2="Each one pays"></span><div class="inp"><i>$</i><input data-k="avg" inputmode="numeric" placeholder="2,500" autocomplete="off"><small data-l1="" data-l2="a month"></small></div></label>
+      <label class="fld rec-only"><span>They stay</span><div class="inp"><input data-k="stay" inputmode="numeric" placeholder="12" autocomplete="off"><small>months</small></div></label>
       <label class="fld"><span>Monthly goal</span><div class="inp"><i>$</i><input data-k="goal" inputmode="numeric" placeholder="60,000" autocomplete="off"><small>a month</small></div></label>
       <button type="button" class="clear" id="clear" title="Clear all numbers for the next call">Clear</button>
     </div>
@@ -632,18 +642,18 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
         <div class="big"><span class="ring" id="o-gap">—</span></div>
         <p class="note"><span>a month between you and your goal</span></p>
         <div class="kpis">
-          <div class="kpi"><b id="o-more">—</b><span>more jobs a month</span></div>
-          <div class="kpi"><b id="o-week">—</b><span>more jobs a week</span></div>
+          <div class="kpi"><b id="o-more">—</b><span data-l1="more a month" data-l2="more recurring customers"></span></div>
+          <div class="kpi"><b id="o-week">—</b><span id="o-week-l"></span></div>
         </div>
         <div class="yr"><div><b id="o-ynow">—</b><span>a year today</span></div><i>→</i><div class="to"><b id="o-ygoal">—</b><span>a year at your goal</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- 3 · What I build -->
-  <section class="slide" data-title="What I build">
+  <!-- 3 · What we build -->
+  <section class="slide" data-title="What we build">
     <div class="split">
-      <div><span class="eyebrow">What I do</span><h2>I don't just run ads. I build your <em class="uline">growth engine.</em></h2></div>
+      <div><span class="eyebrow">What we do</span><h2>We don't just run ads. We build your <em class="uline">growth engine.</em></h2></div>
       <p>Three things working together — all from one universe.</p>
     </div>
     <div class="build">
@@ -690,7 +700,7 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
       <div class="fside">
         <div class="seven navy" data-step="3">
           <div class="glow"></div>
-          <small>My promise</small>
+          <small>Our promise</small>
           <b><span class="ring">7 days</span></b>
           <p>to your first booked job walk, from the day your ads go live.</p>
         </div>
@@ -753,8 +763,8 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
     </div>
   </section>
 
-  <!-- Why me -->
-  <section class="slide" data-title="Why me">
+  <!-- Why us -->
+  <section class="slide" data-title="Why us">
     <div class="why">
       <div>
         <div class="media-wrap">
@@ -765,16 +775,16 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
         <div class="whois">
           <img src="img/mike.jpg" alt="Mike Panero">
           <div class="nums">
-            <div class="num"><b>1M+</b><span>followers in under a year</span></div>
-            <div class="num"><b>8M+</b><span>across the creator house I started</span></div>
-            <div class="num"><b>1M+</b><span>views on one of my first videos</span></div>
+            <div class="num"><b>1M+</b><span>followers for Mike in under a year</span></div>
+            <div class="num"><b>8M+</b><span>across the creator house Mike started</span></div>
+            <div class="num"><b>1M+</b><span>views on one of Mike's first videos</span></div>
           </div>
         </div>
       </div>
       <div class="why-r stag">
         <span class="eyebrow">Who you'll work with</span>
-        <h2>I care about sales. Not <em class="uline">pretty videos.</em></h2>
-        <p>I'm Mike. I'm in Meta Ads Manager every day, running the ads that bring High Ground its own clients — so every test, every dollar and every lesson goes straight into your account.</p>
+        <h2>We care about sales. Not <em class="uline">pretty videos.</em></h2>
+        <p>We're in Meta Ads Manager every day, running the ads that bring High Ground its own clients — so every test, every dollar and every lesson goes straight into your account.</p>
         <div class="vrow">
           <ul class="vanity" aria-label="What matters: money in your account, not views, likes or pretty videos">
             <li>Views</li><li>Likes</li><li>Pretty videos</li>
@@ -783,9 +793,9 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
           <p class="rule">If it doesn't sell, we figure out how to make it sell. If it sells, we make it sell better. Then we do it again.</p>
         </div>
         <ul class="checks">
-          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I run Meta ads for High Ground itself, every day</li>
-          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I script, shoot and edit every video in-house</li>
-          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>What works for us is what I use for you</li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>We run Meta ads for High Ground itself, every day</li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>We script, shoot and edit every video in-house</li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>What works for us is what we use for you</li>
         </ul>
       </div>
     </div>
@@ -944,7 +954,7 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
   <section class="slide pale" id="calc" data-title="The math">
     <div class="head">
       <span class="eyebrow">The math</span>
-      <h2>If I brought you <span id="o-leads-h">10</span> leads, <span class="uline">how many would you close?</span></h2>
+      <h2>If we brought you <span id="o-leads-h">10</span> leads, <span class="uline">how many would you close?</span></h2>
     </div>
     <div class="calc">
       <div class="card">
@@ -953,25 +963,26 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
           <div class="ppl" id="ppl"></div>
           <div class="closeline"><span id="o-close">—</span> <small>out of 10</small></div>
         </div>
-        <label class="fld"><span>Average job</span><div class="inp"><i>$</i><input data-k="avg" inputmode="numeric" placeholder="2,500" autocomplete="off"></div></label>
-        <div class="fld"><span>Leads I bring you a month</span>
+        <label class="fld"><span data-l1="Average job / customer" data-l2="Each one pays a month"></span><div class="inp"><i>$</i><input data-k="avg" inputmode="numeric" placeholder="2,500" autocomplete="off"></div></label>
+        <label class="fld rec-only"><span>They stay</span><div class="inp"><input data-k="stay" inputmode="numeric" placeholder="12" autocomplete="off"><small>months</small></div></label>
+        <div class="fld"><span>Leads we bring you a month</span>
           <div class="leadrow">
-            <div class="inp"><input data-k="leads" inputmode="numeric" placeholder="10" autocomplete="off" aria-label="Leads I bring you a month"><small>a month</small></div>
+            <div class="inp"><input data-k="leads" inputmode="numeric" placeholder="10" autocomplete="off" aria-label="Leads we bring you a month"><small>a month</small></div>
             <input type="range" id="leadr" min="1" max="100" step="1" aria-label="Leads a month">
           </div>
         </div>
       </div>
       <div class="card">
         <div class="res-top">
-          <div><span class="q who">Jobs closed</span><div class="big" id="o-won">—</div></div>
-          <div><span class="q who">New revenue a month</span><div class="big rev"><span class="ring" id="o-newrev">—</span></div></div>
+          <div><span class="q who" data-l1="Closed" data-l2="Customers closed"></span><div class="big" id="o-won">—</div></div>
+          <div><span class="q who" id="o-newrev-l"></span><div class="big rev"><span class="ring" id="o-newrev">—</span></div></div>
         </div>
         <div class="bars">
           <div class="bar-row"><span>New revenue</span><div class="track"><i class="seg g1" id="c-rev"></i></div></div>
           <div class="bar-row"><span>Investment</span><div class="track"><i class="seg lock unpriced" style="--w:34%">?</i><i class="seg spend priced" id="c-cost"></i></div></div>
         </div>
         <div class="kpis priced">
-          <div class="kpi"><b id="o-be">—</b><span>jobs to break even</span></div>
+          <div class="kpi"><b id="o-be">—</b><span data-l1="closes to break even" data-l2="customers to break even"></span></div>
           <div class="kpi"><b id="o-beleads">—</b><span>leads to get there, at your close rate</span></div>
           <div class="kpi"><b id="o-roi">—</b><span>back on these <span class="o-leads">10</span> leads</span></div>
         </div>
@@ -1073,20 +1084,24 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
   setInterval(function(){if(cur===0&&!document.hidden)showTab((ti+1)%tabs.length)},3500);
 
   // ---------- Numbers: one shared state behind the numbers bar and the calculator ----------
-  var D={jobs:0,avg:0,goal:0,close:0,leads:10,price:0,adspend:0},S={},KEY='hga-pitch';
+  var D={jobs:0,avg:0,goal:0,close:0,leads:10,price:0,adspend:0,rec:0,stay:0},S={},KEY='hga-pitch';
   for(var k in D)S[k]=D[k];
   try{var saved=JSON.parse(localStorage.getItem(KEY)||'{}');for(k in D)if(typeof saved[k]==='number')S[k]=saved[k]}catch(e){}
 
   function calc(s){
     var rev=s.jobs*s.avg, gap=Math.max(0,s.goal-rev);
-    var won=Math.floor(s.leads*s.close/10), newRev=won*s.avg, cost=s.price+s.adspend;
-    var beJobs=s.avg?Math.ceil(cost/s.avg):0;
+    var per=s.rec?s.avg*(s.stay||1):s.avg; // what one close is worth: a recurring customer pays every month they stay
+    var won=Math.floor(s.leads*s.close/10), newRev=won*per, cost=s.price+s.adspend;
+    var beJobs=per?Math.ceil(cost/per):0;
     return {rev:rev,gap:gap,moreJobs:s.avg?Math.ceil(gap/s.avg):0,won:won,newRev:newRev,cost:cost,
       beJobs:beJobs,beLeads:s.close?Math.ceil(beJobs*10/s.close):0,roi:cost?newRev/cost:0,net:newRev-cost};
   }
   // self-check: 10 jobs x $2,000 vs a $50k goal; 3 of 10 leads closed against a $10,000 investment
   (function(){var t=calc({jobs:10,avg:2000,goal:50000,close:3,leads:10,price:10000,adspend:0});
-    console.assert(t.rev===20000&&t.gap===30000&&t.moreJobs===15&&t.won===3&&t.newRev===6000&&t.beJobs===5&&t.beLeads===17&&t.net===-4000,'pitch calc self-check failed',t)})();
+    console.assert(t.rev===20000&&t.gap===30000&&t.moreJobs===15&&t.won===3&&t.newRev===6000&&t.beJobs===5&&t.beLeads===17&&t.net===-4000,'pitch calc self-check failed',t);
+    // recurring: 20 customers x $200/mo vs $10k; 5 of 10 close, each stays 6 months, against $1,000
+    t=calc({jobs:20,avg:200,goal:10000,close:5,leads:10,price:1000,adspend:0,rec:1,stay:6});
+    console.assert(t.rev===4000&&t.moreJobs===30&&t.won===5&&t.newRev===6000&&t.beJobs===1&&t.beLeads===2&&t.net===5000,'pitch calc recurring self-check failed',t)})();
 
   var money=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
   var txt=function(id,v){$('#'+id).textContent=v};
@@ -1102,11 +1117,15 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
     calcSlide.classList.remove('show-price');render()};
   function togglePrice(){var on=calcSlide.classList.toggle('show-price');$('#reveal span').textContent=on?'Hide investment':'Show investment';render()}
   $('#reveal').onclick=togglePrice;
+  $$('.seg2 button').forEach(function(b){b.onclick=function(){S.rec=+b.dataset.mode;render()}});
 
   function render(){
     try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
     inputs.forEach(function(el){var v=S[el.dataset.k],t=v?v.toLocaleString('en-US'):'';if(el.value!==t)el.value=t});
     lr.value=Math.max(1,Math.min(100,S.leads||1));lr.style.setProperty('--p',(lr.value-1)/99*100+'%');
+    stage.classList.toggle('is-rec',!!S.rec);
+    $$('.seg2 button').forEach(function(b){b.classList.toggle('on',+b.dataset.mode===(S.rec?1:0))});
+    $$('[data-l1]').forEach(function(e){e.textContent=e.dataset[S.rec?'l2':'l1']});
     var r=calc(S),w=function(el,pct,label){el.style.width=pct+'%';el.style.display=pct>0?'':'none';el.innerHTML=label};
 
     // numbers board
@@ -1118,7 +1137,9 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
     var ok=S.goal>0&&S.avg>0;
     txt('o-gap',ok?money(r.gap):'—');
     txt('o-more',ok?'+'+r.moreJobs:'—');
-    txt('o-week',ok?'≈ '+(r.moreJobs/4.33).toFixed(1):'—');
+    txt('o-week',!ok?'—':S.rec?money(S.avg*(S.stay||12)):'≈ '+(r.moreJobs/4.33).toFixed(1));
+    txt('o-week-l',S.rec?'each one is worth '+(S.stay?'over '+S.stay+' months':'a year'):'more a week');
+    txt('o-newrev-l',S.rec&&S.stay>1?'Worth over '+S.stay+' months':'New revenue a month');
     txt('o-ynow',r.rev?money(r.rev*12):'—');txt('o-ygoal',S.goal?money(S.goal*12):'—');
 
     // money calculator
@@ -1135,7 +1156,7 @@ dialog::backdrop{background:rgba(8,14,30,.84);backdrop-filter:blur(5px);-webkit-
     txt('o-beleads',S.avg&&S.close?r.beLeads:'—');
     txt('o-roi',live&&r.cost?r.roi.toFixed(1)+'×':'—');
     var v=$('#o-verdict');v.classList.toggle('ok',live&&r.net>=0);
-    v.innerHTML=!live?'':'<span>'+(r.net>=0?(r.net?money(r.net)+' ahead — every job after #'+r.beJobs+' is profit':'that covers it — every job after this is profit'):'close '+(r.beJobs-r.won)+' more job'+(r.beJobs-r.won===1?'':'s')+' and it has paid for itself')+'</span>';
+    v.innerHTML=!live?'':'<span>'+(r.net>=0?(r.net?money(r.net)+' ahead — everything after #'+r.beJobs+' is profit':'that covers it — everything after this is profit'):'close '+(r.beJobs-r.won)+' more and it has paid for itself')+'</span>';
   }
   render();
   go((parseInt(location.hash.slice(1),10)||1)-1);
