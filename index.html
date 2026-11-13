@@ -80,7 +80,7 @@ nav a:hover{border-color:var(--orange)}
 .perks li:first-child{padding-left:0;border-left:0}
 .perks svg{flex:none;color:var(--orange)}
 .hero-art{position:relative;height:540px}
-.hero-art .coast{position:absolute;top:-34px;right:-150px;width:860px;max-width:none;mix-blend-mode:multiply;pointer-events:none;user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);mask-composite:intersect}
+.hero-art .coast{position:absolute;top:-34px;right:max(-150px,-30%);width:min(860px,172%);max-width:none;mix-blend-mode:multiply;pointer-events:none;user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);mask-composite:intersect}
 .hero-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:120px;display:block}
 
 /* Laptop mockup (decorative sample view — no real client numbers) */
@@ -106,6 +106,11 @@ nav a:hover{border-color:var(--orange)}
 .chart svg{display:block;width:100%;height:100%}
 .base{height:15px;margin:0 -7%;border-radius:3px 3px 18px 18px;background:linear-gradient(180deg,#E3E8EF,#AAB3C2);position:relative}
 .base::after{content:"";position:absolute;left:42%;right:42%;top:0;height:5px;border-radius:0 0 8px 8px;background:#98A2B3}
+@media (max-width:1280px) and (min-width:1001px){
+  .laptop{transform:scale(.8) perspective(1900px) rotateY(-17deg) rotateX(6deg) rotate(-1.2deg)}
+  .hero-art{height:480px}
+  .hero-copy p{max-width:430px}
+}
 @media (max-width:1000px){
   .hero{padding-top:36px}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
