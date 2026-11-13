@@ -178,52 +178,87 @@ nav a:hover{border-color:var(--orange)}
 .card.feature p{color:#CFDDEE}
 .card.feature .btn{align-self:flex-start;margin-top:8px}
 
-/* Results: client case studies */
-.cases{display:flex;flex-direction:column;gap:32px}
-.case{background:#fff;border:1px solid var(--line);border-radius:28px;padding:40px;box-shadow:0 24px 50px -30px rgba(20,39,78,.35)}
-.case-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 24px;padding-bottom:26px;margin-bottom:30px;border-bottom:1px solid var(--line)}
-.case-head h3{font-size:30px;font-weight:800;letter-spacing:-.02em}
-.case-sub{font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;color:var(--blue);margin-top:4px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.tags li{padding:6px 13px;border-radius:999px;background:var(--pale);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--navy)}
-.case-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:44px;align-items:start}
+/* Results: client case studies, side by side */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+.case{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 26px 54px -30px rgba(20,39,78,.4)}
+.case-band{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:150px;padding:22px 32px}
+.case-band img{display:block;width:auto}
+.case-band h3{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.band-meta{display:flex;flex-direction:column;align-items:flex-end;gap:10px;text-align:right}
+.band-meta b{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{padding:5px 11px;border-radius:999px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px}
+.jj .case-band{background:radial-gradient(420px 220px at 12% 0%,rgba(57,255,20,.30),transparent 70%),radial-gradient(420px 240px at 95% 110%,rgba(255,45,170,.34),transparent 65%),#0A0A10}
+.jj .case-band img{height:112px;filter:drop-shadow(0 8px 18px rgba(57,255,20,.35))}
+.jj .band-meta b{color:#7CFF5B}
+.jj .tags li{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.imw .case-band{background:linear-gradient(135deg,#F8F4EA,#EDE5D4)}
+.imw .case-band img{height:64px}
+.imw .band-meta b{color:#4E6B5E}
+.imw .tags li{background:#fff;color:#3C5348;border:1px solid #DCD3BF}
+.case-body{padding:32px;display:flex;flex-direction:column;gap:28px}
 .hero-kpi{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
-.hero-kpi b{position:relative;display:inline-block;padding:6px 16px;margin-left:-16px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(48px,5.4vw,68px);line-height:1.05;letter-spacing:-.03em;color:var(--navy)}
+.hero-kpi b{position:relative;display:inline-block;padding:6px 16px;margin-left:-16px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(46px,4.6vw,62px);line-height:1.05;letter-spacing:-.03em;color:var(--navy);font-variant-numeric:tabular-nums}
 .hero-kpi b svg{position:absolute;inset:-4px -2px;width:calc(100% + 4px);height:calc(100% + 8px);overflow:visible}
 .mark{fill:none;stroke:var(--orange);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
-.reveal.in .mark{animation:draw .9s .45s cubic-bezier(.55,0,.25,1) forwards}
-.reveal.in .mark.m2{animation-delay:1.25s;animation-duration:.5s}
+.reveal.in .mark{animation:draw .9s .9s cubic-bezier(.55,0,.25,1) forwards}
+.reveal.in .mark.m2{animation-delay:1.7s;animation-duration:.5s}
+.reveal.in .texts .mark{animation-delay:2.3s}
 html:not(.js) .mark{stroke-dashoffset:0}
 .note{display:inline-flex;align-items:center;gap:6px;font-family:'Caveat',cursive;font-weight:700;font-size:27px;line-height:1;color:var(--orange);transform:rotate(-3deg)}
 .note svg{width:44px;height:26px;flex:none;overflow:visible}
 .kpi-lead{font-size:18px;color:var(--muted);margin-top:6px}
-.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
-.kpi{padding:18px 20px;border-radius:18px;background:var(--pale);border:1px solid var(--pale-2)}
-.kpi b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;line-height:1.1;letter-spacing:-.02em;color:var(--navy)}
-.kpi span{display:block;font-size:15px;line-height:1.35;color:var(--muted);margin-top:4px}
-.jobs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:var(--muted)}
-.jobs i{font-style:normal;padding:5px 11px;border-radius:999px;border:1px solid var(--line);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy);background:#fff}
-.texts{margin-top:28px;display:flex;flex-direction:column;gap:8px}
-.who{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6A7A91;margin-bottom:4px}
-.bubble{max-width:92%;padding:13px 17px;border-radius:20px;font-size:17px;line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.kpi{padding:16px 18px;border-radius:16px;background:var(--pale);border:1px solid var(--pale-2)}
+.kpi b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-.02em;color:var(--navy)}
+.kpi span{display:block;font-size:14px;line-height:1.35;color:var(--muted);margin-top:4px}
+.who{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6A7A91;margin-bottom:10px}
+/* spend vs. return bars */
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:12px;font-size:13px;color:var(--muted);line-height:1.25}
+.bar-row>span{font-family:'Montserrat',sans-serif;font-weight:600}
+.track{display:flex;gap:3px;height:38px}
+.seg{width:var(--w);min-width:6px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:#fff;white-space:nowrap;overflow:hidden;transform-origin:left center;transform:scaleX(0)}
+.reveal.in .seg{animation:grow .9s cubic-bezier(.2,.8,.2,1) forwards}
+.reveal.in .seg:nth-child(1){animation-delay:.5s}.reveal.in .seg:nth-child(2){animation-delay:.8s}.reveal.in .seg:nth-child(3){animation-delay:1.05s}.reveal.in .seg:nth-child(4){animation-delay:1.2s}
+html:not(.js) .seg{transform:none}
+@keyframes grow{to{transform:scaleX(1)}}
+.seg.spend{background:#9AA8BC}
+.seg.g1{background:linear-gradient(90deg,#1D5FB3,#1F74C9)}.seg.g2{background:#3F8FD9}.seg.g3{background:#6DB2D1}.seg.g4{background:#A7D3E6}
+.bars-note{font-size:13px;color:#6A7A91;margin-top:2px}
+/* MacBook frame for the site recordings */
+.mac{filter:drop-shadow(0 26px 24px rgba(20,39,78,.28))}
+.mac .lid{margin:0 5%;padding:13px 10px 10px}
+.mac video{display:block;width:100%;height:auto;aspect-ratio:1120/656;border-radius:4px;background:#0E1930}
+.cap{font-size:13px;color:#6A7A91;margin-top:14px;text-align:center}
+.cap b{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy)}
+/* texts */
+.texts{display:flex;flex-direction:column;gap:8px}
+.stamp{align-self:center;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.06em;color:#8A97AB;margin-bottom:2px}
+.bubble{position:relative;max-width:90%;padding:13px 17px;border-radius:20px;font-size:17px;line-height:1.45}
 .bubble.in{align-self:flex-start;background:#EDF1F6;color:var(--navy);border-bottom-left-radius:6px}
 .bubble.out{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:6px}
 .bubble small{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;opacity:.7;margin-bottom:3px}
-.browser{border-radius:16px;overflow:hidden;background:#1B2233;box-shadow:0 30px 60px -26px rgba(20,39,78,.5);border:1px solid #2B3550}
-.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px}
-.browser-bar i{width:10px;height:10px;border-radius:50%;background:#FF5F57}
-.browser-bar i:nth-child(2){background:#FEBC2E}.browser-bar i:nth-child(3){background:#28C840}
-.browser-bar span{margin-left:10px;flex:1;padding:5px 14px;border-radius:999px;background:#2A3347;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:#C9D6EA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.browser video{display:block;width:100%;height:auto;aspect-ratio:1120/656;background:#0E1930}
-.cap{font-size:14px;color:#6A7A91;margin-top:12px;text-align:center}
-.reel{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
-.reel-row{display:flex;gap:16px;overflow-x:auto;padding:4px 2px 14px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
-.clip{flex:none;width:190px;scroll-snap-align:start}
-.clip video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#0E1930;box-shadow:0 14px 28px -16px rgba(20,39,78,.5)}
+.hl{background:linear-gradient(transparent 8%,rgba(247,197,101,.75) 8%,rgba(247,197,101,.75) 92%,transparent 92%) no-repeat left/0% 100%;padding:0 2px;margin:0 -2px;border-radius:3px;color:inherit;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.bubble.out .hl{background-image:linear-gradient(transparent 8%,rgba(255,255,255,.3) 8%,rgba(255,255,255,.3) 92%,transparent 92%)}
+.reveal.in .hl{animation:sweep .8s 1.9s cubic-bezier(.4,0,.2,1) forwards}
+html:not(.js) .hl{background-size:100% 100%}
+@keyframes sweep{to{background-size:100% 100%}}
+.explain{align-self:flex-start;display:flex;align-items:flex-start;gap:8px;margin:2px 0 6px 22px;font-family:'Caveat',cursive;font-weight:700;font-size:25px;line-height:1.05;color:var(--orange);transform:rotate(-1.5deg)}
+.explain svg{width:30px;height:34px;flex:none;overflow:visible;margin-top:-10px}
+/* videos */
+.vids{display:flex;flex-direction:column;gap:22px;padding-top:26px;border-top:1px solid var(--line)}
+.vid-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pill{flex:none;white-space:nowrap;padding:5px 12px;border-radius:999px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.pill.ad{background:var(--orange);color:#fff}
+.pill.org{background:#DDF3E6;color:#17713F}
+.vid-label span:last-child{font-size:14px;color:var(--muted)}
+.vid-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.clip video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;background:#0E1930;box-shadow:0 16px 30px -18px rgba(20,39,78,.55)}
 .clip span{display:block;margin-top:8px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--muted)}
 .results-fine{font-size:13px;color:#6A7A91;margin-top:22px;text-align:center}
-@media (max-width:900px){.case{padding:26px 20px;border-radius:22px}.case-grid{grid-template-columns:minmax(0,1fr);gap:30px}.case-head h3{font-size:25px}}
-@media (max-width:520px){.clip{width:150px}.kpi{padding:16px 14px}.kpi b{font-size:21px}.note{font-size:23px}}
+@media (max-width:1040px){.cases{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.case-band{padding:18px 20px;min-height:0;flex-direction:column;align-items:flex-start;gap:10px}.band-meta{align-items:flex-start;text-align:left}.jj .case-band img{height:84px}.imw .case-band img{height:44px}.tags{display:none}.case-body{padding:24px 20px}.kpi{padding:14px}.kpi b{font-size:21px}.note{font-size:23px}.explain{font-size:22px;margin-left:10px}.bar-row{grid-template-columns:70px minmax(0,1fr)}}
 
 /* Why us */
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));align-items:center;gap:64px}
@@ -288,7 +323,7 @@ footer p{color:#C9D6E8;font-size:16px}
 .f-note{font-size:13px;color:#8FA2BD;margin-top:18px;max-width:900px}
 
 @media (max-width:760px){section{padding:80px 0}.cta-sec{padding-bottom:80px}.cta{padding:64px 22px 84px;border-radius:24px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.swoosh .w,.swoosh path,.tile,.sp,.up,.ln,.ar,.dot,.dot::after,.reveal.in .mark{animation:none;opacity:1;stroke-dashoffset:0}.mark{stroke-dashoffset:0}.swoosh .u2{opacity:.6}.dot::after{opacity:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.swoosh .w,.swoosh path,.tile,.sp,.up,.ln,.ar,.dot,.dot::after,.reveal.in .mark{animation:none;opacity:1;stroke-dashoffset:0}.mark{stroke-dashoffset:0}.reveal.in .seg,.reveal.in .hl{animation:none}.seg{transform:none}.hl{background-size:100% 100%}.swoosh .u2{opacity:.6}.dot::after{opacity:0}}
 </style>
 </head>
 <body>
@@ -461,15 +496,16 @@ footer p{color:#C9D6E8;font-size:16px}
     </div>
 
     <div class="cases">
-      <article class="case reveal">
-        <header class="case-head">
-          <div><h3>Just Junkin</h3><p class="case-sub">Junk removal · Santa Cruz County</p></div>
-          <ul class="tags"><li>Meta ads</li><li>Video ads</li><li>Website</li></ul>
+      <article class="case jj reveal">
+        <header class="case-band">
+          <h3>Just Junkin</h3>
+          <img src="/work/logo-justjunkin.webp" alt="Just Junkin" width="320" height="320">
+          <div class="band-meta"><b>Junk removal</b><ul class="tags"><li>Meta ads</li><li>Video ads</li><li>Website</li></ul></div>
         </header>
-        <div class="case-grid">
+        <div class="case-body">
           <div>
             <div class="hero-kpi">
-              <b>$6,650<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" vector-effect="none" d="M92 7 C40 5 7 20 8 41 C9 64 58 75 108 74 C160 73 194 58 192 37 C190 15 142 3 70 9"/></svg></b>
+              <b><span data-count="6650" data-prefix="$">$6,650</span><svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M92 7 C40 5 7 20 8 41 C9 64 58 75 108 74 C160 73 194 58 192 37 C190 15 142 3 70 9"/></svg></b>
               <span class="note"><svg viewBox="0 0 44 26" aria-hidden="true"><path class="mark m2" pathLength="1" d="M42 6 C30 20 16 22 4 15"/><path class="mark m2" pathLength="1" d="M12 8 L4 15 L13 21"/></svg>in about 17 days</span>
             </div>
             <p class="kpi-lead">in jobs booked from the ads.</p>
@@ -477,39 +513,51 @@ footer p{color:#C9D6E8;font-size:16px}
               <div class="kpi"><b>~$30/day</b><span>in ad spend</span></div>
               <div class="kpi"><b>13×</b><span>return on ad spend</span></div>
             </div>
-            <p class="jobs">Jobs booked: <i>$4,000</i><i>$2,000</i><i>$500</i><i>$150</i></p>
-            <div class="texts">
-              <p class="who">From our group chat</p>
-              <div class="bubble in"><small>Justin · owner, Just Junkin</small>Did estimate on today's job… Booked for the 11th at $1000. It's a big property and she has a lot more to do, so potential to do more runs.</div>
-              <div class="bubble out"><small>Mike · High Ground</small>Spent $197 → brought in $1,150 already. That's $953 profit in 3 days (~4.8× return).</div>
+          </div>
+          <div>
+            <p class="who">Ad spend vs. jobs booked</p>
+            <div class="bars">
+              <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:7.5%"></i></div></div>
+              <div class="bar-row"><span>Jobs booked</span><div class="track"><i class="seg g1" style="--w:60%">$4,000</i><i class="seg g2" style="--w:30%">$2,000</i><i class="seg g3" style="--w:7.5%"></i><i class="seg g4" style="--w:2.5%"></i></div></div>
+              <p class="bars-note">Four jobs: $4,000 · $2,000 · $500 · $150 — from about $30 a day in ads.</p>
             </div>
           </div>
           <div>
-            <div class="browser">
-          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>justjunkin.net</span></div>
-          <video class="auto" muted loop playsinline preload="none" poster="/work/site-justjunkin.jpg" src="/work/site-justjunkin.mp4" aria-label="Screen recording scrolling through justjunkin.net"></video>
-        </div>
-        <p class="cap">The website we built for Just Junkin</p>
+            <div class="mac">
+              <div class="lid"><video class="auto" muted loop playsinline preload="none" poster="/work/site-justjunkin.jpg" src="/work/site-justjunkin.mp4" aria-label="Screen recording scrolling through justjunkin.net"></video></div>
+              <div class="deck"></div>
+            </div>
+            <p class="cap">The website we built · <b>justjunkin.net</b></p>
           </div>
-        </div>
-        <div class="reel">
-          <p class="who">Ads we made for Just Junkin</p>
-          <div class="reel-row">
-            <div class="clip"><video controls playsinline preload="none" poster="/work/jj-ad-1.jpg" src="/work/jj-ad-1.mp4" aria-label="Ad · Big cleanouts, no surprises"></video><span>Ad · Big cleanouts, no surprises</span></div>
-            <div class="clip"><video controls playsinline preload="none" poster="/work/jj-ad-2.jpg" src="/work/jj-ad-2.mp4" aria-label="Ad · Moving or selling"></video><span>Ad · Moving or selling</span></div>
+          <div class="texts">
+            <p class="who">From our group chat</p>
+            <span class="stamp">Apr 30, 2026 · 2:28 PM</span>
+            <div class="bubble in"><small>Justin · owner, Just Junkin</small>Did estimate on today's job… <mark class="hl">Booked for the 11th at $1000.</mark> It's a big property and she has a lot more to do, so potential to do more runs.</div>
+            <div class="bubble out"><small>Mike · High Ground</small>Spent $197 → brought in $1,150 already. That's <mark class="hl">$953 profit in 3 days</mark> (~4.8× return).</div>
+            <p class="explain"><svg viewBox="0 0 30 34" aria-hidden="true"><path class="mark" pathLength="1" d="M26 32 C14 30 7 20 8 4"/><path class="mark" pathLength="1" d="M2 11 L8 3 L15 10"/></svg><span>day 3 of the ads</span></p>
+          </div>
+          <div class="vids">
+            <div>
+              <div class="vid-label"><span class="pill ad">Paid ads</span><span>Video ads we wrote, shot and edited</span></div>
+              <div class="vid-row">
+                <div class="clip"><video controls playsinline preload="none" poster="/work/jj-ad-1.jpg" src="/work/jj-ad-1.mp4" aria-label="Big cleanouts, no surprises"></video><span>Big cleanouts, no surprises</span></div>
+                <div class="clip"><video controls playsinline preload="none" poster="/work/jj-ad-2.jpg" src="/work/jj-ad-2.mp4" aria-label="Moving or selling"></video><span>Moving or selling</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="case reveal">
-        <header class="case-head">
-          <div><h3>Integrative Massage &amp; Wellness</h3><p class="case-sub">Massage therapy · Los Gatos</p></div>
-          <ul class="tags"><li>Meta ads</li><li>Video ads</li><li>Organic content</li><li>Website</li></ul>
+      <article class="case imw reveal">
+        <header class="case-band">
+          <h3>Integrative Massage and Wellness</h3>
+          <img src="/work/logo-imw.webp" alt="Integrative Massage and Wellness, Los Gatos" width="900" height="185">
+          <div class="band-meta"><b>Massage therapy</b><ul class="tags"><li>Meta ads</li><li>Organic</li><li>Website</li></ul></div>
         </header>
-        <div class="case-grid">
+        <div class="case-body">
           <div>
             <div class="hero-kpi">
-              <b>101 leads<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" vector-effect="none" d="M92 7 C40 5 7 20 8 41 C9 64 58 75 108 74 C160 73 194 58 192 37 C190 15 142 3 70 9"/></svg></b>
+              <b><span data-count="101" data-suffix=" leads">101 leads</span><svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M92 7 C40 5 7 20 8 41 C9 64 58 75 108 74 C160 73 194 58 192 37 C190 15 142 3 70 9"/></svg></b>
               <span class="note"><svg viewBox="0 0 44 26" aria-hidden="true"><path class="mark m2" pathLength="1" d="M42 6 C30 20 16 22 4 15"/><path class="mark m2" pathLength="1" d="M12 8 L4 15 L13 21"/></svg>about $7 each</span>
             </div>
             <p class="kpi-lead">from $729 in total ad spend.</p>
@@ -517,28 +565,43 @@ footer p{color:#C9D6E8;font-size:16px}
               <div class="kpi"><b>17</b><span>appointments booked</span></div>
               <div class="kpi"><b>3×+</b><span>back on first visits alone</span></div>
             </div>
-            <p class="jobs">At $140+ a session — before any repeat visits.</p>
-            <div class="texts">
-              <p class="who">Text from the owner</p>
-              <div class="bubble in"><small>Beth Panero · owner</small>I've reached out to everyone. Colleen saw a couple yesterday and seeing 3 more tomorrow.</div>
+          </div>
+          <div>
+            <p class="who">Ad spend vs. first visits</p>
+            <div class="bars">
+              <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:30.6%">$729</i></div></div>
+              <div class="bar-row"><span>First visits</span><div class="track"><i class="seg g1" style="--w:100%">≈ $2,380</i></div></div>
+              <p class="bars-note">17 first appointments at $140 a session — before any repeat visits.</p>
             </div>
           </div>
           <div>
-            <div class="browser">
-          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>integrativemassageandwellness.com</span></div>
-          <video class="auto" muted loop playsinline preload="none" poster="/work/site-imw.jpg" src="/work/site-imw.mp4" aria-label="Screen recording scrolling through integrativemassageandwellness.com"></video>
-        </div>
-        <p class="cap">The website we built for Integrative Massage &amp; Wellness</p>
+            <div class="mac">
+              <div class="lid"><video class="auto" muted loop playsinline preload="none" poster="/work/site-imw.jpg" src="/work/site-imw.mp4" aria-label="Screen recording scrolling through integrativemassageandwellness.com"></video></div>
+              <div class="deck"></div>
+            </div>
+            <p class="cap">The website we built · <b>integrativemassageandwellness.com</b></p>
           </div>
-        </div>
-        <div class="reel">
-          <p class="who">Ads &amp; organic content we made</p>
-          <div class="reel-row">
-            <div class="clip"><video controls playsinline preload="none" poster="/work/imw-ad-1.jpg" src="/work/imw-ad-1.mp4" aria-label="Ad · Massage that fits each person"></video><span>Ad · Massage that fits each person</span></div>
-            <div class="clip"><video controls playsinline preload="none" poster="/work/imw-ad-2.jpg" src="/work/imw-ad-2.mp4" aria-label="Ad · Massage families return to"></video><span>Ad · Massage families return to</span></div>
-            <div class="clip"><video controls playsinline preload="none" poster="/work/imw-ad-3.jpg" src="/work/imw-ad-3.mp4" aria-label="Ad · First massage, $25 off"></video><span>Ad · First massage, $25 off</span></div>
-            <div class="clip"><video controls playsinline preload="none" poster="/work/imw-story-1.jpg" src="/work/imw-story-1.mp4" aria-label="Organic · The dog nobody wanted"></video><span>Organic · The dog nobody wanted</span></div>
-            <div class="clip"><video controls playsinline preload="none" poster="/work/imw-story-2.jpg" src="/work/imw-story-2.mp4" aria-label="Organic · Our $25 dog"></video><span>Organic · Our $25 dog</span></div>
+          <div class="texts">
+            <p class="who">Text from the owner</p>
+            <span class="stamp">Saturday · 2:37 PM</span>
+            <div class="bubble in"><small>Beth Panero · owner</small>I've reached out to everyone. Colleen <mark class="hl">saw a couple yesterday and seeing 3 more tomorrow.</mark></div>
+            <p class="explain"><svg viewBox="0 0 30 34" aria-hidden="true"><path class="mark" pathLength="1" d="M26 32 C14 30 7 20 8 4"/><path class="mark" pathLength="1" d="M2 11 L8 3 L15 10"/></svg><span>about 5 new clients from the ads, in 3 days</span></p>
+          </div>
+          <div class="vids">
+            <div>
+              <div class="vid-label"><span class="pill ad">Paid ads</span><span>What ran on Facebook &amp; Instagram</span></div>
+              <div class="vid-row">
+                <div class="clip"><video controls playsinline preload="none" poster="/work/imw-ad-1.jpg" src="/work/imw-ad-1.mp4" aria-label="Massage that fits each person"></video><span>Massage that fits each person</span></div>
+                <div class="clip"><video controls playsinline preload="none" poster="/work/imw-ad-3.jpg" src="/work/imw-ad-3.mp4" aria-label="First massage, $25 off"></video><span>First massage, $25 off</span></div>
+              </div>
+            </div>
+            <div>
+              <div class="vid-label"><span class="pill org">Organic</span><span>Story-time posts for her page — not ads</span></div>
+              <div class="vid-row">
+                <div class="clip"><video controls playsinline preload="none" poster="/work/imw-story-1.jpg" src="/work/imw-story-1.mp4" aria-label="The dog nobody wanted"></video><span>The dog nobody wanted</span></div>
+                <div class="clip"><video controls playsinline preload="none" poster="/work/imw-story-2.jpg" src="/work/imw-story-2.mp4" aria-label="Our $25 dog"></video><span>Our $25 dog</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -717,6 +780,14 @@ footer p{color:#C9D6E8;font-size:16px}
     if(e.isIntersecting&&!still){e.target.play().catch(function(){})}else{e.target.pause()}
   })},{threshold:.35});
   document.querySelectorAll('video.auto').forEach(function(v){if(still){v.controls=true}vo.observe(v)});
+  if(!still){
+    var co=new IntersectionObserver(function(en){en.forEach(function(e){
+      if(!e.isIntersecting)return; co.unobserve(e.target);
+      var el=e.target,n=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=performance.now();
+      (function tick(t){var k=Math.min((t-t0)/1300,1);k=1-Math.pow(1-k,3);el.textContent=pre+Math.round(n*k).toLocaleString('en-US')+suf;if(k<1)requestAnimationFrame(tick)})(t0);
+    })},{threshold:.6});
+    document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
+  }
   var clips=document.querySelectorAll('.clip video');
   clips.forEach(function(v){v.addEventListener('play',function(){clips.forEach(function(o){if(o!==v)o.pause()})})});
 })();
