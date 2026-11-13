@@ -301,7 +301,7 @@ html:not(.js) .seg{transform:none}
 .site-line a{margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--blue);border-bottom:2px solid var(--pale-2);padding-bottom:2px;white-space:nowrap}
 .site-line a:hover{border-color:var(--blue)}
 /* texts */
-.texts{display:flex;flex-direction:column;gap:8px}
+.texts{display:flex;flex-direction:column;justify-content:center;height:100%}
 .stamp{align-self:center;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.06em;color:#8A97AB;margin-bottom:2px}
 .bubble{position:relative;max-width:90%;padding:13px 17px;border-radius:20px;font-size:17px;line-height:1.45}
 .bubble.in{align-self:flex-start;background:#EDF1F6;color:var(--navy);border-bottom-left-radius:6px}
@@ -312,30 +312,41 @@ html:not(.js) .seg{transform:none}
 .reveal.in .hl{animation:sweep .8s 1.9s cubic-bezier(.4,0,.2,1) forwards}
 html:not(.js) .hl{background-size:100% 100%}
 @keyframes sweep{to{background-size:100% 100%}}
-.means{position:relative;margin-top:14px;padding:16px 18px 18px;border-radius:18px;background:linear-gradient(135deg,#FFF5E9,#FFFDF8);border:1px solid #F6D7B2}
-.means::before{content:"";position:absolute;left:34px;top:-15px;height:15px;border-left:3px dotted var(--orange)}
-.means-tag{display:inline-flex;align-items:center;gap:7px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B4480C;margin-bottom:12px}
-.means-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
-.math{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
-.math+.math{margin-top:8px}
-.chip{flex:1 1 0;min-width:84px;display:flex;flex-direction:column;justify-content:center;padding:10px 12px;border-radius:13px;background:#fff;border:1px solid #F0DCC4;font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;line-height:1.1;letter-spacing:-.02em;color:var(--navy)}
-.chip small{display:block;font-family:'Nunito Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0;line-height:1.25;color:var(--muted);margin-top:3px}
-.chip.win{background:linear-gradient(180deg,#EE7A1C,#DC5710);border-color:transparent;color:#fff;box-shadow:0 10px 20px -10px rgba(226,90,20,.6)}
-.chip.win small{color:#FFE7D3}
-.op{align-self:center;font-style:normal;font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--orange)}
-.js .math>*{opacity:0;transform:translateY(8px) scale(.96)}
-.reveal.in .math>*{animation:pop .5s cubic-bezier(.2,.8,.2,1) forwards}
-.reveal.in .math>*:nth-child(1){animation-delay:2.3s}.reveal.in .math>*:nth-child(2){animation-delay:2.45s}.reveal.in .math>*:nth-child(3){animation-delay:2.6s}.reveal.in .math>*:nth-child(4){animation-delay:2.75s}.reveal.in .math>*:nth-child(5){animation-delay:2.9s}
-.reveal.in .math+.math>*:nth-child(1){animation-delay:3.1s}.reveal.in .math+.math>*:nth-child(2){animation-delay:3.25s}.reveal.in .math+.math>*:nth-child(3){animation-delay:3.4s}.reveal.in .math+.math>*:nth-child(4){animation-delay:3.55s}.reveal.in .math+.math>*:nth-child(5){animation-delay:3.7s}
-.ads-head{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:16px 18px;border-radius:18px;background:linear-gradient(120deg,#14274E,#1D3362 60%,#1F5E9E)}
-.ads-head b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#fff;margin-top:8px}
-.ads-head small{display:block;font-size:14px;color:#C9D9EA;margin-top:3px}
-.ads-arrow{flex:none;width:46px;height:46px;border-radius:50%;background:linear-gradient(180deg,#EE7A1C,#DC5710);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 10px 20px -8px rgba(226,90,20,.7);animation:nudge 1.8s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateY(-3px)}50%{transform:translateY(4px)}}
+.chat{border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 22px 44px -26px rgba(20,39,78,.45);overflow:hidden}
+.chat-head{display:flex;align-items:center;gap:12px;padding:13px 16px;background:linear-gradient(180deg,#F7FAFD,#EEF4FA);border-bottom:1px solid var(--line)}
+.chat-head>div{flex:1;min-width:0}
+.chat-head b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-head small{display:block;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ava{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:#fff}
+.ava.jj{background:linear-gradient(135deg,#FF2DAA,#39D353)}
+.ava.imw{background:linear-gradient(135deg,#C9A46A,#5E8C7B)}
+.real{flex:none;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:#17A05A;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 0 4px rgba(23,160,90,.16)}
+.chat-body{display:flex;flex-direction:column;gap:8px;padding:16px}
+.hand{margin:14px 0 0 14px;font-family:'Caveat',cursive;font-weight:700;font-size:29px;line-height:1.15;color:var(--orange)}
+.hand p{display:flex;align-items:flex-start;gap:8px;margin:0;color:inherit}
+.hand p>span{display:inline-block;transform:rotate(-1.5deg);padding-top:12px}
+.hand p.res{margin-top:2px}
+.hand p.res>span{padding:4px 0 0 42px}
+.hand svg{flex:none}
+.hand p>svg{width:34px;height:40px;overflow:visible}
+.hand i{font-style:normal;margin:0 3px}
+.ring{position:relative;display:inline-block;padding:2px 14px;font-weight:700;white-space:nowrap}
+.ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.reveal.in .hand .mark{animation-delay:2.4s}
+.reveal.in .hand .mark.m3{animation-delay:2.85s}
+.reveal.in .ring .mark{animation-delay:3.1s}
+.ads-head{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:16px;padding-top:26px;border-top:1px solid var(--line)}
+.ads-head b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:21px;line-height:1.25;letter-spacing:-.015em;color:var(--navy)}
+.ads-head small{font-size:15px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0 0;padding:0;list-style:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--navy)}
+.legend li{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:12px;height:12px;border-radius:4px}
+.legend i.spend{background:#8E9CB2}.legend i.g1{background:#1F74C9}.legend i.g2{background:#3F8FD9}.legend i.g3{background:#6DB2D1}.legend i.g4{background:#A7D3E6}
+.legend .sum{font-weight:800;color:var(--blue)}
 /* video tiles: open in a pop-up player */
 .vid-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .pill{flex:none;white-space:nowrap;padding:5px 12px;border-radius:999px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.pill.ad{background:var(--orange);color:#fff}
+.pill.ad{background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);color:var(--navy)}
 .pill.org{background:#DDF3E6;color:#17713F}
 .vid-label span:last-child{font-size:14px;color:var(--muted)}
 .vid-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -375,14 +386,14 @@ video:fullscreen{object-fit:contain;border-radius:0;aspect-ratio:auto;width:100%
 @media (max-width:1280px){.case-band{flex-direction:column;align-items:flex-start;gap:12px}.band-meta{flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 14px;text-align:left}.tags{justify-content:flex-start}.kpi b{font-size:21px}}
 @media (max-width:1040px){.cases{grid-template-columns:minmax(0,1fr);row-gap:0}.case{margin-bottom:24px}.organic{grid-template-columns:minmax(0,1fr);margin-top:0}}
 @media (max-width:700px){.lb-x{top:-52px;right:0}}
-@media (max-width:520px){.case-band{padding:18px 20px;min-height:0}.jj .case-band img{height:84px}.imw .case-band img{height:44px}.tags{display:none}.cs{padding:24px 20px 0}.case>.cs:last-child{padding-bottom:24px}.kpis{gap:8px}.kpi{padding:12px 10px}.kpi b{font-size:18px}.kpi span{font-size:12px}.note{font-size:24px}.texts .note{font-size:22px;margin-left:12px}.bar-row{grid-template-columns:70px minmax(0,1fr)}.organic{padding:24px 20px}.thumb .play i{width:52px;height:52px}}
+@media (max-width:520px){.chat-head{display:grid;grid-template-columns:40px minmax(0,1fr);gap:8px 12px}.chat-head b,.chat-head small{white-space:normal}.real{grid-column:2;justify-self:start}.cta .btn{font-size:15px;padding:0 18px;min-height:54px;max-width:100%}.cta .btn svg{display:none}.legend{font-size:13px;gap:6px 12px}.hand{font-size:24px;margin-left:4px}.hand p.res>span{padding-left:30px}.real{padding:5px 9px;font-size:10px}.chat-head{padding:12px}.case-band{padding:18px 20px;min-height:0}.jj .case-band img{height:84px}.imw .case-band img{height:44px}.tags{display:none}.cs{padding:24px 20px 0}.case>.cs:last-child{padding-bottom:24px}.kpis{gap:8px}.kpi{padding:12px 10px}.kpi b{font-size:18px}.kpi span{font-size:12px}.note{font-size:24px}.texts .note{font-size:22px;margin-left:12px}.bar-row{grid-template-columns:70px minmax(0,1fr)}.organic{padding:24px 20px}.thumb .play i{width:52px;height:52px}}
 
 /* Why us */
 #why{overflow:hidden;background:radial-gradient(620px 420px at 0% 10%,rgba(109,178,209,.18),transparent 70%),#fff}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));align-items:center;gap:64px}
 .col{display:flex;flex-direction:column;gap:22px;min-width:0}
 .media-wrap{position:relative;margin:14px 10px 30px 0}
-.media-wrap::before{content:"";position:absolute;inset:0;border-radius:28px;background:linear-gradient(135deg,var(--orange),var(--gold));transform:rotate(-3.5deg) translate(-10px,10px);opacity:.9}
+.media-wrap::before{content:"";position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);transform:rotate(-3.5deg) translate(-10px,10px);opacity:.9}
 .media{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -22px rgba(20,39,78,.45);background:var(--navy)}
 .media video{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 .media-tag{position:absolute;left:16px;top:16px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.94);font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--navy)}
@@ -396,7 +407,7 @@ video:fullscreen{object-fit:contain;border-radius:0;aspect-ratio:auto;width:100%
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 .checks{display:flex;flex-direction:column;gap:14px;margin:2px 0 0;padding:0;list-style:none}
 .checks li{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:700;color:var(--navy)}
-.tick{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(180deg,#EE7A1C,#DC5710);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 12px -4px rgba(226,90,20,.5)}
+.tick{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 12px -4px rgba(241,163,91,.6)}
 .track-box{padding:18px 20px;border-radius:18px;background:var(--pale);border:1px solid var(--pale-2)}
 .track-box>b{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6A7A91;margin-bottom:12px}
 .trk{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
@@ -408,7 +419,7 @@ video:fullscreen{object-fit:contain;border-radius:0;aspect-ratio:auto;width:100%
 /* How it works */
 .steps{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));counter-reset:s}
 .step{position:relative;display:flex;flex-direction:column;gap:12px;padding:34px 30px 30px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 34px -24px rgba(20,39,78,.3)}
-.step::before{counter-increment:s;content:counter(s);width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;color:#fff;background:linear-gradient(180deg,#EE7A1C,#DC5710);box-shadow:0 8px 16px rgba(226,90,20,.3);margin-bottom:6px}
+.step::before{counter-increment:s;content:counter(s);width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;color:var(--navy);background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);box-shadow:0 8px 16px rgba(241,163,91,.4);margin-bottom:6px}
 .step p{font-size:17px}
 .step small{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-top:auto;padding-top:8px}
 .promise{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:22px;padding:32px 36px;border-radius:22px;background:linear-gradient(120deg,#14274E,#1D3362 55%,#1F5E9E)}
@@ -419,8 +430,8 @@ video:fullscreen{object-fit:contain;border-radius:0;aspect-ratio:auto;width:100%
 #about{overflow:hidden;background:radial-gradient(640px 440px at 100% 0%,rgba(247,197,101,.2),transparent 70%),#fff}
 .about-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:64px;align-items:start}
 .about-side{display:flex;flex-direction:column;gap:26px;position:sticky;top:110px}
-.portrait{position:relative;width:min(380px,100%);margin:0 auto;padding:10px;border-radius:50%;background:conic-gradient(from 210deg,var(--orange),var(--gold),var(--sky),var(--blue),var(--orange))}
-.portrait img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%;border:8px solid #fff}
+.portrait{position:relative;width:min(380px,100%);margin:0 auto}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%;border:8px solid #fff;box-shadow:0 0 0 1.5px var(--pale-2),0 30px 60px -22px rgba(20,39,78,.45)}
 .role{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--blue)}
 .nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .num{padding:16px 12px;border-radius:16px;background:var(--pale);border:1px solid var(--pale-2);text-align:center}
@@ -557,7 +568,7 @@ footer p{color:#C9D6E8;font-size:16px}
                 <div class="pane" data-pane="camp">
                   <div class="rowc"><div><b>Campaign 1</b><small><i></i>Active · Facebook &amp; Instagram</small></div><span>$357 spent</span></div>
                   <div class="rowc"><div><b>Campaign 2</b><small><i></i>Active · Facebook &amp; Instagram</small></div><span>$372 spent</span></div>
-                  <div class="rowc total"><div><b>Total ad spend</b><small>about $30 a day</small></div><span>$729</span></div>
+                  <div class="rowc total"><div><b>Total ad spend</b><small>$30 a day</small></div><span>$729</span></div>
                 </div>
                 <div class="pane" data-pane="leads">
                   <div class="fun"><small>Leads in</small><div class="fbar" style="--w:100%"><b>101</b></div></div>
@@ -669,9 +680,9 @@ footer p{color:#C9D6E8;font-size:16px}
     <div class="split reveal">
       <div>
         <span class="eyebrow">Results</span>
-        <h2>Real local businesses. <em>Real</em> numbers.</h2>
+        <h2>Real local businesses. <em class="uline">Real<svg viewBox="0 0 120 10" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M3 6 C30 2 72 2 117 5"/></svg></em> numbers.</h2>
       </div>
-      <p>Two clients, about $30 a day in ads each — with the actual spend, the actual results, and the texts they sent us while the leads were coming in.</p>
+      <p>Two clients, $30 a day in ads each — with the actual spend, the actual results, and the texts they sent us while the leads were coming in.</p>
     </div>
 
     <div class="cases">
@@ -689,7 +700,7 @@ footer p{color:#C9D6E8;font-size:16px}
         <div class="cs">
           <div class="kpis">
             <div class="kpi"><b>$500</b><span>total ad spend</span></div>
-            <div class="kpi"><b>~17 days</b><span>at about $30 a day</span></div>
+            <div class="kpi"><b>~17 days</b><span>at $30 a day</span></div>
             <div class="kpi"><b>13×</b><span>return on ad spend</span></div>
           </div>
         </div>
@@ -699,7 +710,8 @@ footer p{color:#C9D6E8;font-size:16px}
             <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:7.5%;min-width:54px">$500</i></div></div>
             <div class="bar-row"><span>Jobs booked</span><div class="track"><i class="seg g1" style="--w:60%">$4,000</i><i class="seg g2" style="--w:30%">$2,000</i><i class="seg g3 tiny" style="--w:7.5%"></i><i class="seg g4 tiny" style="--w:2.5%"></i></div></div>
           </div>
-          <p class="callout"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>Four jobs: $4,000, $2,000, $500 and $150.</b> One of those customers has a big property with more runs still to come.</span></p>
+          <ul class="legend" aria-label="Jobs booked"><li><i class="g1"></i>$4,000</li><li><i class="g2"></i>$2,000</li><li><i class="g3"></i>$500</li><li><i class="g4"></i>$150</li><li class="sum">= $6,650</li></ul>
+          <p class="callout"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>Four jobs from $500 in ads.</b> One of those customers has a big property with more runs still to come.</span></p>
         </div>
         <div class="cs">
           <button type="button" class="mac-btn" data-site="https://just-junkin-git-claude-hero-test-highgroundagencys-projects.vercel.app" data-name="Just Junkin · new site (preview build)" aria-label="Explore the new Just Junkin website">
@@ -716,17 +728,21 @@ footer p{color:#C9D6E8;font-size:16px}
         </div>
         <div class="cs">
           <div class="texts">
-            <p class="who">Real texts from our group chat</p>
-            <span class="stamp">Apr 30, 2026 · 2:28 PM</span>
-            <div class="bubble in"><small>Justin · owner, Just Junkin</small>Did estimate on today's job… <mark class="hl">Booked for the 11th at $1000.</mark> It's a big property and she has a lot more to do, so potential to do more runs.</div>
-            <div class="bubble out"><small>Mike · High Ground</small>Spent $197 → brought in $1,150 already. That's <mark class="hl">$953 profit in 3 days</mark> (~4.8× return).</div>
-            <div class="means"><span class="means-tag">What that means</span>
-              <div class="math"><span class="chip">$197<small>spent on ads</small></span><i class="op">→</i><span class="chip">$1,150<small>in jobs booked</small></span><i class="op">=</i><span class="chip win">$953<small>ahead by day 3</small></span></div>
+            <div class="chat">
+              <div class="chat-head"><span class="ava jj">J</span><div><b>Just Junkin × High Ground</b><small>Group chat · Apr 30, 2026 · 2:28 PM</small></div><span class="real"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Real texts</span></div>
+              <div class="chat-body">
+                <div class="bubble in"><small>Justin · owner, Just Junkin</small>Did estimate on today's job… <mark class="hl">Booked for the 11th at $1000.</mark> It's a big property and she has a lot more to do, so potential to do more runs.</div>
+                <div class="bubble out"><small>Mike · High Ground</small>Spent $197 → brought in $1,150 already. That's <mark class="hl">$953 profit in 3 days</mark> (~4.8× return).</div>
+              </div>
+            </div>
+            <div class="hand">
+              <p><svg viewBox="0 0 34 40" aria-hidden="true"><path class="mark m2" pathLength="1" d="M30 36 C16 34 8 22 8 6"/><path class="mark m3" pathLength="1" d="M2.5 15.5 L8 6 L13.5 15.5"/></svg><span>$197 in ads <i>→</i> $1,150 booked</span></p>
+              <p class="res"><span><i>=</i> <b class="ring">$953 ahead<svg viewBox="0 0 250 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M115.6 9.0 C50.4 8.0 7.0 23.3 7.0 41.0 C7.0 58.7 64.5 73.0 129.7 72.0 C194.9 71.0 243.0 55.7 243.0 38.0 C243.0 20.3 184.3 9.0 119.1 11.0 C89.6 11.0 60.1 14.0 45.9 19.0"/></svg></b> by day 3</span></p>
             </div>
           </div>
         </div>
         <div class="cs">
-          <div class="ads-head"><span class="ads-arrow" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M5.5 12.5L12 19l6.5-6.5"/></svg></span><div><span class="pill ad">Paid ads</span><b>The ads that brought those jobs in</b><small>Written, shot and edited by us — tap one to watch.</small></div></div>
+          <div class="ads-head"><span class="pill ad">Paid ads</span><b>The ads that brought those jobs in</b><small>Written, shot and edited by us — tap one to watch.</small></div>
           <div class="vid-row">
             <div class="clip"><div class="thumb"><img src="/work/jj-ad-1.jpg" alt="" loading="lazy" width="720" height="1280"><button type="button" class="play" data-video="/work/jj-ad-1.mp4" data-play aria-label="Play ad: Big cleanouts, no surprises"><i><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#14274E"/></svg></i></button><button type="button" class="expand" data-video="/work/jj-ad-1.mp4" aria-label="Open ad full screen: Big cleanouts, no surprises"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button></div><span>Big cleanouts, no surprises</span></div>
             <div class="clip"><div class="thumb"><img src="/work/jj-ad-2.jpg" alt="" loading="lazy" width="720" height="1280"><button type="button" class="play" data-video="/work/jj-ad-2.mp4" data-play aria-label="Play ad: Moving or selling"><i><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#14274E"/></svg></i></button><button type="button" class="expand" data-video="/work/jj-ad-2.mp4" aria-label="Open ad full screen: Moving or selling"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button></div><span>Moving or selling</span></div>
@@ -748,16 +764,17 @@ footer p{color:#C9D6E8;font-size:16px}
         <div class="cs">
           <div class="kpis">
             <div class="kpi"><b>$729</b><span>total ad spend</span></div>
-            <div class="kpi"><b>~24 days</b><span>at about $30 a day</span></div>
-            <div class="kpi"><b>3×+</b><span>back on first visits alone</span></div>
+            <div class="kpi"><b>~24 days</b><span>at $30 a day</span></div>
+            <div class="kpi"><b>≈ $2,380</b><span>in first visits — 3×+ back</span></div>
           </div>
         </div>
         <div class="cs">
           <p class="who">Ad spend vs. first visits booked</p>
           <div class="bars">
             <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:30.6%">$729</i></div></div>
-            <div class="bar-row"><span>First visits</span><div class="track"><i class="seg g1" style="--w:100%">≈ $2,380 · 17 × $140</i></div></div>
+            <div class="bar-row"><span>First visits</span><div class="track"><i class="seg g1" style="--w:100%">≈ $2,380</i></div></div>
           </div>
+          <ul class="legend" aria-label="First visits booked"><li><i class="spend"></i>$729 spent</li><li><i class="g1"></i>17 first visits × $140</li><li class="sum">= about $2,380</li></ul>
           <p class="callout"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>So many leads came in that Beth hasn't had time to follow up with all of them.</b> These numbers are before any repeat visits.</span></p>
         </div>
         <div class="cs">
@@ -775,17 +792,20 @@ footer p{color:#C9D6E8;font-size:16px}
         </div>
         <div class="cs">
           <div class="texts">
-            <p class="who">Real text from the owner</p>
-            <span class="stamp">Saturday · 2:37 PM</span>
-            <div class="bubble in"><small>Beth Panero · owner</small>I've reached out to everyone. Colleen <mark class="hl">saw a couple yesterday and seeing 3 more tomorrow.</mark></div>
-            <div class="means"><span class="means-tag">What that means</span>
-              <div class="math"><span class="chip">~2<small>seen yesterday</small></span><i class="op">+</i><span class="chip">3<small>coming tomorrow</small></span><i class="op">=</i><span class="chip win">~5<small>new clients in 3 days</small></span></div>
-              <div class="math"><span class="chip">~5<small>new clients</small></span><i class="op">×</i><span class="chip">$140<small>a session</small></span><i class="op">=</i><span class="chip win">≈ $700<small>from one text</small></span></div>
+            <div class="chat">
+              <div class="chat-head"><span class="ava imw">B</span><div><b>Beth Panero</b><small>Text message · Saturday · 2:37 PM</small></div><span class="real"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Real text</span></div>
+              <div class="chat-body">
+                <div class="bubble in"><small>Beth Panero · owner</small>I've reached out to everyone. Colleen <mark class="hl">saw a couple yesterday and seeing 3 more tomorrow.</mark></div>
+              </div>
+            </div>
+            <div class="hand">
+              <p><svg viewBox="0 0 34 40" aria-hidden="true"><path class="mark m2" pathLength="1" d="M30 36 C16 34 8 22 8 6"/><path class="mark m3" pathLength="1" d="M2.5 15.5 L8 6 L13.5 15.5"/></svg><span>~2 yesterday <i>+</i> 3 tomorrow <i>=</i> ~5 new clients</span></p>
+              <p class="res"><span>~5 <i>×</i> $140 <i>≈</i> <b class="ring">$700<svg viewBox="0 0 170 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M78.8 9.0 C35.7 8.0 7.0 23.3 7.0 41.0 C7.0 58.7 45.0 73.0 88.1 72.0 C131.2 71.0 163.0 55.7 163.0 38.0 C163.0 20.3 124.2 9.0 81.1 11.0 C61.6 11.0 42.1 14.0 32.7 19.0"/></svg></b> from one text</span></p>
             </div>
           </div>
         </div>
         <div class="cs">
-          <div class="ads-head"><span class="ads-arrow" aria-hidden="true"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M5.5 12.5L12 19l6.5-6.5"/></svg></span><div><span class="pill ad">Paid ads</span><b>The ads that brought those leads in</b><small>Written, shot and edited by us — tap one to watch.</small></div></div>
+          <div class="ads-head"><span class="pill ad">Paid ads</span><b>The ads that brought those leads in</b><small>Written, shot and edited by us — tap one to watch.</small></div>
           <div class="vid-row">
             <div class="clip"><div class="thumb"><img src="/work/imw-ad-1.jpg" alt="" loading="lazy" width="720" height="1280"><button type="button" class="play" data-video="/work/imw-ad-1.mp4" data-play aria-label="Play ad: Two clients, same table, completely different massages"><i><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#14274E"/></svg></i></button><button type="button" class="expand" data-video="/work/imw-ad-1.mp4" aria-label="Open ad full screen: Two clients, same table, completely different massages"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button></div><span>Two clients, same table, completely different massages</span></div>
             <div class="clip"><div class="thumb"><img src="/work/imw-ad-3.jpg" alt="" loading="lazy" width="720" height="1280"><button type="button" class="play" data-video="/work/imw-ad-3.mp4" data-play aria-label="Play ad: First massage, $25 off"><i><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#14274E"/></svg></i></button><button type="button" class="expand" data-video="/work/imw-ad-3.mp4" aria-label="Open ad full screen: First massage, $25 off"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button></div><span>First massage, $25 off</span></div>
@@ -829,9 +849,9 @@ footer p{color:#C9D6E8;font-size:16px}
       <p>Most marketers sell you ads they've never run themselves. I'm in Meta Ads Manager every day, running the campaigns that bring High Ground its own clients. My hands are dirty in this — so every test, every dollar and every lesson goes straight into your account.</p>
       <p>And nothing is a guess. I can see which video brought in which lead, how long people watched, and what to test next.</p>
       <ul class="checks stag reveal">
-        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I run Meta ads for High Ground itself, every day</li>
-        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I script, shoot and edit every video in-house</li>
-        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>What works for us is what I use for you</li>
+        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I run Meta ads for High Ground itself, every day</li>
+        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>I script, shoot and edit every video in-house</li>
+        <li><span class="tick"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14274E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>What works for us is what I use for you</li>
       </ul>
       <div class="track-box reveal">
         <b>Tracked on every campaign</b>
@@ -901,7 +921,7 @@ footer p{color:#C9D6E8;font-size:16px}
         <li><b>2020</b>More than a million followers in under a year, a verified account, and my own clothing brand — all on organic content.</li>
         <li><b>2021</b>I move to Los Angeles to create full-time, work with brands, and start a creator house: ten of us, with 8 million+ followers between us, making videos every day.</li>
         <li><b>Behind the camera</b>I step away from the account, complete a five-month film program, and shoot, edit and act in short films that go on to win and be nominated for awards.</li>
-        <li><b>Today</b>High Ground Agency. Everything I learned about attention, pointed at results a business can measure.</li>
+        <li><b>April 2025</b>I start High Ground Agency. Everything I learned about attention, pointed at results a business can measure.</li>
       </ol>
       <blockquote class="pull">With organic content you can't really track why something worked — or repeat it. With ads, you can.</blockquote>
       <p>That's the part I love. I can put a video out, see exactly how many leads and clicks it brought in, how long people watched, and which version won the A/B test — then hand you a real lead with a phone number and a follow-up plan.</p>
@@ -939,7 +959,7 @@ footer p{color:#C9D6E8;font-size:16px}
       </svg>
       <h2>Ready for more customers? Let's get your name out there.</h2>
       <p>Book a free 30-minute strategy call and we'll map out exactly how we'd grow your business.</p>
-      <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn">Book Your Free Marketing Call
+      <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn"><span class="l">Book Your Free Marketing Call</span><span class="s">Book Your Free Call</span>
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <small>Free 30-minute strategy call · No obligation</small>
@@ -1027,7 +1047,7 @@ footer p{color:#C9D6E8;font-size:16px}
   // Site recordings: start only once the laptop is properly on screen, pause when it leaves
   var vo=new IntersectionObserver(function(en){en.forEach(function(e){
     if(e.isIntersecting&&!still){e.target.play().catch(function(){})}else{e.target.pause()}
-  })},{threshold:.85});
+  })},{threshold:.97});
   $('video.auto').forEach(function(v){vo.observe(v)});
 
   // Headline numbers count up when their card scrolls in
