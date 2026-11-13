@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>High Ground Agency — Marketing for Central Coast Businesses · Aptos, CA</title>
-<meta name="description" content="High Ground Agency plans, films, posts, and runs the ads that bring local businesses real customers. Start with a free trial — you only pay once you see it working.">
+<title>High Ground Agency — Marketing for Santa Clara County Businesses</title>
+<meta name="description" content="High Ground Agency plans, films, posts, and runs the ads that bring local businesses real customers. Serving Santa Clara County. Book a free 30-minute strategy call.">
 <meta property="og:title" content="High Ground Agency — Marketing that actually works">
-<meta property="og:description" content="A clear marketing plan, compelling content, and campaigns that bring in real customers for Central Coast businesses.">
+<meta property="og:description" content="A clear marketing plan, compelling content, and campaigns that bring in real customers for Santa Clara County businesses.">
 <meta property="og:image" content="https://www.highgroundagency.net/img/logo-full.png">
 <meta property="og:url" content="https://www.highgroundagency.net/">
 <link rel="canonical" href="https://www.highgroundagency.net/">
@@ -73,7 +73,13 @@ nav a:hover{border-color:var(--orange)}
 .hero-copy{display:flex;flex-direction:column;gap:24px;position:relative;z-index:2}
 .hero-copy p{font-size:20px;max-width:560px}
 .swoosh{position:relative;white-space:nowrap;color:var(--blue)}
-.swoosh svg{position:absolute;left:38%;right:-2%;bottom:-.2em;width:64%;height:.32em;overflow:visible}
+.swoosh svg{position:absolute;left:-1%;bottom:-.24em;width:103%;height:.36em;overflow:visible}
+.swoosh path{fill:none;stroke:#E8641A;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.swoosh .u1{stroke-width:2.4;animation:draw .65s .95s cubic-bezier(.55,0,.25,1) forwards}
+.swoosh .u2{stroke-width:1.2;opacity:.6;animation:draw .45s 1.55s cubic-bezier(.55,0,.25,1) forwards}
+.swoosh .w{display:inline-block;animation:rise .7s .25s cubic-bezier(.2,.7,.2,1) both}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
 .perks{display:flex;flex-wrap:wrap;gap:14px 0;margin:14px 0 0;padding:0;list-style:none}
 .perks li{display:flex;align-items:center;gap:12px;padding:0 26px;font-size:15px;line-height:1.25;font-weight:600;color:var(--navy);border-left:1px solid var(--line)}
@@ -83,45 +89,60 @@ nav a:hover{border-color:var(--orange)}
 .hero-art .coast{position:absolute;top:-34px;right:max(-150px,-30%);width:min(860px,172%);max-width:none;mix-blend-mode:multiply;pointer-events:none;user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 100%),linear-gradient(180deg,#000 62%,transparent 98%);mask-composite:intersect}
 .hero-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:120px;display:block}
 
-/* Laptop mockup (decorative sample view — no real client numbers) */
-.laptop{position:absolute;right:0;bottom:8px;width:540px;transform:perspective(1900px) rotateY(-17deg) rotateX(6deg) rotate(-1.2deg);transform-origin:right bottom;filter:drop-shadow(0 38px 34px rgba(20,39,78,.32))}
-.screen{padding:10px 10px 12px;border-radius:18px 18px 4px 4px;background:#0E1930;border:2px solid #313C55}
-.ui{display:grid;grid-template-columns:128px 1fr;height:318px;border-radius:7px;overflow:hidden;background:#F5F9FD;font-family:'Montserrat',sans-serif}
-.ui-side{background:linear-gradient(180deg,#14274E,#1D3362);padding:16px 12px;display:flex;flex-direction:column;gap:6px;color:#C9D6EA;font-size:10px;font-weight:600}
-.ui-side img{width:62px;margin:0 auto 12px;display:block}
-.ui-side span{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:7px}
+/* Laptop mockup, front-on (decorative sample view — no real client numbers) */
+.laptop{position:absolute;right:-56px;bottom:6px;width:600px;transform-origin:right bottom;filter:drop-shadow(0 30px 26px rgba(20,39,78,.3))}
+.lid{position:relative;margin:0 5.5%;padding:15px 12px 12px;border-radius:18px 18px 0 0;background:linear-gradient(180deg,#1C2334,#0C111E);box-shadow:inset 0 0 0 1.5px #3B4459}
+.lid::before{content:"";position:absolute;top:5px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#465270}
+.ui{display:grid;grid-template-columns:132px 1fr;aspect-ratio:16/10;border-radius:5px;overflow:hidden;background:#F5F9FD;font-family:'Montserrat',sans-serif}
+.ui-side{background:linear-gradient(180deg,#14274E,#1D3362);padding:18px 12px;display:flex;flex-direction:column;gap:6px;color:#C9D6EA;font-size:11px;font-weight:600}
+.ui-side img{width:66px;margin:0 auto 14px;display:block}
+.ui-side span{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px}
 .ui-side span::before{content:"";width:9px;height:9px;border-radius:3px;border:1.5px solid currentColor;flex:none}
 .ui-side .on{background:#1F74C9;color:#fff}
-.ui-main{padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ui-main{padding:18px 20px;display:flex;flex-direction:column;gap:13px;min-width:0}
 .ui-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ui-head b{font-size:13px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
-.ui-head span{font-size:8px;font-weight:600;color:var(--muted);padding:4px 8px;border:1px solid var(--line);border-radius:999px;background:#fff}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.tile{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 10px;display:flex;flex-direction:column;gap:5px}
-.tile small{font-size:8px;font-weight:600;color:var(--muted)}
+.ui-head b{font-size:15px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.ui-head span{font-size:9px;font-weight:600;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 11px;display:flex;flex-direction:column;gap:6px}
+.tile small{font-size:9.5px;font-weight:600;color:var(--muted)}
 .tile div{display:flex;align-items:center;justify-content:space-between;gap:6px}
 .tile svg{display:block}
-.up{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#DDF3E6;color:#1A8A4C;font-size:11px;font-weight:800;line-height:1}
-.chart{flex:1;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 8px 4px;min-height:0}
+.up{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#DDF3E6;color:#1A8A4C;font-size:11px;font-weight:800;line-height:1}
+.chart{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 8px 4px;min-height:0}
 .chart svg{display:block;width:100%;height:100%}
-.base{height:15px;margin:0 -7%;border-radius:3px 3px 18px 18px;background:linear-gradient(180deg,#E3E8EF,#AAB3C2);position:relative}
-.base::after{content:"";position:absolute;left:42%;right:42%;top:0;height:5px;border-radius:0 0 8px 8px;background:#98A2B3}
+.chart{position:relative}
+.tile{animation:pop .5s cubic-bezier(.2,.8,.2,1) both}
+.tile:nth-child(1){animation-delay:.35s}.tile:nth-child(2){animation-delay:.5s}.tile:nth-child(3){animation-delay:.65s}
+.sp{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.4,0,.2,1) forwards}
+.tile:nth-child(1) .sp{animation-delay:.7s}.tile:nth-child(2) .sp{animation-delay:.85s}.tile:nth-child(3) .sp{animation-delay:1s}
+.up{animation:pop .4s cubic-bezier(.2,1.6,.4,1) both}
+.tile:nth-child(1) .up{animation-delay:1.5s}.tile:nth-child(2) .up{animation-delay:1.65s}.tile:nth-child(3) .up{animation-delay:1.8s}
+.ln{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s .9s cubic-bezier(.45,0,.2,1) forwards}
+.ar{opacity:0;animation:fade 1.1s 2.2s ease forwards}
+.dot{position:absolute;left:calc(8px + (100% - 16px)*.9875);top:calc(8px + (100% - 12px)*.1167);width:9px;height:9px;margin:-4.5px;border-radius:50%;background:#1F74C9;box-shadow:0 0 0 2px #fff;opacity:0;animation:fade .3s 2.85s forwards}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#1F74C9;animation:ping 2s 3s ease-out infinite}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes ping{from{transform:scale(1);opacity:.55}to{transform:scale(3.4);opacity:0}}
+.deck{position:relative;height:17px;border-radius:3px 3px 18px 18px/3px 3px 15px 15px;background:linear-gradient(180deg,#F4F6F9 0,#CDD3DD 42%,#98A1B2 100%);box-shadow:inset 0 1px 0 #fff}
+.deck::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;margin-left:-8%;border-radius:0 0 9px 9px;background:linear-gradient(180deg,#A9B1C0,#D3D8E1)}
 @media (max-width:1280px) and (min-width:1001px){
-  .laptop{transform:scale(.8) perspective(1900px) rotateY(-17deg) rotateX(6deg) rotate(-1.2deg)}
+  .laptop{transform:scale(.8);right:-30px}
   .hero-art{height:480px}
   .hero-copy p{max-width:430px}
 }
 @media (max-width:1000px){
   .hero{padding-top:36px}
   .hero-grid{grid-template-columns:minmax(0,1fr)}
-  .hero-art{height:500px;max-width:640px;margin:0 auto;width:100%}
+  .hero-art{height:480px;max-width:640px;margin:0 auto;width:100%}
   .hero-art .coast{right:-60px;width:760px}
-  .laptop{right:20px}
+  .laptop{right:50%;transform:translateX(50%);transform-origin:center bottom}
 }
-@media (max-width:600px){
-  .hero-art{height:330px}
+@media (max-width:660px){
+  .hero-art{height:300px}
   .hero-art .coast{top:-10px;right:-40px;width:500px}
-  .laptop{right:4px;bottom:0;transform:scale(.6) perspective(1900px) rotateY(-14deg) rotateX(6deg) rotate(-1.2deg)}
+  .laptop{bottom:0;transform:translateX(50%) scale(.56)}
   .perks li{padding:0 16px;border-left:0}.perks li:first-child{padding-left:16px}.perks{margin-left:-16px}
 }
 
@@ -219,7 +240,7 @@ footer p{color:#C9D6E8;font-size:16px}
 .f-note{font-size:13px;color:#8FA2BD;margin-top:18px;max-width:900px}
 
 @media (max-width:760px){section{padding:80px 0}.cta-sec{padding-bottom:80px}.cta{padding:64px 22px 84px;border-radius:24px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.swoosh .w,.swoosh path,.tile,.sp,.up,.ln,.ar,.dot,.dot::after{animation:none;opacity:1;stroke-dashoffset:0}.swoosh .u2{opacity:.6}.dot::after{opacity:0}}
 </style>
 </head>
 <body>
@@ -246,11 +267,11 @@ footer p{color:#C9D6E8;font-size:16px}
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">Marketing for Central Coast businesses</span>
+      <span class="eyebrow">Marketing for Santa Clara County businesses</span>
       <h1>Get more customers for your business — with marketing that
-        <span class="swoosh">actually works.<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C50 1 120 1 198 7" fill="none" stroke="#E8641A" stroke-width="4" stroke-linecap="round"/></svg></span>
+        <span class="swoosh"><span class="w">actually works.</span><svg viewBox="0 0 260 10" preserveAspectRatio="none" aria-hidden="true"><path class="u1" pathLength="1" d="M3 5.5 C32 2.5 76 1.5 130 2.5 C180 3.5 220 5 257 2.5"/><path class="u2" pathLength="1" d="M248 6.8 C196 8.6 126 7.6 40 8.6"/></svg></span>
       </h1>
-      <p>No guesswork. No wasted ad spend. Just a clear marketing plan, compelling content, and campaigns that bring in real customers for Central Coast businesses.</p>
+      <p>No guesswork. No wasted ad spend. Just a clear marketing plan, compelling content, and campaigns that bring in real customers for Santa Clara County businesses.</p>
       <div class="cta-row">
         <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn">Book Your Free Marketing Call
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -270,7 +291,7 @@ footer p{color:#C9D6E8;font-size:16px}
     <div class="hero-art" aria-hidden="true">
       <img class="coast" src="/art/coast-hero.webp" alt="" width="1150" height="670">
       <div class="laptop">
-        <div class="screen">
+        <div class="lid">
           <div class="ui">
             <div class="ui-side">
               <img src="/img/logo-mark.png" alt="">
@@ -283,22 +304,23 @@ footer p{color:#C9D6E8;font-size:16px}
             <div class="ui-main">
               <div class="ui-head"><b>Your marketing at a glance</b><span>Sample view</span></div>
               <div class="tiles">
-                <div class="tile"><small>Leads</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 17 L12 14 L22 15 L33 9 L44 10 L57 3" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
-                <div class="tile"><small>Calls</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 16 L12 16 L22 12 L33 13 L44 7 L57 5" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
-                <div class="tile"><small>Bookings</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 18 L12 15 L22 16 L33 11 L44 8 L57 4" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
+                <div class="tile"><small>Leads</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 17 L12 14 L22 15 L33 9 L44 10 L57 3" class="sp" pathLength="1" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
+                <div class="tile"><small>Calls</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 16 L12 16 L22 12 L33 13 L44 7 L57 5" class="sp" pathLength="1" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
+                <div class="tile"><small>Bookings</small><div><svg width="58" height="20" viewBox="0 0 58 20"><path d="M1 18 L12 15 L22 16 L33 11 L44 8 L57 4" class="sp" pathLength="1" fill="none" stroke="#1F74C9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="up">↑</span></div></div>
               </div>
               <div class="chart">
                 <svg viewBox="0 0 320 120" preserveAspectRatio="none">
                   <defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F74C9" stop-opacity=".32"/><stop offset="1" stop-color="#1F74C9" stop-opacity="0"/></linearGradient></defs>
                   <g stroke="#E1E9F1" stroke-width="1"><path d="M0 30H320M0 60H320M0 90H320"/></g>
-                  <path d="M4 100 C40 92 52 96 80 86 C108 76 118 84 150 70 C180 58 196 66 226 48 C256 32 276 40 316 14 L316 120 L4 120 Z" fill="url(#ar)"/>
-                  <path d="M4 100 C40 92 52 96 80 86 C108 76 118 84 150 70 C180 58 196 66 226 48 C256 32 276 40 316 14" fill="none" stroke="#1F74C9" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                  <path d="M4 100 C40 92 52 96 80 86 C108 76 118 84 150 70 C180 58 196 66 226 48 C256 32 276 40 316 14 L316 120 L4 120 Z" fill="url(#ar)" class="ar"/>
+                  <path d="M4 100 C40 92 52 96 80 86 C108 76 118 84 150 70 C180 58 196 66 226 48 C256 32 276 40 316 14" class="ln" pathLength="1" fill="none" stroke="#1F74C9" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
                 </svg>
+                <i class="dot"></i>
               </div>
             </div>
           </div>
         </div>
-        <div class="base"></div>
+        <div class="deck"></div>
       </div>
     </div>
   </div>
@@ -314,15 +336,15 @@ footer p{color:#C9D6E8;font-size:16px}
     <div class="facts">
       <div class="fact">
         <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
-        <div><b>~3×</b><span>Typical return on marketing spend*</span></div>
+        <div><b>3×+</b><span>Typical return on marketing ad spend*</span></div>
       </div>
       <div class="fact">
-        <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M12 8c-1-3-3-5-5-4s-1 4 5 4zM12 8c1-3 3-5 5-4s1 4-5 4z"/></svg>
-        <div><b>$0</b><span>Upfront — you start with a free trial</span></div>
+        <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.600 8 7"/></svg>
+        <div><b>1-on-1</b><span>You work directly with the founder</span></div>
       </div>
       <div class="fact">
         <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-        <div><b>15 min</b><span>Free strategy call, no pressure</span></div>
+        <div><b>30 min</b><span>Free strategy call to map your plan</span></div>
       </div>
       <div class="fact">
         <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
@@ -341,7 +363,7 @@ footer p{color:#C9D6E8;font-size:16px}
         <span class="eyebrow">What we do</span>
         <h2>Marketing that actually <em>grows</em> your business.</h2>
       </div>
-      <p>A full-service marketing partner for Central Coast businesses — from strategy and content to paid ads and follow-up.</p>
+      <p>A full-service marketing partner for Santa Clara County businesses — from strategy and content to paid ads and follow-up.</p>
     </div>
     <div class="cards reveal">
       <div class="card">
@@ -406,31 +428,31 @@ footer p{color:#C9D6E8;font-size:16px}
     <div class="split reveal">
       <div>
         <span class="eyebrow">How it works</span>
-        <h2>See it work <em>before</em> you pay a cent.</h2>
+        <h2>A clear plan first. <em>Then</em> we run it.</h2>
       </div>
-      <p>Three simple steps. You only keep going if the results are worth it to you.</p>
+      <p>It starts with a conversation — not a sales pitch. We build the systems and strategy before a single ad goes live.</p>
     </div>
     <div class="steps reveal">
       <div class="step">
-        <h3>Free strategy call</h3>
-        <p>We learn your business and map out a plan to get you seen.</p>
-        <small>15 minutes, no pressure</small>
+        <h3>Strategy call</h3>
+        <p>We dig into your business, your customers, and what you've already tried.</p>
+        <small>30 minutes, free</small>
       </div>
       <div class="step">
-        <h3>Free trial</h3>
-        <p>We produce and run real work for you — on us. You see it live.</p>
-        <small>Real ads, real content</small>
+        <h3>Your plan</h3>
+        <p>We map out the systems and strategy for your business — the offer, the content, the ads, and the follow-up.</p>
+        <small>Built around your business</small>
       </div>
       <div class="step">
-        <h3>You decide</h3>
-        <p>Keep going at a low monthly fee only if you love the results. That's it.</p>
-        <small>No long contract</small>
+        <h3>We run it</h3>
+        <p>We film, edit, post, and run the campaigns. You run your business and see what's working.</p>
+        <small>Done for you</small>
       </div>
     </div>
     <div class="promise reveal">
       <div style="display:flex;flex-direction:column;gap:6px;flex:1 1 360px;min-width:0">
-        <h3>No big upfront cost. No long contract.</h3>
-        <p>If it's not right for you, you walk away — no cost, no hard feelings.</p>
+        <h3>Start with a 30-minute strategy call.</h3>
+        <p>We'll look at where your marketing is today and what would actually move the needle.</p>
       </div>
       <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn">Book your free call</a>
     </div>
@@ -449,7 +471,7 @@ footer p{color:#C9D6E8;font-size:16px}
       <span class="eyebrow">Who you'll work with</span>
       <h2>Mike Panero</h2>
       <p class="role">Founder · Digital strategist, filmmaker &amp; paid-ads lead</p>
-      <p>I'm based right here in Aptos. I plan the strategy, get behind the camera, cut the videos and run the ads myself — so you always know exactly who's working on your business.</p>
+      <p>I'm from Santa Cruz and work with businesses across Santa Clara County. I plan the strategy, get behind the camera, cut the videos and run the ads myself — so you always know exactly who's working on your business.</p>
       <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn" style="align-self:flex-start">Talk to Mike</a>
     </div>
   </div>
@@ -463,11 +485,11 @@ footer p{color:#C9D6E8;font-size:16px}
       <h2>Answered, plainly.</h2>
     </div>
     <div class="faq reveal">
-      <details><summary>How does the free trial actually work?<span class="plus" aria-hidden="true">+</span></summary><p>We start with a free strategy call. Then we produce and run real work for you — on us — and you see it live. If you love the results, you keep going at a low monthly fee.</p></details>
-      <details><summary>Do I have to sign a long contract?<span class="plus" aria-hidden="true">+</span></summary><p>No. There's no big upfront cost and no long contract. If it's not right for you, you walk away — no cost, no hard feelings.</p></details>
+      <details><summary>How do we get started?<span class="plus" aria-hidden="true">+</span></summary><p>With a free 30-minute strategy call. We look at your business and your goals, then put together a plan — the systems and strategy to bring in customers. If it's a fit, we run it for you.</p></details>
+      <details><summary>What does it cost?<span class="plus" aria-hidden="true">+</span></summary><p>It depends on what your business needs, so we don't list one-size-fits-all pricing. We'll walk through the options on your strategy call.</p></details>
       <details><summary>I've never done marketing before. Is that a problem?<span class="plus" aria-hidden="true">+</span></summary><p>Not at all. You keep running your business — we handle the strategy, filming, editing, posting, and the ads.</p></details>
       <details><summary>Do you actually run ads yourselves?<span class="plus" aria-hidden="true">+</span></summary><p>Yes. High Ground finds its own clients through Meta ads we run ourselves, so we're testing what works every day — not guessing with your budget.</p></details>
-      <details><summary>Where are you based?<span class="plus" aria-hidden="true">+</span></summary><p>Aptos, in Santa Cruz County, California — serving the Central Coast.</p></details>
+      <details><summary>Where do you work?<span class="plus" aria-hidden="true">+</span></summary><p>We work with businesses across Santa Clara County. Mike is from Santa Cruz, just over the hill.</p></details>
     </div>
   </div>
 </section>
@@ -482,11 +504,11 @@ footer p{color:#C9D6E8;font-size:16px}
         <path d="M0 70 C240 36 470 42 680 64 C880 84 1040 80 1200 56 L1200 90 L0 90 Z" fill="#6DB2D1" opacity=".35"/>
       </svg>
       <h2>Ready for more customers? Let's get your name out there.</h2>
-      <p>Book a free call and we'll show you exactly how we'd grow your business — free trial included.</p>
+      <p>Book a free 30-minute strategy call and we'll map out exactly how we'd grow your business.</p>
       <a href="mailto:contact@highgroundagency.net?subject=Free%20strategy%20call" class="btn">Book Your Free Marketing Call
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <small>Free trial · No upfront cost · Cancel anytime</small>
+      <small>Free 30-minute strategy call · No obligation</small>
     </div>
   </div>
 </section>
@@ -501,7 +523,7 @@ footer p{color:#C9D6E8;font-size:16px}
           <span><b>HIGH GROUND</b><i>AGENCY</i></span>
         </a>
         <p>We get local businesses seen, booked, and growing — the whole pipeline, from the first script to the ads that bring real customers.</p>
-        <p style="font-size:14px;color:#9FB0C6">Aptos · Santa Cruz County, California</p>
+        <p style="font-size:14px;color:#9FB0C6">From Santa Cruz · Serving Santa Clara County, California</p>
       </div>
       <div class="f-cols">
         <div class="f-col">
@@ -520,6 +542,7 @@ footer p{color:#C9D6E8;font-size:16px}
         <div class="f-col">
           <b>Say hello</b>
           <a href="mailto:contact@highgroundagency.net">contact@highgroundagency.net</a>
+          <a href="https://www.highgroundagency.net/">highgroundagency.net</a>
           <a href="https://instagram.com/highgroundagency" target="_blank" rel="noopener" class="ig" aria-label="High Ground Agency on Instagram">
             <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
