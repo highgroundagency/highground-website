@@ -7,7 +7,7 @@
 <meta name="description" content="High Ground Agency films, edits, posts, and runs the ads that bring local businesses real customers. Start with a free trial — you only pay once you see it working.">
 <meta property="og:title" content="High Ground Agency — Is your marketing murky? Let's flush it clean.">
 <meta property="og:image" content="/img/hero.jpg">
-<link rel="icon" href="/img/logo.png">
+<link rel="icon" href="/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
@@ -39,6 +39,12 @@ details[open] .faq-plus{transform:rotate(45deg)}
 @keyframes g-cap-a{0%,12%{opacity:1}22%,92%{opacity:0}100%{opacity:1}}
 @keyframes g-cap-b{0%,50%{opacity:0}62%,88%{opacity:1}96%,100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.g-stream,.g-drip{animation:none;opacity:0}.g-dirty{animation:none;opacity:0}.g-clean{animation:none;height:80%}.g-cap-a{animation:none;opacity:0}.g-cap-b{animation:none;opacity:1}}
+
+/* Watercolor coastal art scattered through the cream sections */
+.deco-s{position:relative;overflow:hidden}
+.deco-s>div{position:relative;z-index:1}
+.deco{position:absolute;z-index:0;pointer-events:none;user-select:none;mix-blend-mode:multiply;opacity:.6;height:auto;-webkit-mask-image:radial-gradient(ellipse closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse closest-side,#000 62%,transparent 100%)}
+@media (max-width:760px){.deco{opacity:.3;transform:scale(.6)}.deco.d-hide{display:none}}
 </style>
 </head>
 <body>
@@ -49,7 +55,7 @@ details[open] .faq-plus{transform:rotate(45deg)}
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box">
       <header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;flex-wrap:wrap">
         <a href="#top" style="display:flex;align-items:center;gap:12px">
-          <img src="/img/logo.png" alt="High Ground Agency logo" style="width:48px;height:48px;object-fit:contain">
+          <img src="/img/logo-mark.png" alt="High Ground Agency logo" style="width:72px;height:auto">
           <span style="display:flex;flex-direction:column;line-height:1">
             <span style="font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:24px;color:#fff">High Ground</span>
             <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.32em;color:#B9C8DC;margin-top:4px">AGENCY</span>
@@ -96,7 +102,9 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- WHY US: HANDS DIRTY -->
-  <section id="why" style="padding:104px 24px;background:#FBF6EC">
+  <section id="why" class="deco-s" style="padding:104px 24px;background:#FBF6EC">
+    <img class="deco" src="/art/plumeria.webp" alt="" aria-hidden="true" loading="lazy" style="top:-20px;right:-30px;width:300px">
+    <img class="deco d-hide" src="/art/eucalyptus.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:10px;left:-30px;width:200px">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:56px">
       <div style="flex:1 1 460px;min-width:0">
         <div style="border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(18,41,74,.25);background:#0B1B33">
@@ -131,7 +139,9 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- PROOF: CLIENT SPOTLIGHTS -->
-  <section id="work" style="padding:96px 24px;background:#F5EAD6">
+  <section id="work" class="deco-s" style="padding:96px 24px;background:#F5EAD6">
+    <img class="deco" src="/art/sun-waves.webp" alt="" aria-hidden="true" loading="lazy" style="top:30px;right:2%;width:380px">
+    <img class="deco d-hide" src="/art/cliff.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:-30px;left:-40px;width:420px">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
       <div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
         <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.2em;color:#B8481A">02 — THE PROOF</span>
@@ -175,7 +185,10 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- SERVICES -->
-  <section id="services" style="padding:96px 24px;background:#FBF6EC">
+  <section id="services" class="deco-s" style="padding:96px 24px;background:#FBF6EC">
+    <img class="deco" src="/art/redwoods.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:-10px;right:-20px;width:240px">
+    <img class="deco d-hide" src="/art/fern.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:40px;left:-60px;width:190px">
+    <img class="deco d-hide" src="/art/gold-ring.webp" alt="" aria-hidden="true" loading="lazy" style="top:60px;right:22%;width:150px;opacity:.45">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
       <div style="display:flex;flex-direction:column;gap:16px;max-width:760px">
         <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.2em;color:#B8481A">03 — WHAT WE DO</span>
@@ -229,7 +242,10 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how" style="padding:104px 24px;background:#F5EAD6">
+  <section id="how" class="deco-s" style="padding:104px 24px;background:#F5EAD6">
+    <img class="deco" src="/art/sunrise.webp" alt="" aria-hidden="true" loading="lazy" style="top:30px;right:3%;width:300px">
+    <img class="deco d-hide" src="/art/curl.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:150px;left:-60px;width:320px">
+    <img class="deco d-hide" src="/art/poppies.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:-20px;right:-10px;width:230px">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
       <div style="display:flex;flex-direction:column;gap:16px;max-width:760px">
         <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.2em;color:#B8481A">04 — HOW IT WORKS</span>
@@ -272,7 +288,9 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- CREW -->
-  <section id="about" style="padding:96px 24px;background:#FBF6EC">
+  <section id="about" class="deco-s" style="padding:96px 24px;background:#FBF6EC">
+    <img class="deco" src="/art/gold-leaf.webp" alt="" aria-hidden="true" loading="lazy" style="top:30px;right:4%;width:250px">
+    <img class="deco d-hide" src="/art/forest.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:-40px;left:-60px;width:520px;opacity:.4">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:48px">
         <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
@@ -311,7 +329,9 @@ details[open] .faq-plus{transform:rotate(45deg)}
   </section>
 
   <!-- FAQ -->
-  <section id="faq" style="padding:96px 24px;background:#F5EAD6">
+  <section id="faq" class="deco-s" style="padding:96px 24px;background:#F5EAD6">
+    <img class="deco" src="/art/wave-band.webp" alt="" aria-hidden="true" loading="lazy" style="top:30px;left:-40px;width:460px">
+    <img class="deco d-hide" src="/art/beach.webp" alt="" aria-hidden="true" loading="lazy" style="bottom:-30px;right:-40px;width:520px;opacity:.45">
     <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
       <h2 style="margin:0;text-align:center;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(30px,3.6vw,42px);color:#12294A">Questions, answered.</h2>
       <div style="display:flex;flex-direction:column;border-top:1px solid #E0D0B2">
@@ -370,7 +390,7 @@ details[open] .faq-plus{transform:rotate(45deg)}
       <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between">
         <div style="flex:1 1 320px;max-width:420px;display:flex;flex-direction:column;gap:20px">
           <div style="display:flex;align-items:center;gap:12px">
-            <img src="/img/logo.png" alt="High Ground Agency logo" style="width:48px;height:48px;object-fit:contain">
+            <img src="/img/logo-mark.png" alt="High Ground Agency logo" style="width:72px;height:auto">
             <span style="display:flex;flex-direction:column;line-height:1">
               <span style="font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:24px;color:#fff">High Ground</span>
               <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.32em;color:#9FB0C6;margin-top:4px">AGENCY</span>
