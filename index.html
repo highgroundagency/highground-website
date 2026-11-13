@@ -285,11 +285,11 @@ html:not(.js) .mark{stroke-dashoffset:0;opacity:1}
 .seg{width:var(--w);min-width:6px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-family:'Montserrat',sans-serif;font-style:normal;font-weight:800;font-size:13px;color:#fff;white-space:nowrap;overflow:hidden;transform-origin:left center;transform:scaleX(0)}
 .seg.tiny{padding:0}
 .track.on .seg{animation:grow .9s cubic-bezier(.2,.8,.2,1) forwards}
-.track.on .seg:nth-child(1){animation-delay:.1s}.track.on .seg:nth-child(2){animation-delay:.4s}.track.on .seg:nth-child(3){animation-delay:.65s}.track.on .seg:nth-child(4){animation-delay:.8s}
+.track.on .seg:nth-child(1){animation-delay:.1s}.track.on .seg:nth-child(2){animation-delay:.4s}.track.on .seg:nth-child(3){animation-delay:.65s}.track.on .seg:nth-child(4){animation-delay:.8s}.track.on .seg:nth-child(5){animation-delay:.9s}
 html:not(.js) .seg{transform:none}
 @keyframes grow{to{transform:scaleX(1)}}
 .seg.spend{background:#8E9CB2}
-.seg.g1{background:linear-gradient(90deg,#1D5FB3,#1F74C9)}.seg.g2{background:#3F8FD9}.seg.g3{background:#6DB2D1}.seg.g4{background:#A7D3E6}
+.seg.g1{background:linear-gradient(90deg,#1D5FB3,#1F74C9)}.seg.g2{background:#3F8FD9}.seg.g3{background:#6DB2D1}.seg.g4{background:#A7D3E6}.seg.g5{background:#C9E3F0}
 .callout{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:14px 16px;border-radius:14px;background:#FFF5E9;border:1px solid #F6D7B2;font-size:15.5px;line-height:1.45;color:#6B3A0C}
 .callout svg{flex:none;margin-top:2px;color:var(--orange)}
 .callout b{font-weight:700}
@@ -348,7 +348,7 @@ html:not(.js) .hl{background-size:100% 100%}
 .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0 0;padding:0;list-style:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--navy)}
 .legend li{display:inline-flex;align-items:center;gap:7px}
 .legend i{width:12px;height:12px;border-radius:4px}
-.legend i.spend{background:#8E9CB2}.legend i.g1{background:#1F74C9}.legend i.g2{background:#3F8FD9}.legend i.g3{background:#6DB2D1}.legend i.g4{background:#A7D3E6}
+.legend i.spend{background:#8E9CB2}.legend i.g1{background:#1F74C9}.legend i.g2{background:#3F8FD9}.legend i.g3{background:#6DB2D1}.legend i.g4{background:#A7D3E6}.legend i.g5{background:#C9E3F0}
 .legend .sum{font-weight:800;color:var(--blue)}
 /* video tiles: open in a pop-up player */
 .vid-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -740,7 +740,7 @@ footer p{color:#C9D6E8;font-size:16px}
           <div class="band-meta"><b>Junk removal</b><ul class="tags"><li>Meta ads</li><li>Video ads</li><li>Website</li></ul></div>
         </header>
         <div class="cs">
-          <div class="hero-kpi"><b><span data-count="6650" data-prefix="$">$6,650</span><svg viewBox="0 0 270 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M124.8 9.0 C54.1 8.0 7.0 23.3 7.0 41.0 C7.0 58.7 69.4 73.0 140.1 72.0 C210.8 71.0 263.0 55.7 263.0 38.0 C263.0 20.3 199.3 9.0 128.6 11.0 C96.6 11.0 64.6 14.0 49.2 19.0"/></svg></b></div>
+          <div class="hero-kpi"><b><span data-count="5800" data-prefix="$">$5,800</span><svg viewBox="0 0 270 80" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M124.8 9.0 C54.1 8.0 7.0 23.3 7.0 41.0 C7.0 58.7 69.4 73.0 140.1 72.0 C210.8 71.0 263.0 55.7 263.0 38.0 C263.0 20.3 199.3 9.0 128.6 11.0 C96.6 11.0 64.6 14.0 49.2 19.0"/></svg></b></div>
           <p class="note"><svg viewBox="0 0 34 40" aria-hidden="true"><path class="mark m2" pathLength="1" d="M30 36 C16 34 8 22 8 6"/><path class="mark m3" pathLength="1" d="M2.5 15.5 L8 6 L13.5 15.5"/></svg><span>from $500 in ads</span></p>
           <p class="kpi-lead">in jobs booked — in about 10 days.</p>
         </div>
@@ -748,17 +748,17 @@ footer p{color:#C9D6E8;font-size:16px}
           <div class="kpis">
             <div class="kpi"><b>$500</b><span>total ad spend</span></div>
             <div class="kpi"><b>10 days</b><span>at $50 a day</span></div>
-            <div class="kpi"><b>13×</b><span>return on ad spend</span></div>
+            <div class="kpi"><b>11.6×</b><span>return on ad spend</span></div>
           </div>
         </div>
         <div class="cs">
           <p class="who">Ad spend vs. jobs booked</p>
           <div class="bars">
-            <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:7.5%;min-width:54px">$500</i></div></div>
-            <div class="bar-row"><span>Jobs booked</span><div class="track"><i class="seg g1" style="--w:60%">$4,000</i><i class="seg g2" style="--w:30%">$2,000</i><i class="seg g3 tiny" style="--w:7.5%"></i><i class="seg g4 tiny" style="--w:2.5%"></i></div></div>
+            <div class="bar-row"><span>Ad spend</span><div class="track"><i class="seg spend" style="--w:8.6%;min-width:54px">$500</i></div></div>
+            <div class="bar-row"><span>Jobs booked</span><div class="track"><i class="seg g1" style="--w:69%">$4,000</i><i class="seg g2" style="--w:17.2%">$1,000</i><i class="seg g3 tiny" style="--w:8.6%"></i><i class="seg g4 tiny" style="--w:2.6%"></i><i class="seg g5 tiny" style="--w:2.6%"></i></div></div>
           </div>
-          <ul class="legend" aria-label="Jobs booked"><li><i class="g1"></i>$4,000</li><li><i class="g2"></i>$2,000</li><li><i class="g3"></i>$500</li><li><i class="g4"></i>$150</li><li class="sum">= $6,650</li></ul>
-          <p class="callout"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>Four jobs from $500 in ads.</b> One of those customers has a big property with more runs still to come.</span></p>
+          <ul class="legend" aria-label="Jobs booked"><li><i class="g1"></i>$4,000</li><li><i class="g2"></i>$1,000</li><li><i class="g3"></i>$500</li><li><i class="g4"></i>$150</li><li><i class="g5"></i>$150</li><li class="sum">= $5,800</li></ul>
+          <p class="callout"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span><b>Five jobs from $500 in ads.</b> One of those customers has a big property with more runs still to come.</span></p>
         </div>
         <div class="cs">
           <button type="button" class="mac-btn" data-site="https://just-junkin-git-claude-hero-test-highgroundagencys-projects.vercel.app" data-name="Just Junkin" aria-label="Explore the new Just Junkin website">
