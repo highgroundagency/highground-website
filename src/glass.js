@@ -129,7 +129,9 @@ function start() {
       it.sv += -0.2 * it.s - 0.12 * it.sv;
       it.s = clamp(it.s + it.sv, -0.22, 0.28);
       const outside = p.x < L || p.x > R;
-      it.el.style.opacity = outside ? clamp(1 - (p.y - 380) / 200, 0, 1) : 1;
+      // spilled words fade as they fall, and before they can drift over the page copy
+      const edge = Math.max(0, it.w / 2 - p.x, p.x + it.w / 2 - W);
+      it.el.style.opacity = outside ? Math.min(clamp(1 - (p.y - 380) / 200, 0, 1), clamp(1 - edge / 70, 0, 1)) : 1;
       it.el.style.transform = `translate(${p.x - it.w / 2}px,${p.y - it.h / 2}px) rotate(${b.angle}rad) scale(${1 + it.s},${1 - it.s * 0.8})`;
       if (p.y > H + 80 || p.x < -260 || p.x > W + 260) {
         Composite.remove(engine.world, b);
