@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/justin", "destination": "https://hga-lead-boards.vercel.app/justin/" },
+    { "source": "/justin/:path*", "destination": "https://hga-lead-boards.vercel.app/justin/:path*" },
+    { "source": "/beth", "destination": "https://hga-lead-boards.vercel.app/beth/" },
+    { "source": "/beth/:path*", "destination": "https://hga-lead-boards.vercel.app/beth/:path*" },
+    { "source": "/hga", "destination": "https://hga-lead-boards.vercel.app/hga/" },
+    { "source": "/hga/:path*", "destination": "https://hga-lead-boards.vercel.app/hga/:path*" }
+  ]
+}
