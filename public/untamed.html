@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Untamed Organics Growth Plan</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Montserrat:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+/* HGA tokens (same as pitch.html). One long scroll; a flight path runs down the page, one stop per section. */
+:root{
+  --navy:#14274E;--navy-2:#1D3362;--blue:#1F74C9;--sky:#6DB2D1;--pale:#EEF5FB;--pale-2:#DCEAF6;
+  --orange:#E8641A;--orange-2:#F58A1F;--gold:#F7C565;--ink:#14274E;--muted:#4B5B73;--line:#E1E9F1;
+  --green:#17A05A;--red:#C8361B;--wrap:1140px;
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:#fff;font:400 18px/1.55 'Nunito Sans',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif;color:var(--navy);margin:0;letter-spacing:-.025em}
+h1{font-weight:800;font-size:clamp(40px,6vw,76px);line-height:1.03}
+h2{font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1.1}
+h3{font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.01em}
+p{margin:0;color:var(--muted)}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.blue{color:var(--blue)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font:700 13px 'Montserrat',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+.eyebrow::before{content:"";width:34px;height:2px;border-radius:2px;background:var(--orange)}
+.src{font-size:13px;color:#6A7A91}.src a{color:inherit}
+.dark .src{color:#9FB3CC}
+
+/* Top bar + chapter rail */
+.top{position:fixed;z-index:40;left:0;right:0;top:0;height:62px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:60px;height:auto}
+.brand span{display:flex;flex-direction:column;font-family:'Montserrat',sans-serif;line-height:1}
+.brand b{font-weight:800;font-size:15px;color:var(--navy)}
+.brand i{font-style:normal;font-weight:600;font-size:9px;letter-spacing:.44em;color:var(--navy);margin-top:4px}
+.where{font:700 12px 'Montserrat',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6A7A91;text-align:right}
+.where b{color:var(--navy)}
+@media (max-width:640px){.where b{display:none}}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--orange),var(--gold))}
+.rail{position:fixed;z-index:40;right:10px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+.rail a{width:10px;height:10px;border-radius:50%;background:#C3D4E6;transition:all .3s ease;position:relative}
+.rail a.on{background:var(--orange);transform:scale(1.35)}
+.rail a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font:700 12px 'Montserrat';color:var(--navy);background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:99px;opacity:0;pointer-events:none;transition:opacity .2s}
+.rail a:hover span{opacity:1}
+@media (max-width:1000px){.rail{display:none}}
+
+/* Flight layer */
+main{position:relative}
+#flight{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:4;overflow:visible}
+#route{fill:none;stroke:#C2D3E6;stroke-width:2.5;stroke-dasharray:2 12;stroke-linecap:round}
+#trail{fill:none;stroke:url(#tg);stroke-width:3.5;stroke-linecap:round}
+#plane .body{fill:var(--navy);stroke:#fff;stroke-width:1.6;stroke-linejoin:round}
+#plane .glow{fill:rgba(245,138,31,.3)}
+.stop{position:absolute;z-index:5;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:2.5px solid #C2D3E6;font:800 14px 'Montserrat',sans-serif;color:#8A97AB;transition:all .4s ease;pointer-events:none}
+.stop.hit{border-color:var(--orange);background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);color:var(--navy);box-shadow:0 10px 22px -8px rgba(232,100,26,.6)}
+
+/* Sections */
+.leg{position:relative;z-index:3;padding:130px 24px 150px}
+.leg.pale{background:linear-gradient(180deg,#F6FAFE,#EEF5FB)}
+.leg.dark{background:linear-gradient(140deg,#14274E,#1D3362 55%,#1F5E9E)}
+.dark h2,.dark h3{color:#fff}.dark p{color:#CFDDEE}.dark .eyebrow{color:var(--gold)}
+.wrap{max-width:var(--wrap);margin:0 auto;position:relative}
+.head{display:flex;flex-direction:column;gap:14px;max-width:840px;margin-bottom:46px}
+.head p{font-size:20px}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.g2,.g3{grid-template-columns:minmax(0,1fr)}.leg{padding:100px 16px 120px}}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 34px -24px rgba(20,39,78,.3)}
+.card p{font-size:16.5px}
+.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:none}
+.tag{align-self:flex-start;padding:5px 12px;border-radius:999px;font:800 10.5px 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;background:var(--pale);color:var(--blue)}
+.tag.bad{background:#FDE7E1;color:var(--red)}.tag.ok{background:#DDF3E6;color:#17713F}.tag.warn{background:#FFF1DC;color:#A2470C}
+.dark .tag{background:rgba(247,197,101,.16);color:var(--gold)}
+.callout{display:flex;gap:12px;align-items:flex-start;padding:16px 20px;border-radius:16px;background:#FFF5E9;border:1px solid #F6D7B2;font-size:16px;line-height:1.5;color:#6B3A0C}
+.try{display:inline-flex;align-items:center;gap:8px;font:800 11px 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.try::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,100,26,.5)}70%,100%{box-shadow:0 0 0 10px rgba(232,100,26,0)}}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:700 15px 'Montserrat',sans-serif;background:#fff;border:1.5px solid #B9CDE2;color:var(--navy);transition:all .2s ease}
+.btn:hover{border-color:var(--blue);box-shadow:0 8px 18px rgba(31,116,201,.18)}
+.btn.on{background:linear-gradient(140deg,#14274E,#1F5E9E);color:#fff;border-color:transparent}
+.btn.go{background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);border-color:transparent;color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.notes{display:none;margin-top:28px;padding:14px 18px;border-radius:12px;border:1.5px dashed #B9CDE2;font-size:14.5px;color:var(--muted);background:#FBFDFF}
+.notes::before{content:"Presenter notes · ";font-weight:800;color:var(--navy)}
+body.show-notes .notes{display:block}
+.dark .notes{background:rgba(255,255,255,.06);color:#CFDDEE;border-color:rgba(255,255,255,.25)}
+
+/* Problem / fix rows */
+.pf{display:grid;grid-template-columns:minmax(0,.85fr) 64px minmax(0,1.15fr);align-items:stretch}
+.pf .arrow{display:flex;align-items:center;justify-content:center}
+.pf .arrow svg{width:40px;height:40px;color:var(--orange)}
+.side{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:24px}
+.side.prob{background:#FFF7F4;border:1px solid #F7D6CC}
+.side.fix{background:#F3FBF6;border:1px solid #CDEBD8}
+.side .lab{font:800 11px 'Montserrat';letter-spacing:.2em;text-transform:uppercase}
+.side.prob .lab{color:var(--red)}.side.fix .lab{color:#17713F}
+@media (max-width:900px){.pf{grid-template-columns:minmax(0,1fr)}.pf .arrow{padding:10px 0;transform:rotate(90deg)}}
+
+/* 0 · Hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:110px;background:radial-gradient(700px 520px at 100% 0%,rgba(247,197,101,.28),transparent 70%),radial-gradient(620px 440px at 0% 100%,rgba(109,178,209,.2),transparent 70%),#fff}
+.hero .lead{font-size:21px;max-width:560px;margin-top:22px}
+.collage{position:relative;height:560px}
+.collage figure{position:absolute;margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(20,39,78,.55);border:6px solid #fff;background:#fff}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .f1{left:0;top:30px;width:58%;height:68%;rotate:-3deg}
+.collage .f2{right:0;top:0;width:46%;height:50%;rotate:3deg}
+.collage .f3{right:6%;bottom:0;width:48%;height:44%;rotate:-1.5deg}
+.collage .stamp{position:absolute;z-index:3;left:30%;bottom:6%;background:#fff;padding:10px 16px;border-radius:14px;box-shadow:0 18px 30px -16px rgba(20,39,78,.5);rotate:-4deg}
+.collage .stamp img{width:120px;height:auto}
+@media (max-width:900px){.collage{height:420px}}
+.logos{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.logos span{font:800 22px 'Montserrat';color:#9AA7BA}
+.logos img{height:58px;width:auto}
+
+/* 1 · Edge */
+.edge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:200px;gap:16px}
+.tile{position:relative;border-radius:22px;overflow:hidden;background:var(--navy)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.05)}
+.tile .cap{position:absolute;inset:auto 0 0 0;padding:18px;background:linear-gradient(180deg,transparent,rgba(10,20,40,.85));color:#fff}
+.tile .cap b{display:block;font:800 22px/1.15 'Montserrat';color:#fff}
+.tile .cap span{font-size:14px;color:#DCE6F2}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.wide{grid-column:span 2}
+.tile.stat{background:linear-gradient(140deg,#14274E,#1F5E9E);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.tile.stat b{font:800 44px/1 'Montserrat';color:#fff;letter-spacing:-.03em}
+.tile.stat span{color:#CFDDEE;font-size:15px;margin-top:8px}
+.tile.stat.or{background:linear-gradient(140deg,#E8641A,#F5A04A)}
+.tile.stat.or span{color:#FFF1E2}
+@media (max-width:900px){.edge{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}}
+
+/* 2 · Ads */
+.fan{position:relative;height:440px}
+.fan img{position:absolute;top:0;width:58%;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 50px -26px rgba(20,39,78,.6);background:#fff;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.fan img:nth-child(1){left:0;transform:rotate(-7deg)}
+.fan img:nth-child(2){left:14%;transform:rotate(-2deg);top:10px}
+.fan img:nth-child(3){left:28%;transform:rotate(3deg);top:4px}
+.fan img:nth-child(4){left:42%;transform:rotate(8deg);top:16px}
+.fan img:hover{z-index:5;transform:rotate(0) scale(1.06)}
+.angles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.angle{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.angle img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.angle div{padding:10px 12px}
+.angle b{display:block;font:700 14.5px/1.25 'Montserrat';color:var(--navy)}
+.angle small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+@media (max-width:900px){.angles{grid-template-columns:repeat(2,minmax(0,1fr))}.fan{height:300px}}
+.today{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.today span{padding:6px 12px;border-radius:99px;background:#fff;border:1px solid #F7D6CC;font-size:14px;font-weight:700;color:#8A2A12}
+
+/* 3 · Words */
+.copyrow{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);gap:12px;align-items:center;margin-bottom:14px}
+.copyrow .b,.copyrow .a{padding:18px 20px;border-radius:16px;font:700 18px/1.45 'Montserrat';letter-spacing:-.01em;color:var(--navy);background:#fff}
+.copyrow .b{border:1px solid #F7D6CC}
+.copyrow .a{border:1px solid #CDEBD8}
+.copyrow small{display:block;margin-top:6px;font:600 13px 'Nunito Sans';color:var(--muted);letter-spacing:0}
+.copyrow svg{width:28px;height:28px;color:var(--orange);margin:auto}
+mark.r{background:linear-gradient(transparent 55%,rgba(200,54,27,.22) 55%);color:var(--red);padding:0 2px}
+mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color:#17713F;padding:0 2px}
+@media (max-width:800px){.copyrow{grid-template-columns:minmax(0,1fr)}.copyrow svg{transform:rotate(90deg)}}
+.whybuy{margin-top:36px}
+.whybuy .card b{font:800 17px 'Montserrat';color:var(--navy)}
+
+/* 4 · Budget */
+.plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:22px}
+.plan{all:unset;cursor:pointer;padding:14px 16px;border-radius:16px;background:#fff;border:1.5px solid var(--line);transition:all .25s ease}
+.plan small{display:block;font:800 10.5px 'Montserrat';letter-spacing:.16em;text-transform:uppercase;color:#8A97AB}
+.plan b{display:block;font:800 17px/1.25 'Montserrat';color:var(--navy);margin-top:4px}
+.plan.on{border-color:var(--orange);box-shadow:0 16px 30px -18px rgba(232,100,26,.7);transform:translateY(-2px)}
+.plan:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:900px){.plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.board{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px}
+@media (max-width:900px){.board{grid-template-columns:minmax(0,1fr)}}
+.sets{display:flex;flex-direction:column;gap:10px;min-height:330px}
+.set{display:grid;grid-template-columns:150px minmax(0,1fr) 120px;gap:12px;align-items:center;font-size:14px}
+.set .nm{font:700 14px/1.2 'Montserrat';color:var(--navy)}
+.set .nm small{display:block;font:600 12px 'Nunito Sans';color:var(--muted)}
+.set .bar{height:34px;border-radius:10px;background:#EEF3F8;overflow:hidden}
+.set .bar i{display:flex;align-items:center;height:100%;padding:0 10px;border-radius:10px;font:800 13px 'Montserrat';font-style:normal;color:#fff;white-space:nowrap}
+.set .bar i.t{background:linear-gradient(90deg,#1D5FB3,#3F8FD9)}
+.set .bar i.s{background:linear-gradient(90deg,#E8641A,#F58A1F)}
+.set .ok{font:800 12.5px 'Montserrat';text-align:right}
+.set .ok.y{color:#17713F}.set .ok.n{color:var(--red)}
+@media (max-width:600px){.set{grid-template-columns:minmax(0,1fr) 100px}.set .bar{grid-column:1/-1;order:3}}
+.verdict{display:flex;flex-direction:column;gap:12px}
+.meter{display:flex;gap:5px}
+.meter i{flex:1;height:10px;border-radius:5px;background:#E3EBF3;transition:background .4s}
+.meter i.on{background:linear-gradient(90deg,#E8641A,#F7C565)}
+.cpa{display:flex;align-items:center;gap:14px;margin-top:6px;font-size:15px}
+.cpa input{flex:1;accent-color:var(--orange)}
+.cpa b{font:800 18px 'Montserrat';color:var(--navy);min-width:60px}
+
+/* 5 · Organic */
+.yap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.yap .card h3{font-size:18px}
+.yap .card ul{display:grid;gap:6px;font-size:15px;color:#E6EEF8}
+.yap .pol li::before{content:"✕ ";color:#FF9B85;font-weight:800}
+.yap .raw li::before{content:"✓ ";color:#7FE0A8;font-weight:800}
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}
+.rung{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:18px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.16);transition:all .3s ease}
+.rung:nth-child(1){min-height:140px}.rung:nth-child(2){min-height:175px}.rung:nth-child(3){min-height:210px}.rung:nth-child(4){min-height:245px}
+.rung small{font:800 11px 'Montserrat';letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.rung b{font:800 18px 'Montserrat';color:#fff}
+.rung span{font-size:14.5px;color:#CFDDEE}
+.rung.on{border-color:var(--gold);background:rgba(247,197,101,.12)}
+.rung:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:900px){.ladder{grid-template-columns:repeat(2,minmax(0,1fr))}.rung{min-height:0!important}}
+.aiw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.aiw .card ul{display:grid;gap:8px;font-size:15.5px;color:#E6EEF8}
+@media (max-width:700px){.aiw,.yap{grid-template-columns:minmax(0,1fr)}}
+
+
+/* Ugly vs polished */
+.uvp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media (max-width:900px){.uvp{grid-template-columns:minmax(0,1fr)}}
+.uvp-col{padding:22px;border-radius:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
+.uvp-h{display:flex;align-items:center;gap:12px;font:700 16px 'Montserrat';color:#fff!important;margin-bottom:16px}
+.uvp-note{font-size:15px;margin-top:14px}
+.feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.post{margin:0;display:flex;flex-direction:column;gap:6px}
+.post>img,.post>div{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#fff;overflow:hidden}
+.post figcaption{font:600 12px/1.3 'Nunito Sans';color:#AFC2DA}
+.post.pol>img{filter:saturate(1.05)}
+.nnote .nt{padding:12px;background:#fffef8;color:#1c1c1e;font:400 12.5px/1.4 -apple-system,'Helvetica Neue',sans-serif}
+.nnote .nth{color:#E0A100;font-size:12px;margin-bottom:6px}
+.nnote b{display:block;font-size:14px;margin-bottom:4px}
+.nnote ol{margin:0;padding-left:16px}
+.nnote p{color:#1c1c1e!important;margin-top:6px;font-size:12.5px}
+.rv2 .rvw{position:relative;padding:14px 12px;background:#fff;color:#1c1c1e;font:400 13px/1.45 -apple-system,'Helvetica Neue',sans-serif;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.rv2 .rvt{color:#E1A100;font-size:14px}.rv2 .rvt span{color:#17713F;font-size:11px;font-weight:700}
+.rv2 p{color:#1c1c1e!important}
+.rv2 mark{background:#fff3a8;color:inherit}
+.rv2 small{color:#6b6b6b;font-size:11px}
+.rv2 .circ{position:absolute;left:4%;top:34%;width:92%;height:30%;pointer-events:none}
+.cap{position:relative}
+.cap .tt{position:absolute;left:8%;right:8%;top:42%;text-align:center;font:800 15px/1.25 -apple-system,'Helvetica Neue',sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 6px #000}
+@media (max-width:560px){.feed{grid-template-columns:repeat(3,minmax(0,1fr))}.cap .tt{font-size:11px}.nnote .nt,.rv2 .rvw{font-size:10px}}
+/* Content plan */
+.cp{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px}
+@media (max-width:900px){.cp{grid-template-columns:minmax(0,1fr)}.cp-days{flex-direction:row!important;overflow-x:auto}}
+.cp-days{display:flex;flex-direction:column;gap:8px}
+.cp-day{all:unset;cursor:pointer;flex:none;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);transition:all .25s}
+.cp-day small{display:block;font:800 11px 'Montserrat';letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.cp-day b{display:block;font:700 15px 'Montserrat';color:#fff;white-space:nowrap}
+.cp-day.on{border-color:var(--gold);background:rgba(247,197,101,.12)}
+.cp-day:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.cp-card{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;padding:22px;border-radius:22px;background:#fff;color:var(--ink);min-height:360px}
+@media (max-width:700px){.cp-card{grid-template-columns:minmax(0,1fr)}}
+.cp-card p{color:var(--muted)!important}
+.cp-frame{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#222;align-self:start}
+.cp-frame img{width:100%;height:100%;object-fit:cover}
+.cp-frame .hook{position:absolute;left:8%;right:8%;top:16%;text-align:center;font:800 15px/1.25 -apple-system,'Helvetica Neue',sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 6px #000}
+.cp-frame .len{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.6);color:#fff;font:700 11px 'Montserrat';padding:3px 8px;border-radius:99px}
+.cp-meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.cp-meta span{padding:4px 10px;border-radius:99px;background:var(--pale);font:700 12px 'Montserrat';color:var(--navy)}
+.cp-meta span.st{background:#FFF1DC;color:#A2470C}
+.shots{counter-reset:s;display:grid;gap:8px;margin:0 0 12px}
+.shots li{counter-increment:s;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;font-size:15px;color:var(--ink)}
+.shots li::before{content:counter(s);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font:800 12px 'Montserrat'}
+.shots li i{font-style:normal;color:var(--muted)}
+.cp-ad{padding:10px 14px;border-radius:12px;background:#F3FBF6;border:1px solid #CDEBD8;font-size:14.5px;color:#17713F}
+
+/* 6 · Website */
+.sitegrid{grid-template-columns:340px minmax(0,1fr)!important;align-items:start!important}
+@media (max-width:900px){.sitegrid{grid-template-columns:minmax(0,1fr)!important}}
+.phone{position:relative;width:300px;height:620px;border-radius:44px;border:10px solid var(--navy);background:#fff;overflow:hidden;box-shadow:0 40px 70px -30px rgba(20,39,78,.6)}
+.phone .notch{position:absolute;z-index:3;top:0;left:50%;transform:translateX(-50%);width:110px;height:22px;background:var(--navy);border-radius:0 0 14px 14px}
+.phone .scroller{position:absolute;inset:0;overflow:hidden}
+.phone .scroller img{width:100%}
+.phone .strip{position:relative;will-change:transform}
+.phone iframe{position:absolute;top:0;left:0;width:390px;height:833px;border:0;transform:scale(.7179);transform-origin:0 0}
+.phone .layer{position:absolute;inset:0;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.phone .layer.hide{opacity:0;transform:scale(.97);pointer-events:none}
+.atcmark{position:absolute;z-index:2;left:8px;right:8px;height:30px;border:3px solid var(--red);border-radius:10px;pointer-events:none}
+.phonewrap{position:relative;width:300px}
+.dist{position:absolute;z-index:4;left:calc(100% + 14px);top:42%;background:var(--red);color:#fff;padding:10px 14px;border-radius:14px;font:800 15px/1.2 'Montserrat';white-space:nowrap;box-shadow:0 18px 30px -16px rgba(200,54,27,.7);transition:opacity .4s}
+.dist small{display:block;font:600 12px 'Nunito Sans'}
+@media (max-width:900px){.phonewrap{margin:0 auto}.dist{left:50%;top:auto;bottom:-56px;transform:translateX(-50%)}}
+.siteflip{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.findings{display:flex;flex-direction:column;gap:12px}
+.fd{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.fd>b{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 14px 'Montserrat';color:#fff;background:var(--red);transition:background .4s}
+.after .fd>b{background:var(--green)}
+.fd p{font-size:16px;color:var(--ink)}
+.fd p small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.browser{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(20,39,78,.5);background:#fff}
+.browser .bar{display:flex;gap:6px;align-items:center;padding:10px 14px;background:#F1F5F9;border-bottom:1px solid var(--line)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#D5DEE8}
+.browser .bar span{margin-left:10px;font:600 12px 'Nunito Sans';color:#6A7A91}
+.browser .view{position:relative;height:480px;overflow:hidden}
+.browser .view img{width:100%;height:100%;object-fit:cover;object-position:top}
+.browser iframe{position:absolute;top:0;left:0;width:1280px;border:0;transform-origin:0 0}
+
+/* 7 · Speed */
+.speed{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.speed .card b{font:800 34px/1 'Montserrat';color:var(--navy);letter-spacing:-.02em}
+@media (max-width:900px){.speed{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:26px}
+@media (max-width:900px){.calc{grid-template-columns:minmax(0,1fr)}}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fld label{font:700 12px 'Montserrat';letter-spacing:.14em;text-transform:uppercase;color:#6A7A91;display:flex;justify-content:space-between}
+.fld label b{color:var(--navy);letter-spacing:0;font-size:15px}
+.fld input{accent-color:var(--orange)}
+.big{font:800 clamp(40px,5vw,60px)/1 'Montserrat';letter-spacing:-.03em;color:var(--navy);font-variant-numeric:tabular-nums}
+.bars2{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.bars2 div{display:grid;grid-template-columns:80px minmax(0,1fr);gap:10px;align-items:center;font:700 13px 'Montserrat';color:var(--navy)}
+.bars2 i{display:flex;align-items:center;height:38px;padding:0 12px;border-radius:10px;color:#fff;font-style:normal;white-space:nowrap;transition:width .6s cubic-bezier(.2,.8,.2,1);min-width:max-content}
+.bars2 i.old{background:#8E9CB2}.bars2 i.new{background:linear-gradient(90deg,#E8641A,#F58A1F)}
+
+/* 8 · Route */
+.route{display:grid;grid-template-columns:110px repeat(4,minmax(0,1fr));gap:8px;font-size:14.5px}
+.route .h{font:800 12px 'Montserrat';letter-spacing:.14em;text-transform:uppercase;color:#6A7A91;padding:6px 4px}
+.route .h.o2{color:#A2470C}
+.route .l{font:800 15px 'Montserrat';color:var(--navy);padding:12px 0}
+.route .b{padding:12px 14px;border-radius:12px;font-weight:700;line-height:1.3;background:linear-gradient(90deg,#1D5FB3,#3F8FD9);color:#fff;transform-origin:left}
+.route .b.o2{background:linear-gradient(90deg,#E8641A,#F58A1F)}
+.route .b.add{background:repeating-linear-gradient(135deg,#FFF1E0 0 8px,#FFE2C2 8px 16px);border:2px dashed #F1A35B;color:#A2470C}
+.route .s2{grid-column:span 2}
+@media (max-width:900px){.route{grid-template-columns:minmax(0,1fr)}.route .h,.route .s2{grid-column:auto}.route .h{display:none}}
+
+/* 9 · Price */
+.price{display:flex;flex-direction:column;gap:14px;padding:30px;border-radius:24px;background:#fff;border:1.5px solid var(--line)}
+.price.hot{border-color:var(--orange);box-shadow:0 30px 60px -34px rgba(232,100,26,.7)}
+.price .p{font:800 54px/1 'Montserrat';letter-spacing:-.03em;color:var(--navy)}
+.list{display:flex;flex-direction:column;gap:10px}
+.list li{position:relative;padding-left:26px;font-size:16.5px;color:var(--ink)}
+.list li::before{content:"";position:absolute;left:4px;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+
+/* 10 · Land */
+.land{min-height:90vh;display:flex;align-items:center}
+.land ol{counter-reset:n;list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;margin:30px 0 0}
+.land li{counter-increment:n;display:flex;gap:16px;align-items:center;font:700 clamp(18px,2vw,24px) 'Montserrat';color:#fff}
+.land li::before{content:counter(n);flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);color:var(--navy);font-weight:800}
+.foot{position:relative;z-index:3;padding:24px;text-align:center;font-size:13px;color:#6A7A91;background:#fff;border-top:1px solid var(--line)}
+.kbd{display:inline-block;padding:1px 7px;border-radius:6px;border:1px solid #C9D6E4;font:700 12px 'Montserrat'}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#takeoff" aria-label="High Ground Agency"><img src="img/logo-mark.png" alt="" width="300" height="117"><span><b>HIGH GROUND</b><i>AGENCY</i></span></a>
+  <div class="where" aria-live="polite"><span id="whereNum">Takeoff</span> · <b id="whereName">Untamed Organics growth plan</b></div>
+  <div class="progress" id="progress"></div>
+</header>
+<nav class="rail" id="rail" aria-label="Sections"></nav>
+
+<main id="main">
+  <svg id="flight" aria-hidden="true">
+    <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C565"/><stop offset=".5" stop-color="#F58A1F"/><stop offset="1" stop-color="#E8641A"/></linearGradient></defs>
+    <path id="route"/><path id="trail"/>
+    <g id="plane"><circle class="glow" r="24"/><path class="body" d="M16 0 L-4 -3 L-10 -14 L-14 -14 L-10 -3 L-16 -3 L-19 -8 L-22 -8 L-20 0 L-22 8 L-19 8 L-16 3 L-10 3 L-14 14 L-10 14 L-4 3 Z"/></g>
+  </svg>
+
+  <!-- 0 · Takeoff -->
+  <section class="leg hero" id="takeoff" data-name="Untamed Organics growth plan">
+    <div class="wrap g2">
+      <div>
+        <div class="logos" data-r><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Untitled_design_6.png?width=300" alt="Untamed Organics"><span>×</span><img src="img/logo-mark.png" alt="High Ground Agency" style="height:44px"></div>
+        <p class="eyebrow" data-r>Growth plan · November 2026</p>
+        <h1 data-r style="margin-top:16px">You built the real thing. Let's make sure <span class="blue">people see it.</span></h1>
+        <p class="lead" data-r>Where Untamed Organics is today, what's holding sales back, and exactly how we fix each piece: ads, content, website and offer.</p>
+      </div>
+      <div class="collage">
+        <figure class="f1" data-par="6"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=900" alt="DiMarco with a highland cow on the ranch"></figure>
+        <figure class="f2" data-par="14"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=700" alt="Tallow + Manuka balm on the ranch"></figure>
+        <figure class="f3" data-par="22"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=700" alt="Tallow being cut by hand"></figure>
+        <div class="stamp" data-par="30"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Untitled_design_6.png?width=300" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 · Edge -->
+  <section class="leg pale" id="edge" data-name="Your edge">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 1 · Your edge</p><h2 data-r>You already have what most brands pay to fake</h2><p data-r>A real ranch, a real founder, real ingredients and real reviews. Most skincare brands invent this story. You lived it.</p></div>
+      <div class="edge">
+        <div class="tile big" data-r><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.23_PM.png?width=900" alt="DiMarco on the ranch"><div class="cap"><b>A founder raised on a ranch</b><span>who rebuilt his own skincare from it</span></div></div>
+        <div class="tile stat" data-r><b>4.6★</b><span>across 442 Amazon ratings</span></div>
+        <div class="tile" data-r><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=600" alt="Tallow cut by hand"><div class="cap"><b>Made by hand</b><span>small batches in Soquel</span></div></div>
+        <div class="tile" data-r><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_0be99123-627d-4f4f-a23b-e2edc12d9186.png?width=600" alt="Open balm jar in hand"><div class="cap"><b>A texture people feel</b><span>thick in the jar, melts on skin</span></div></div>
+        <div class="tile stat or" data-r><b>106</b><span>reviews on his five balms, on his own site</span></div>
+        <div class="tile wide" data-r><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=900" alt="The product line at the ranch" style="object-position:center 80%"><div class="cap"><b>18 products, one look</b><span>balms, oils, hair, candles, lip balm</span></div></div>
+      </div>
+      <p class="src" style="margin-top:16px">Reviews: 43 + 24 + 17 + 16 + 6 on his five balms (organicsuntamed.com). Amazon rating as listed on <a href="https://www.desertcart.co.za/products/691679553-tallow-castor-and-frankincense-oil-skin-balm">Desertcart</a>. All photos are his.</p>
+      <p class="notes">Open on praise. He's in Soquel, next to Aptos: offer to come film. The founder photos are already on his own site, which matters for the camera conversation later.</p>
+    </div>
+  </section>
+
+  <!-- 2 · Ads -->
+  <section class="leg" id="ads" data-name="Your ads">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 2 · Your ads</p><h2 data-r>Four ads, one message, and one is a candle</h2><p data-r>Meta decides who sees an ad by reading the ad itself. When every ad says the same thing, it can only find one kind of buyer.</p></div>
+      <div class="pf">
+        <div class="side prob" data-r>
+          <span class="lab">Today · live in the Ad Library</span>
+          <div class="fan"><img src="untamed/live-ad-1.jpg" alt="Live ad: Your lotion is mostly water"><img src="untamed/live-ad-2.jpg" alt="Live ad: Your skin isn't broken, it's inflamed"><img src="untamed/live-ad-3.jpg" alt="Live ad: antifungal balm"><img src="untamed/live-ad-4.jpg" alt="Live ad: Wild Air candle"></div>
+          <div class="today"><span>“Mostly water”</span><span>“Isn't broken”</span><span>“Fight fungus”</span><span>“Made differently”</span></div>
+          <p>Three of the four lead with the same idea: <b>our ingredients vs. the other stuff</b>. None show his story, a real customer, or the ranch.</p>
+        </div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="side fix" data-r>
+          <span class="lab">The fix · 15–20+ ads, 8 reasons to buy</span>
+          <div class="angles">
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.23_PM.png?width=400" alt=""><div><b>Founder story</b><small>ranch kid → his own skincare</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_0be99123-627d-4f4f-a23b-e2edc12d9186.png?width=400" alt=""><div><b>Texture demo</b><small>scoop, melt, rub in</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=400" alt=""><div><b>How it's made</b><small>cutting, rendering, pouring</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=400" alt=""><div><b>The ranch</b><small>where the tallow comes from</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/1_67010764-4faf-485d-b4a8-ce7c9b581897.png?width=400" alt=""><div><b>Real reviews</b><small>“first thing that works”</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/6_5ed5ef83-5626-4a6c-92f7-c4d9b1a5ba6d.png?width=400" alt="" style="object-position:left center"><div><b>Gift buyers</b><small>the 3-pack, for the holidays</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=400" alt=""><div><b>Lotion swap</b><small>keep his best hook</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=400" alt="" style="object-position:center 85%"><div><b>Men &amp; outdoors</b><small>pomade, cologne, tick balm</small></div></div>
+          </div>
+          <p>Each one reaches a different buyer: moms, label readers, gift shoppers, guys who'd never click a “skincare” ad.</p>
+        </div>
+      </div>
+      <p class="src" style="margin-top:16px">Meta Ad Library, active ads for “Untamed Organics”, captured Nov 17, 2026.</p>
+      <p class="notes">“Your skin isn't broken” has run since Aug 8, the longest of the four. Keep it, fix the wording. Every new campaign is built paused for his approval.</p>
+    </div>
+  </section>
+
+  <!-- 3 · Words -->
+  <section class="leg pale" id="words" data-name="Your ad wording">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 3 · The words in your ads</p><h2 data-r>A few words could get your ads shut off</h2><p data-r>Meta treats skin-condition and medical words as health claims. Those ads get rejected or quietly shown to fewer people. Here are your real lines, before and after.</p></div>
+      <div class="copyrow" data-r><div class="b">“Your skin isn't broken. It's <mark class="r">inflamed</mark>.”<small>Live ad, on the image</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“Your skin isn't broken. It's <mark class="g">thirsty</mark>.”<small>Same punch, no condition named</small></div></div>
+      <div class="copyrow" data-r><div class="b">“<mark class="r">Nature's Botox</mark> in a Jar”<small>Live headline</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“<mark class="g">Nature's night cream</mark> in a jar”<small>Keeps the “nature beats the lab” idea</small></div></div>
+      <div class="copyrow" data-r><div class="b">“<mark class="r">Athlete's foot. Jock itch. Ringworm.</mark> Stubborn <mark class="r">fungal infections</mark>.”<small>Live ad</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“<mark class="g">Hard-working feet. Cracked heels.</mark> Skin that takes a beating.”<small>Talks to the same person</small></div></div>
+      <div class="copyrow" data-r><div class="b">“<mark class="r">Fight fungus</mark>, <mark class="r">stop itching</mark>, <mark class="r">repair damaged skin</mark>, and <mark class="r">prevent it from coming back</mark>.”<small>Live ad text</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“Tea tree, neem, thyme and eucalyptus in grass-fed tallow. <mark class="g">Feet feel soft again</mark>.”<small>Ingredients + feeling, no promise to cure</small></div></div>
+      <div class="whybuy">
+        <h3 data-r style="font-size:24px;margin-bottom:16px">So why will people still buy?</h3>
+        <div class="g3">
+          <div class="card" data-r><b>They buy the feeling, not the diagnosis</b><p>“Soft”, “calm”, “finally works” is what people want. Nobody needs the medical word to picture it.</p></div>
+          <div class="card" data-r><b>Proof does the persuading</b><p>Reviews, a real founder, texture shots and the ranch make the case harder than any claim can, and Meta can't reject them.</p></div>
+          <div class="card" data-r><b>Ads that stay on win</b><p>A slightly softer line that keeps running all month beats a bold one that gets pulled in a week.</p></div>
+        </div>
+      </div>
+      <p class="notes">One of his own reviews says the balm healed a foot ulcer. Great for him to hear, but it must never go in an ad or on the product page.</p>
+    </div>
+  </section>
+
+  <!-- 4 · Budget -->
+  <section class="leg" id="budget" data-name="Your $500 a day">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 4 · Your $500 a day</p><h2 data-r>Four ways to spend the same budget</h2><p data-r>Meta needs about 50 sales a week in an ad set before it really knows who to show it to. How you split the money decides whether you ever get there.</p></div>
+      <div class="plans" role="tablist" data-r>
+        <button class="plan" role="tab" data-p="0"><small>Version 1</small><b>Spread thin</b></button>
+        <button class="plan on" role="tab" data-p="1"><small>Version 2</small><b>Test + scale</b></button>
+        <button class="plan" role="tab" data-p="2"><small>Version 3</small><b>Learn fast</b></button>
+        <button class="plan" role="tab" data-p="3"><small>Version 4</small><b>Holiday hold</b></button>
+      </div>
+      <div class="board" data-r>
+        <div class="card">
+          <div class="sets" id="sets"></div>
+          <div class="cpa"><span>His cost per sale</span><input type="range" id="cpa" min="15" max="60" step="1" value="30" aria-label="Cost per sale"><b id="cpaV">$30</b></div>
+          <p class="src">Set this to his real number from Ads Manager. Green = the ad set gets 50+ sales a week, so Meta can learn from it. Small testing ad sets don't need to; their job is to find the next winner.</p>
+        </div>
+        <div class="card verdict">
+          <span class="tag" id="vTag">Recommended</span>
+          <h3 id="vTitle"></h3>
+          <p id="vWhat"></p>
+          <div><p class="src" style="margin-bottom:6px">How well it should do</p><div class="meter" id="meter"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <p id="vHow" style="font-size:16px;color:var(--ink)"></p>
+        </div>
+      </div>
+      <p class="notes">Rule of thumb: an ad set's daily budget ≈ cost per sale × 7.14 to reach 50 sales in 7 days. Test fairly with separate ad-set budgets; scale proven winners with one campaign budget. Don't switch off single ads inside an ad set; switch off whole ad sets after 3–7 days.</p>
+    </div>
+  </section>
+
+  <!-- 5 · Organic -->
+  <section class="leg dark" id="organic" data-name="Content without the camera">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 5 · Organic content</p><h2 data-r>Content that looks real, because it is</h2><p data-r>The posts winning right now look like a friend filmed them on a phone. That's good news for you: the ranch, your hands and your customers already look like that.</p></div>
+      <div class="uvp" data-r>
+        <div class="uvp-col">
+          <p class="uvp-h"><span class="tag">Polished</span> Looks like an ad. Thumbs keep scrolling.</p>
+          <div class="feed">
+            <figure class="post pol"><img src="untamed/creative-botox.jpg" alt="His current studio-style ad"><figcaption>Studio render, big headline bar</figcaption></figure>
+            <figure class="post pol"><img src="untamed/creative-fungal.jpg" alt="His current antifungal ad"><figcaption>Staged bathroom, all-caps claims</figcaption></figure>
+            <figure class="post pol"><img src="untamed/creative-candle.jpg" alt="His current candle ad" style="object-fit:contain;background:#efe9e0"><figcaption>Magazine-style layout</figcaption></figure>
+          </div>
+          <p class="uvp-note">These are his live ads today. Nothing is wrong with them. They just look like ads, and people have learned to skip ads.</p>
+        </div>
+        <div class="uvp-col">
+          <p class="uvp-h"><span class="tag">Ugly</span> Looks like a post. Thumbs stop.</p>
+          <div class="feed">
+            <figure class="post ugly nnote"><div class="nt"><div class="nth">‹ Notes</div><b>why I make my own skincare</b><ol><li>grew up on a ranch</li><li>college. skin fell apart</li><li>read the labels. couldn't pronounce half</li><li>went back to tallow, beeswax, honey</li></ol><p>that's the whole brand.</p></div><figcaption>Notes-app screenshot</figcaption></figure>
+            <figure class="post ugly rv2"><div class="rvw"><div class="rvt">★★★★★ <span>Verified buyer</span></div><p>“It's the first time I've tried something that <mark>works</mark>. It's soothing and refreshing and doesn't make me itch.”</p><small>Elizabeth H. · Tallow + Manuka balm</small><svg class="circ" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M10 34C30 6 170 4 190 26c10 18-60 30-120 28C30 52 0 44 14 22" fill="none" stroke="#E8641A" stroke-width="3" stroke-linecap="round"/></svg></div><figcaption>A real review, screenshotted and circled</figcaption></figure>
+            <figure class="post ugly cap"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=500" alt="Tallow being cut by hand"><span class="tt">this is what's actually<br>in my moisturizer</span><figcaption>Raw phone photo + caption</figcaption></figure>
+          </div>
+          <p class="uvp-note">Same product, same message. “Ugly” doesn't mean sloppy. It means native: it looks like something a real person posted, so people actually read it.</p>
+        </div>
+      </div>
+
+      <div class="g2" style="align-items:start;margin-top:40px">
+        <div class="callout" data-r><span><b>What we found:</b> organicsuntamed.com has no links to Instagram, TikTok or Facebook anywhere. People who want to check you out hit a dead end.</span></div>
+        <div class="g3" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+          <div class="card" data-r><span class="tag">Free testing</span><h3 style="font-size:17px">Trial Reels</h3><p style="font-size:14.5px">Shown only to non-followers: a free test of which hook stops strangers.</p></div>
+          <div class="card" data-r><span class="tag">Posts → ads</span><h3 style="font-size:17px">Run the post itself</h3><p style="font-size:14.5px">A post that does well runs as an ad, likes and comments included.</p></div>
+          <div class="card" data-r><span class="tag">Warm buyers</span><h3 style="font-size:17px">Stories</h3><p style="font-size:14.5px">People who watch your Stories tend to see your ads next.</p></div>
+        </div>
+      </div>
+
+      <h3 data-r style="margin:70px 0 6px;font-size:26px">Your first week of content, and exactly how to film it</h3>
+      <p data-r style="margin-bottom:18px">Seven posts from one two-hour shoot. All of them work without showing your face. Tap a day.</p>
+      <div class="cp" data-r>
+        <div class="cp-days" role="tablist" id="cpDays"></div>
+        <div class="cp-card" id="cpCard" aria-live="polite"></div>
+      </div>
+      <div class="g3" style="margin-top:18px">
+        <div class="card" data-r><span class="tag">The shoot</span><h3 style="font-size:18px">One morning covers the week</h3><p style="font-size:15px">7–8am golden hour at the ranch (Mon, Wed, Sun) · 8–9am in the workshop (Tue, Thu, Sat) · anytime (Fri).</p></div>
+        <div class="card" data-r><span class="tag">Phone settings</span><h3 style="font-size:18px">Just an iPhone</h3><p style="font-size:15px">Vertical. 1080p, 30fps. Wipe the lens. Tap and hold to lock focus. Start recording 3 seconds early and stop 3 seconds late.</p></div>
+        <div class="card" data-r><span class="tag">Sound</span><h3 style="font-size:18px">Keep it real</h3><p style="font-size:15px">Real sound (wind, scraping, the lid twisting) beats music. Voice-overs go in a quiet room with the phone 6 inches away, like a voice memo.</p></div>
+      </div>
+
+      <h3 data-r style="margin:60px 0 6px;font-size:24px">Never want to be on camera? You don't have to be.</h3>
+      <p data-r style="margin-bottom:18px">Founder ads are some of the strongest ads out there. Pick a step and stop there. You're already in the photos on your own homepage.</p>
+      <div class="ladder" id="ladder" data-r>
+        <button class="rung on"><small>Step 1</small><b>Voice only</b><span>You tell the ranch story; we lay ranch footage over it.</span></button>
+        <button class="rung"><small>Step 2</small><b>Hands + voice</b><span>Your hands making a batch while you talk.</span></button>
+        <button class="rung"><small>Step 3</small><b>At the ranch</b><span>Filmed from behind or far away, working.</span></button>
+        <button class="rung"><small>Step 4</small><b>One take, phone</b><span>Sixty seconds talking to camera. No crew.</span></button>
+      </div>
+
+      <h3 data-r style="margin:60px 0 6px;font-size:24px">On AI: you're right to be careful</h3>
+      <p data-r style="margin-bottom:18px">New York now fines ads with AI-made people that aren't labeled: $1,000, then $5,000 for each repeat. And AI video that's too clean looks fake to people scrolling. So here's the line we draw.</p>
+      <div class="aiw">
+        <div class="card" data-r><span class="tag">AI we won't use</span><ul><li>✕ AI people pretending to be customers</li><li>✕ An AI “founder” or fake testimonials</li><li>✕ Anything that could pass as a real person and isn't</li></ul></div>
+        <div class="card" data-r><span class="tag">AI that just saves time</span><ul><li>✓ Dozens of static ads made from your real product photos</li><li>✓ Editing your real footage into finished videos</li><li>✓ Writing several versions of each ad's text</li><li>✓ Clearly cartoon or claymation ads nobody mistakes for real</li></ul></div>
+      </div>
+      <p class="notes">Behind this: the “yaps beat UGC” thread (raw iPhone energy beats produced UGC), the Trial Reels tip, running organic post IDs as ads, the NY AI-disclosure law post, the “your AI video is too clean” post, and the perfect founder ad example.</p>
+    </div>
+  </section>
+
+  <!-- 6 · Website -->
+  <section class="leg pale" id="site" data-name="Your website">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 6 · Your website</p><h2 data-r>Someone taps your ad. Here's what they get.</h2><p data-r>This is your real product page on a phone, the page your ads send people to. Watch how far they scroll before they can buy.</p></div>
+      <div class="g2 sitegrid" id="siteGrid">
+        <div>
+          <div class="siteflip" role="group" aria-label="Before or after"><button class="btn on" id="bBefore">Today</button><button class="btn" id="bAfter">Rebuilt</button><a class="btn go" href="untamed-site/balm.html" target="_blank" rel="noopener">Open full page ↗</a></div>
+          <div class="phonewrap">
+            <div class="phone" id="phone">
+              <div class="notch"></div>
+              <div class="layer" id="lBefore"><div class="scroller"><div class="strip" id="strip"><img id="pdpScroll" src="untamed/now-pdp-scroll.jpg" alt="His product page today on a phone, scrolling"><div class="atcmark" id="atcMark"></div></div></div></div>
+              <div class="layer hide" id="lAfter"><iframe id="pdpFrame" title="Rebuilt product page" data-src="untamed-site/balm.html"></iframe></div>
+            </div>
+            <div class="dist" id="dist">2.6 screens<small>of scrolling to Add to Cart</small></div>
+          </div>
+        </div>
+        <div class="findings" id="findings">
+          <div class="fd" data-r><b>1</b><p data-b="A 10% pop-up covers the title and price as soon as the page opens&lt;small&gt;And it says it excludes sale items. The product your ads send people to is on sale.&lt;/small&gt;" data-a="The offer is on the page, not in a pop-up&lt;small&gt;The pop-up waits until they scroll or start to leave.&lt;/small&gt;">A 10% pop-up covers the title and price as soon as the page opens<small>And it says it excludes sale items. The product your ads send people to is on sale.</small></p></div>
+          <div class="fd" data-r><b>2</b><p data-b="Add to Cart is 1,758 pixels down on a 664-pixel phone screen&lt;small&gt;About 2.6 screens of scrolling before they can buy.&lt;/small&gt;" data-a="Photo, stars, price, bundles and Add to Cart on screen one&lt;small&gt;Plus a sticky Add to Cart that follows them down the page.&lt;/small&gt;">Add to Cart is 1,758 pixels down on a 664-pixel phone screen<small>About 2.6 screens of scrolling before they can buy.</small></p></div>
+          <div class="fd" data-r><b>3</b><p data-b="Your “Most Popular” 2-pack is $39.08. Free shipping starts at $40.&lt;small&gt;Your best deal misses free shipping by 92 cents.&lt;/small&gt;" data-a="The 2-pack ships free&lt;small&gt;Move free shipping to $39 and say it on the button.&lt;/small&gt;">Your “Most Popular” 2-pack is $39.08. Free shipping starts at $40.<small>Your best deal misses free shipping by 92 cents.</small></p></div>
+          <div class="fd" data-r><b>4</b><p data-b="The page is about 15 phone screens long&lt;small&gt;The founder story, reviews and FAQ are buried far down.&lt;/small&gt;" data-a="Short, in the order people decide&lt;small&gt;Why it's different → the founder → reviews → questions → buy.&lt;/small&gt;">The page is about 15 phone screens long<small>The founder story, reviews and FAQ are buried far down.</small></p></div>
+        </div>
+      </div>
+
+      <h3 data-r style="margin:90px 0 8px;font-size:26px">And the homepage: the place for the wow</h3>
+      <p data-r style="margin-bottom:20px">Motion and story belong on the homepage, where people get to know the brand. Product pages stay fast, because every tenth of a second costs sales.</p>
+      <div class="siteflip" data-r><button class="btn on" id="hBefore">Today</button><button class="btn" id="hAfter">Rebuilt</button><a class="btn go" href="untamed-site/index.html" target="_blank" rel="noopener">Open the rebuilt homepage ↗</a></div>
+      <div class="browser" data-r>
+        <div class="bar"><i></i><i></i><i></i><span id="hUrl">organicsuntamed.com</span></div>
+        <div class="view" id="hView"><img id="hImg" src="untamed/now-home-desktop.jpg" alt="His homepage today"><iframe id="hFrame" title="Rebuilt homepage" data-src="untamed-site/index.html" style="display:none"></iframe></div>
+      </div>
+      <p class="src" style="margin-top:14px">Screenshots of organicsuntamed.com on an iPhone 13 and a laptop, Nov 17, 2026. A Google-commissioned Deloitte study found mobile retail sites 0.1 seconds faster converted 8.4% more (<a href="https://web.dev/case-studies/milliseconds-make-millions">web.dev</a>). The rebuilt pages use his real photos, prices and reviews.</p>
+      <p class="notes">Both rebuilt pages are concepts; checkout links to his live store. The bundle prices ($22.99 / $39.08 / $55.18) and Subscribe &amp; Save 15% are his real ones; free shipping at $39 is our suggestion.</p>
+    </div>
+  </section>
+
+  <!-- 7 · Speed + money -->
+  <section class="leg" id="speed" data-name="Speed and money">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 7 · How we move this fast</p><h2 data-r>What used to take weeks now takes an afternoon</h2><p data-r>We run an AI production system behind the scenes. You approve everything; it does the busywork.</p></div>
+      <div class="speed">
+        <div class="card" data-r><b>30+</b><p>static ads from one of your product photos, at about 30 cents an image</p></div>
+        <div class="card" data-r><b>50</b><p>finished ads and a paused campaign, built in a single sitting</p></div>
+        <div class="card" data-r><b>5</b><p>versions of the ad text for each ad, so Meta can test them</p></div>
+        <div class="card" data-r><b>1</b><p>folder of your raw phone clips in, edited videos out</p></div>
+      </div>
+      <div class="calc">
+        <div class="card" data-r>
+          <p class="try">Move the sliders</p>
+          <div class="fld"><label>New ads a month <b id="nAds">40</b></label><input type="range" id="sAds" min="8" max="80" step="4" value="40"></div>
+          <div class="fld"><label>Hours per ad, the old way <b id="nOld">2 h</b></label><input type="range" id="sOld" min="0.5" max="4" step="0.5" value="2"></div>
+          <div class="fld"><label>Hours per ad, with our system <b id="nNew">0.25 h</b></label><input type="range" id="sNew" min="0.1" max="1" step="0.05" value="0.25"></div>
+          <div class="bars2"><div><span>Old way</span><i class="old" id="bOld"></i></div><div><span>With us</span><i class="new" id="bNew"></i></div></div>
+          <p class="src" style="margin-top:10px">Hours are estimates; set them with him live.</p>
+        </div>
+        <div class="card" data-r style="justify-content:center">
+          <p class="src">Time saved every month</p>
+          <div class="big" id="saved">70 h</div>
+          <p style="margin-top:6px">That's time back for the ranch, making product and filming, instead of building ads.</p>
+        </div>
+      </div>
+
+      <h3 data-r style="margin:70px 0 6px;font-size:26px">What a bigger cart is worth at the same ad spend</h3>
+      <p data-r style="margin-bottom:20px">Same $500 a day, same number of sales. The only change: more people pick the 2-pack because it ships free.</p>
+      <div class="calc">
+        <div class="card" data-r>
+          <div class="fld"><label>His cost per sale <b id="mCpaV">$30</b></label><input type="range" id="mCpa" min="15" max="60" step="1" value="30"></div>
+          <div class="fld"><label>Buyers choosing the 2-pack today <b id="mTodayV">15%</b></label><input type="range" id="mToday" min="0" max="60" step="5" value="15"></div>
+          <div class="fld"><label>…after it ships free <b id="mAfterV">40%</b></label><input type="range" id="mAfter" min="0" max="80" step="5" value="40"></div>
+          <p class="src">Uses his real prices: $22.99 for 1 jar, $39.08 for the 2-pack. Set the percentages from his Shopify numbers.</p>
+        </div>
+        <div class="card" data-r style="justify-content:center">
+          <p class="src">Sales a month at $500/day: <b id="mSales" style="color:var(--navy)">500</b></p>
+          <div class="bars2" style="margin:14px 0"><div><span>Today</span><i class="old" id="mbT"></i></div><div><span>After</span><i class="new" id="mbA"></i></div></div>
+          <p class="src">Extra revenue a month</p>
+          <div class="big" id="mExtra">$0</div>
+        </div>
+      </div>
+      <p class="notes">Production numbers come from the system's own lessons (one photo → 30+ statics at ~30¢/image; 50 creatives + paused campaign; 5 text versions per ad; raw clips → edited video). The hours and percentages are estimates; set them with him.</p>
+    </div>
+  </section>
+
+  <!-- 8 · Route -->
+  <section class="leg pale" id="timeline" data-name="The first 60 days">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 8 · When it all shows up</p><h2 data-r>New ads live by day 10, then something new every week</h2></div>
+      <div class="route" id="routeGrid">
+        <span class="h"></span><span class="h">Days 1–10</span><span class="h">Days 11–30</span><span class="h o2">Days 31–45</span><span class="h o2">Days 46–60</span>
+        <span class="l">Ads</span><span class="b">Fix wording, rebuild, launch</span><span class="b">5–8 new ads a week</span><span class="b o2 s2">Scale winners, gift-buyer tests</span>
+        <span class="l">Content</span><span class="b">Ranch shoot day</span><span class="b">Weekly edits + statics</span><span class="b o2">Shoot 2 + winner versions</span><span class="b o2">Creator partnership ads</span>
+        <span class="l">Organic</span><span class="b">Social links on site</span><span class="b">Trial Reels every week</span><span class="b o2 s2">Best posts run as ads</span>
+        <span class="l">Website</span><span class="b s2">Product page: pop-up, screen one, sticky cart, free-ship 2-pack</span><span class="b add s2">Motion homepage (add-on)</span>
+        <span class="l">Reports</span><span class="b s2">Weekly report · Day 30 report</span><span class="b o2 s2">Weekly report · Day 60 report</span>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;font:700 14px 'Montserrat';color:var(--navy)" data-r><span><i style="display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-2px;background:#1F74C9"></i>Option 1</span><span><i style="display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-2px;background:#E8641A"></i>What Option 2 adds</span></div>
+      <p class="notes">If he starts before Black Friday (Nov 27), his current ads keep running untouched through the sale (budget Version 4).</p>
+    </div>
+  </section>
+
+  <!-- 9 · Price -->
+  <section class="leg" id="price" data-name="Pick your starting point">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow" data-r>Stop 9 · Pick your starting point</p><h2 data-r>Pay per cycle. Each one ends with finished work.</h2></div>
+      <div class="g2" style="align-items:stretch">
+        <div class="price" data-r><span class="tag">Option 1 · 30 days</span><h3>One cycle</h3><p class="p">$2,000</p><ul class="list"><li>Ad wording fixed, new ads live by day 10</li><li>Ranch shoot day</li><li>About 35–40 new ads</li><li>Product page fixes</li><li>Weekly reports + day 30 report</li></ul></div>
+        <div class="price hot" data-r><span class="tag warn">Option 2 · 60 days</span><h3>Two cycles</h3><p class="p">$4,000</p><ul class="list"><li>Everything in Option 1, plus:</li><li>Second shoot + 10–20 versions of each winner</li><li>Creator partnership ads</li><li>Budget scaling + gift-buyer tests</li><li>60-day report</li></ul></div>
+      </div>
+      <p class="src" data-r style="margin-top:18px">Ad spend and creator fees are separate · Motion homepage quoted separately [$__] · Recommended: 3 cycles</p>
+    </div>
+  </section>
+
+  <!-- 10 · Land -->
+  <section class="leg dark land" id="land" data-name="Next steps">
+    <div class="wrap">
+      <p class="eyebrow" data-r>Final stop · Next steps</p>
+      <h1 data-r style="color:#fff;margin-top:16px">Let's pick a start date</h1>
+      <ol><li data-r>Choose one or two cycles</li><li data-r>Share Meta ad account and Shopify access</li><li data-r>Book the ranch shoot and pick your camera step</li><li data-r>Approve the new ad wording</li></ol>
+      <p data-r style="margin-top:36px;font:700 18px 'Montserrat';color:#CFDDEE">Mike Panero · High Ground Agency</p>
+    </div>
+  </section>
+</main>
+<footer class="foot">Prepared for Untamed Organics · <span class="kbd">N</span> presenter notes</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const money = n => '$' + Math.round(n).toLocaleString('en-US');
+  const legs = $$('section.leg');
+  if (/[?&]notes/.test(location.search)) document.body.classList.add('show-notes');
+  addEventListener('keydown', e => { if ((e.key === 'n' || e.key === 'N') && !e.target.closest('input,textarea')) document.body.classList.toggle('show-notes'); });
+
+  // ---------- Smooth scroll + reveals ----------
+  const hasGsap = !!window.gsap;
+  let lenis = null;
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+  if (hasGsap && !reduce && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+  const goTo = el => lenis ? lenis.scrollTo(el, { offset: -62, duration: 1.4 }) : el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  if (hasGsap && !reduce) {
+    gsap.set('[data-r]', { opacity: 0, y: 34 });
+    ScrollTrigger.batch('[data-r]', {
+      start: 'top 92%', once: true,
+      onEnter: els => gsap.to(els, { y: 0, opacity: 1, duration: .9, ease: 'power3.out', stagger: .08, overwrite: true })
+    });
+    $$('[data-par]').forEach(el => gsap.to(el, { y: -(+el.dataset.par) * 4, ease: 'none', scrollTrigger: { trigger: '#takeoff', start: 'top top', end: 'bottom top', scrub: 1 } }));
+    gsap.from('#routeGrid .b', { scaleX: 0, opacity: 0, duration: .8, ease: 'power3.out', stagger: .05, scrollTrigger: { trigger: '#routeGrid', start: 'top 80%' } });
+    // His product page scrolls inside the phone as the section scrolls past
+    const img = $('#pdpScroll');
+    const scrollPhone = () => gsap.fromTo('#strip', { y: 0 }, { y: () => -Math.max(0, img.offsetHeight - 560), ease: 'none', scrollTrigger: { trigger: '#siteGrid', start: 'top 65%', end: 'bottom 35%', scrub: 1, invalidateOnRefresh: true } });
+    img.complete ? scrollPhone() : img.addEventListener('load', scrollPhone, { once: true });
+  }
+
+  // ---------- Flight path ----------
+  const main = $('#main'), svg = $('#flight'), route = $('#route'), trail = $('#trail'), plane = $('#plane');
+  let len = 0, table = [], stops = [], lastH = 0, cur = -1, shown = 0;
+  $('#rail').innerHTML = legs.map(s => `<a href="#${s.id}" aria-label="${s.dataset.name}"><span>${s.dataset.name}</span></a>`).join('');
+  $$('#rail a').forEach((a, i) => a.addEventListener('click', e => { e.preventDefault(); goTo(legs[i]); }));
+  function build() {
+    const W = main.clientWidth, H = main.scrollHeight;
+    lastH = H;
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.style.height = H + 'px';
+    const gutter = (W - Math.min(1140, W - 32)) / 2, wide = gutter > 70;
+    const L = wide ? gutter * 0.45 : 12, R = wide ? W - gutter * 0.62 : 12; // right lane stays clear of the section dots
+    $$('.stop').forEach(s => s.remove());
+    const pts = [];
+    legs.forEach((s, i) => {
+      const x = i % 2 ? R : L, top = s.offsetTop, h = s.offsetHeight;
+      pts.push([x, top + 110], [x, top + h - 70]);
+      const b = document.createElement('div');
+      b.className = 'stop'; b.textContent = i === 0 ? '✈' : i === legs.length - 1 ? '⚑' : i;
+      b.style.left = x + 'px'; b.style.top = (top + 110) + 'px';
+      main.appendChild(b);
+    });
+    let d = `M${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], my = (y0 + y1) / 2;
+      d += x0 === x1 ? ` L${x1} ${y1}` : ` C${x0} ${my} ${x1} ${my} ${x1} ${y1}`;
+    }
+    route.setAttribute('d', d); trail.setAttribute('d', d);
+    len = route.getTotalLength();
+    trail.style.strokeDasharray = len;
+    table = [];
+    for (let i = 0; i <= 800; i++) { const l = len * i / 800; table.push([route.getPointAtLength(l).y, l]); }
+    stops = legs.map(s => s.offsetTop + 110);
+    cur = -1;
+  }
+  function lenAtY(y) {
+    if (!table.length || y <= table[0][0]) return 0;
+    let lo = 0, hi = table.length - 1;
+    if (y >= table[hi][0]) return len;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; table[m][0] < y ? lo = m : hi = m; }
+    const [y0, l0] = table[lo], [y1, l1] = table[hi];
+    return l0 + (l1 - l0) * ((y - y0) / ((y1 - y0) || 1));
+  }
+  function frame() {
+    if (!len) return;
+    const y = scrollY + innerHeight * 0.5;
+    const target = lenAtY(y);
+    shown += (target - shown) * (reduce ? 1 : 0.14); // ease toward the target so the plane glides, never jumps
+    if (Math.abs(target - shown) < 0.3) shown = target;
+    trail.style.strokeDashoffset = len - shown;
+    const p = route.getPointAtLength(shown), q = route.getPointAtLength(Math.min(len, shown + 3));
+    const ang = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI;
+    plane.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${ang.toFixed(1)})`);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    $('#progress').style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    let idx = 0; const m = $$('.stop');
+    stops.forEach((s, i) => { const hit = y >= s - 4; if (m[i] && m[i].classList.contains('hit') !== hit) m[i].classList.toggle('hit', hit); if (hit) idx = i; });
+    if (idx !== cur) {
+      cur = idx;
+      $('#whereNum').textContent = idx === 0 ? 'Takeoff' : idx === legs.length - 1 ? 'Landing' : 'Stop ' + idx;
+      $('#whereName').textContent = legs[idx].dataset.name;
+      $$('#rail a').forEach((a, i) => a.classList.toggle('on', i === idx));
+    }
+  }
+  if (hasGsap) gsap.ticker.add(frame); else (function loop() { frame(); requestAnimationFrame(loop); })();
+  const rebuild = () => { build(); hasGsap && ScrollTrigger.refresh(); };
+  addEventListener('load', rebuild);
+  document.fonts && document.fonts.ready.then(rebuild);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(rebuild, 200); });
+  new ResizeObserver(() => { if (Math.abs(main.scrollHeight - lastH) > 30) { clearTimeout(rt); rt = setTimeout(rebuild, 250); } }).observe(main);
+  build();
+
+  // ---------- Budget versions ----------
+  const PLANS = [
+    { title: 'Spread thin: 8 ad sets at about $62 each', tag: 'What most accounts do', score: 1,
+      sets: [['Ingredients', 62, 't'], ['Founder', 62, 't'], ['Reviews', 62, 't'], ['Gifts', 62, 't'], ['Texture', 63, 't'], ['Ranch', 63, 't'], ['Men', 63, 't'], ['Candles', 63, 't']],
+      what: 'Lots of separate tests at once, each with a small slice of the money.',
+      how: 'No ad set gets enough sales for Meta to learn who buys. Costs stay high and results bounce around week to week.' },
+    { title: 'Test + scale: $150 testing, $350 on winners', tag: 'Recommended', score: 4,
+      sets: [['Test: founder + ranch', 75, 't'], ['Test: reviews + texture', 75, 't'], ['Scale: proven winners', 350, 's']],
+      what: 'Two small testing ad sets try new ads every week. Anything that works moves into one scaling campaign with most of the money.',
+      how: 'A steady stream of new winners, while most of the budget always sits behind ads already proven to sell. The best balance for $500 a day.' },
+    { title: 'Learn fast: two big ad sets', tag: 'Most stable', score: 3,
+      sets: [['Persona A: everyday skin', 250, 's'], ['Persona B: gifts + men', 250, 's']],
+      what: 'All the money in two ad sets, each loaded with 5–10 very different ads for one type of buyer.',
+      how: 'Meta learns fastest and costs settle quickly, but fewer new ideas get tested, so winners wear out sooner.' },
+    { title: 'Holiday hold: protect what works', tag: 'Black Friday to New Year', score: 3,
+      sets: [['Current best ads (untouched)', 400, 's'], ['Light testing', 100, 't']],
+      what: 'Through the holidays, proven ads keep 80% of the money and nobody touches them. A small test budget gets new ads ready for January.',
+      how: 'The safest way through the most expensive weeks of the year. Bigger tests wait until costs drop in January.' }
+  ];
+  let plan = 1;
+  function drawPlan(animate) {
+    const P = PLANS[plan], cpa = +$('#cpa').value;
+    $('#cpaV').textContent = '$' + cpa;
+    $('#sets').innerHTML = P.sets.map(([n, b, k]) => {
+      const wk = Math.round(b / cpa * 7), ok = wk >= 50;
+      return `<div class="set"><span class="nm">${n}<small>$${b}/day</small></span><span class="bar"><i class="${k}" style="width:${Math.max(10, b / 400 * 100)}%">$${b}</i></span><span class="ok ${ok ? 'y' : 'n'}">${wk} sales/wk ${ok ? '✓' : '✕'}</span></div>`;
+    }).join('');
+    $('#vTitle').textContent = P.title; $('#vTag').textContent = P.tag;
+    $('#vTag').className = 'tag' + (plan === 1 ? ' ok' : plan === 0 ? ' bad' : '');
+    $('#vWhat').textContent = P.what; $('#vHow').textContent = P.how;
+    $$('#meter i').forEach((m, i) => m.classList.toggle('on', i <= P.score));
+    if (animate && hasGsap && !reduce) {
+      gsap.from('#sets .bar i', { scaleX: 0, transformOrigin: 'left', duration: .6, stagger: .05, ease: 'power3.out' });
+      gsap.from('.verdict > *', { y: 10, opacity: 0, duration: .45, stagger: .05, ease: 'power2.out' });
+    }
+  }
+  $$('.plan').forEach(b => b.addEventListener('click', () => { plan = +b.dataset.p; $$('.plan').forEach(x => x.classList.toggle('on', x === b)); drawPlan(true); }));
+  $('#cpa').addEventListener('input', () => drawPlan(false));
+  drawPlan(false);
+  console.assert(Math.round(75 / 30 * 7) === 18 && Math.round(250 / 30 * 7) === 58, 'budget math');
+
+
+  // ---------- Content plan ----------
+  const IMG = 'https://cdn.shopify.com/s/files/1/0683/0718/9987/files/';
+  const PLAN = [
+    { d:'Mon', t:'Ranch morning story', step:'Step 1 · voice only', len:'30–45 s', img:IMG+'Screenshot_2025-06-16_at_8.54.47_PM.png?width=500', hook:"I was raised on a ranch. College wrecked my skin.",
+      shots:['Wide: the pasture at sunrise, phone on a fence post, 10 s <i>(no one in frame)</i>','Walk-away: you walking toward the cows, filmed from behind, 8 s','Close: hand on a fence rail or a cow, 5 s','Voice memo, recorded after: why you started, in your words, under 40 s'],
+      ad:'Becomes: the founder-story ad, with his voice over these clips.' },
+    { d:'Tue', t:'Rendering day', step:'Hands only', len:'15–20 s', img:IMG+'7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=500', hook:"This is what's actually in my moisturizer",
+      shots:['Overhead: knife cutting the tallow block, phone propped above the board, 4 s','Side: tallow melting in the pot, real sizzle sound, 4 s','Close: pouring into the amber jars, 5 s','Close: lid twisting on, 3 s'],
+      ad:"Becomes: a “how it's made” ad. No talking, just the real sounds." },
+    { d:'Wed', t:'Texture test', step:'Hands only', len:'10–15 s', img:IMG+'7_0be99123-627d-4f4f-a23b-e2edc12d9186.png?width=500', hook:'Thick in the jar. Gone in 10 seconds.',
+      shots:['Close: open the jar in morning sun, 3 s','Close: scoop with a fingertip, 3 s','Close: rub into the back of the hand until it disappears, 6 s','Hold the hand to the light: no shine, 2 s'],
+      ad:'Becomes: the texture demo, one of the strongest skincare ad styles.' },
+    { d:'Thu', t:'Label read', step:'Hands + voice', len:'20–30 s', img:IMG+'2_b208fa6e-90bc-4bf0-9c7d-d1a04ce8c003.png?width=500', hook:"Your lotion's first ingredient is water.",
+      shots:['Close: a store-bought lotion, finger on “water / aqua”, 5 s','Close: your jar, finger running down the ingredient list, 8 s','Voice: read both lists out loud, plainly','End: both side by side on the counter, 3 s'],
+      ad:'Becomes: the lotion-swap ad, his current best hook with a better video.' },
+    { d:'Fri', t:'Review screenshot', step:'No filming', len:'Image', img:IMG+'3_3d3ecaac-8fc7-4561-a49c-cd41b6662837.png?width=500', hook:"“The first thing I've tried that works.”",
+      shots:['Screenshot a real review from the store','Circle the best line with the markup pen','Post as a photo, or film the phone screen for 5 s','Ask the reviewer before using their name'],
+      ad:'Becomes: a review ad. Real words from a real buyer, no claims added.' },
+    { d:'Sat', t:'Packing orders', step:'Hands only', len:'15 s', img:IMG+'6_5ed5ef83-5626-4a6c-92f7-c4d9b1a5ba6d.png?width=500', hook:'Packing your orders in Soquel this morning',
+      shots:['Overhead: a stack of jars on the bench, 3 s','Close: two jars going into a box, 4 s','Close: handwritten thank-you note, 3 s','Wide: the stack of boxes by the door, 3 s'],
+      ad:'Becomes: a small-batch trust ad and a nudge toward the 2-pack.' },
+    { d:'Sun', t:'Answer a question', step:'Voice or text only', len:'20 s', img:IMG+'Tallow-Manuka-Black-Seed-1080x1080.png?width=500', hook:'“Is tallow just beef fat?”',
+      shots:['Pick a real question from DMs or comments','Text on screen over ranch footage from Monday','Answer in 2–3 short lines','End on the jar on the ranch fence, 3 s'],
+      ad:'Becomes: an objection-busting ad for people on the fence.' }
+  ];
+  let day = 0;
+  $('#cpDays').innerHTML = PLAN.map((p, i) => `<button class="cp-day${i ? '' : ' on'}" role="tab" data-i="${i}"><small>${p.d}</small><b>${p.t}</b></button>`).join('');
+  function drawDay() {
+    const p = PLAN[day];
+    $('#cpCard').innerHTML = `<div class="cp-frame"><img src="${p.img}" alt=""><span class="hook">${p.hook}</span><span class="len">${p.len}</span></div>
+      <div><span class="tag">${p.d} · ${p.t}</span><div class="cp-meta"><span class="st">${p.step}</span><span>${p.len}</span><span>iPhone, vertical</span></div>
+      <p style="font:700 13px Montserrat;letter-spacing:.14em;text-transform:uppercase;color:#6A7A91!important;margin-bottom:8px">Shot list</p>
+      <ol class="shots">${p.shots.map(x => `<li><span>${x}</span></li>`).join('')}</ol><div class="cp-ad">${p.ad}</div></div>`;
+    if (hasGsap && !reduce) gsap.from('#cpCard > *', { y: 12, opacity: 0, duration: .45, stagger: .06, ease: 'power2.out' });
+  }
+  $$('.cp-day').forEach(b => b.addEventListener('click', () => { day = +b.dataset.i; $$('.cp-day').forEach(x => x.classList.toggle('on', x === b)); drawDay(); }));
+  drawDay();
+
+  // ---------- Founder ladder ----------
+  $$('#ladder .rung').forEach((r, i, all) => r.addEventListener('click', () => all.forEach((x, j) => x.classList.toggle('on', j <= i))));
+
+  // ---------- Website before / after ----------
+  const load = f => { if (!f.getAttribute('src') && f.dataset.src) f.src = f.dataset.src; };
+  function setPdp(after) {
+    if (after) load($('#pdpFrame'));
+    $('#lBefore').classList.toggle('hide', after); $('#lAfter').classList.toggle('hide', !after);
+    $('#dist').style.opacity = after ? 0 : 1;
+    $('#bAfter').classList.toggle('on', after); $('#bBefore').classList.toggle('on', !after);
+    $('#siteGrid').classList.toggle('after', after);
+    $$('#findings p[data-b]').forEach(p => p.innerHTML = after ? p.dataset.a : p.dataset.b);
+    if (hasGsap && !reduce) gsap.fromTo('#findings .fd', { x: 14, opacity: .2 }, { x: 0, opacity: 1, duration: .5, stagger: .07, ease: 'power2.out' });
+  }
+  $('#bBefore').addEventListener('click', () => setPdp(false));
+  $('#bAfter').addEventListener('click', () => setPdp(true));
+  // Red box over his real Add to Cart in the capture (y 1,815 of 2,000 at 390px wide)
+  const pImg = $('#pdpScroll');
+  const placeMark = () => { $('#atcMark').style.top = (pImg.offsetHeight * (1815 / 2000) - 15) + 'px'; };
+  pImg.complete ? placeMark() : pImg.addEventListener('load', placeMark, { once: true });
+  addEventListener('resize', placeMark);
+  const hv = $('#hView'), hf = $('#hFrame');
+  const fitH = () => { const s = hv.clientWidth / 1280; hf.style.transform = `scale(${s})`; hf.style.height = (hv.clientHeight / s) + 'px'; };
+  function setHome(after) {
+    if (after) load(hf);
+    hf.style.display = after ? 'block' : 'none'; $('#hImg').style.display = after ? 'none' : 'block';
+    $('#hUrl').textContent = after ? 'Untamed Organics · rebuilt homepage (concept)' : 'organicsuntamed.com';
+    $('#hAfter').classList.toggle('on', after); $('#hBefore').classList.toggle('on', !after);
+    fitH();
+  }
+  $('#hBefore').addEventListener('click', () => setHome(false));
+  $('#hAfter').addEventListener('click', () => setHome(true));
+  addEventListener('resize', fitH);
+
+  // ---------- Time saved ----------
+  function drawTime() {
+    const n = +$('#sAds').value, o = +$('#sOld').value, w = +$('#sNew').value;
+    $('#nAds').textContent = n; $('#nOld').textContent = o + ' h'; $('#nNew').textContent = w + ' h';
+    const oh = n * o, nh = n * w;
+    $('#bOld').style.width = '100%'; $('#bOld').textContent = Math.round(oh) + ' hours';
+    $('#bNew').style.width = Math.max(6, nh / oh * 100) + '%'; $('#bNew').textContent = Math.round(nh) + ' h';
+    $('#saved').textContent = Math.round(oh - nh) + ' h';
+  }
+  ['#sAds', '#sOld', '#sNew'].forEach(s => $(s).addEventListener('input', drawTime)); drawTime();
+
+  // ---------- Bigger cart ----------
+  function drawMoney() {
+    const cpa = +$('#mCpa').value, t = +$('#mToday').value / 100, a = +$('#mAfter').value / 100;
+    $('#mCpaV').textContent = '$' + cpa; $('#mTodayV').textContent = Math.round(t * 100) + '%'; $('#mAfterV').textContent = Math.round(a * 100) + '%';
+    const sales = 500 * 30 / cpa, aov = s => s * 39.08 + (1 - s) * 22.99;
+    const rT = sales * aov(t), rA = sales * aov(a), mx = Math.max(rT, rA);
+    $('#mSales').textContent = Math.round(sales).toLocaleString('en-US');
+    $('#mbT').style.width = (rT / mx * 100) + '%'; $('#mbT').textContent = money(rT);
+    $('#mbA').style.width = (rA / mx * 100) + '%'; $('#mbA').textContent = money(rA);
+    $('#mExtra').textContent = (rA >= rT ? '+' : '−') + money(Math.abs(rA - rT));
+  }
+  ['#mCpa', '#mToday', '#mAfter'].forEach(s => $(s).addEventListener('input', drawMoney)); drawMoney();
+  console.assert(Math.round(500 * 30 / 30 * (0.25 * 16.09)) === 2011, 'cart math');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tallow + Manuka Balm — Untamed Organics (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Concept rebuild of his product page. Colours are taken from his own product-page CSS. Built phone-first: what sells is on screen one. */
+:root{--ink:#2b1e18;--muted:#6b5d4f;--line:#e3d8c4;--paper:#faf6ef;--accent:#8a6d4b;--deep:#4b403a;--green:#2f6b3f;--gold:#e1a100}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 'Assistant',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Spectral',Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+p{margin:0}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.bar{background:var(--deep);color:#fff;text-align:center;font:700 12px/1 'Assistant';letter-spacing:.12em;text-transform:uppercase;padding:10px 12px}
+.bar b{color:#f6d79b}
+header{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:30}
+header img{height:48px;width:auto}
+header .ic{display:flex;gap:16px;align-items:center}
+header .cartbtn{position:relative;background:none;border:0;padding:6px}
+header .cartbtn i{position:absolute;top:0;right:-2px;min-width:18px;height:18px;border-radius:9px;background:var(--ink);color:#fff;font:800 11px/18px 'Assistant';font-style:normal;text-align:center;transform:scale(0);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+header .cartbtn i.on{transform:scale(1)}
+.concept{background:#fff6dd;border-bottom:1px solid #f1dfae;color:#6b4e12;font-size:13px;text-align:center;padding:6px 12px}
+
+/* Hero / buy box */
+.buy{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;padding:22px 0 30px}
+.gal{position:relative}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:start}
+.flag{position:absolute;z-index:2;left:12px;top:12px;background:var(--ink);color:#fff;font:800 13px 'Assistant';padding:7px 12px;border-radius:999px;letter-spacing:.02em}
+.flag b{color:#f6d79b}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.dots span{width:7px;height:7px;border-radius:50%;background:var(--line);transition:all .3s}
+.dots span.on{width:20px;border-radius:9px;background:var(--accent)}
+.mini{display:flex;gap:10px;align-items:center;margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--paper);font-size:14.5px;color:var(--muted)}
+.mini b{color:var(--ink)}
+.info{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font:800 12px 'Assistant';letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.info h1{font-size:clamp(28px,4vw,40px);line-height:1.1}
+.info .sub{color:var(--muted);font-size:16px}
+.stars{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--muted)}
+.stars span{color:var(--gold);letter-spacing:2px;font-size:16px}
+.stars a{color:var(--muted)}
+.price{display:flex;align-items:baseline;gap:10px}
+.price b{font:700 30px 'Spectral'}
+.price s{color:#9b8f80;font-size:18px}
+.price em{font-style:normal;background:#e8f1ea;color:var(--green);font:800 12px 'Assistant';padding:4px 9px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.vals{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.vals li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;font-weight:600}
+.vals li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.ladder{display:grid;gap:10px}
+.opt{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;background:#fff;text-align:left;transition:border-color .2s,box-shadow .2s,background .2s}
+.opt:hover{border-color:#cdbb9b}
+.opt.on{border-color:var(--ink);background:var(--paper);box-shadow:0 10px 24px -18px rgba(43,30,24,.6)}
+.opt .r{width:20px;height:20px;border-radius:50%;border:2px solid #bfae94;transition:all .2s}
+.opt.on .r{border:6px solid var(--ink)}
+.opt b{display:block;font-size:17px}
+.opt small{display:block;color:var(--muted);font-size:13.5px}
+.opt .pr{text-align:right}
+.opt .pr b{font:700 19px 'Spectral'}
+.opt .pr s{display:block;font-size:13px;color:#9b8f80}
+.opt .tag{position:absolute;top:-10px;right:14px;background:var(--ink);color:#fff;font:800 10.5px 'Assistant';letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.opt .tag.ship{background:var(--green)}
+.subs{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1.5px dashed #cdbb9b;font-size:15px;background:#fff;cursor:pointer}
+.subs input{accent-color:var(--ink);width:18px;height:18px}
+.subs b{color:var(--green)}
+.atc{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;border:0;border-radius:14px;background:var(--ink);color:#fff;font:800 17px 'Assistant';letter-spacing:.02em;transition:transform .15s,background .2s}
+.atc:hover{background:#3d2b22}
+.atc:active{transform:scale(.98)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;font-size:12.5px;color:var(--muted);font-weight:600}
+.trust div{padding:8px 4px;border-radius:10px;background:var(--paper)}
+.trust b{display:block;font-size:18px}
+@media (max-width:820px){.buy{grid-template-columns:minmax(0,1fr);gap:12px;padding-top:10px}.info{gap:10px}.info h1{font-size:24px}.slides img{aspect-ratio:4/3}.mini{display:none}.concept{font-size:11px;padding:4px 10px}header{padding:6px 14px}header img{height:38px}.flag{font-size:11.5px;padding:5px 10px}.vals li{font-size:14.5px}body{padding-bottom:76px}}
+
+/* Sections */
+section.s{padding:56px 0;border-top:1px solid var(--line)}
+section.s.paper{background:var(--paper)}
+.s h2{font-size:clamp(26px,3.6vw,38px);line-height:1.15;margin-bottom:14px}
+.lead{font-size:19px;color:var(--muted);max-width:640px}
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.vs>div{padding:20px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.vs h3{font-size:20px;margin-bottom:10px}
+.vs ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15.5px}
+.vs .old li::before{content:"✕ ";color:#b04a2f;font-weight:800}
+.vs .new{border-color:var(--ink);box-shadow:0 18px 40px -30px rgba(43,30,24,.6)}
+.vs .new li::before{content:"✓ ";color:var(--green);font-weight:800}
+.bens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.ben img{border-radius:16px;aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
+.ben h3{font-size:20px;margin:12px 0 4px}
+.ben p{color:var(--muted);font-size:15.5px}
+@media (max-width:820px){.vs,.bens{grid-template-columns:minmax(0,1fr)}}
+.founder{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;align-items:center}
+.founder img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;width:100%;height:auto}
+.founder blockquote{margin:16px 0;font:500 21px/1.5 'Spectral';color:var(--ink)}
+.founder cite{font-style:normal;font-weight:700;color:var(--accent)}
+@media (max-width:820px){.founder{grid-template-columns:minmax(0,1fr)}}
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.rev{padding:20px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.rev span{color:var(--gold);letter-spacing:2px}
+.rev h3{font-size:18px;margin:6px 0}
+.rev p{color:var(--muted);font-size:15.5px}
+.rev small{display:block;margin-top:10px;font-weight:700}
+@media (max-width:820px){.revs{grid-template-columns:minmax(0,1fr)}}
+.fit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.fit div{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+@media (max-width:820px){.fit{grid-template-columns:minmax(0,1fr)}}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font:600 18px 'Spectral';list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";font-family:'Assistant';font-weight:800;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:8px}
+.final{text-align:center;padding:60px 0 120px}
+.final .atc{max-width:420px;margin:18px auto 0}
+.g{color:var(--muted);font-size:14px;margin-top:10px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* Sticky ATC */
+.sticky{position:fixed;z-index:40;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.on{transform:none}
+.sticky img{width:46px;height:46px;border-radius:10px;object-fit:cover}
+.sticky div{flex:1;min-width:0;line-height:1.25}
+.sticky div b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky div small{color:var(--muted);font-size:13px}
+.sticky .atc{width:auto;padding:13px 20px;font-size:15px}
+
+/* Cart drawer */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(43,30,24,.4);opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.drawer.on{transform:none}
+.drawer header{position:static}
+.drawer h3{font-size:22px}
+.ship{padding:16px 18px;background:var(--paper);border-bottom:1px solid var(--line)}
+.ship p{font-weight:700;font-size:15px}
+.track{height:10px;border-radius:99px;background:#eadfcd;margin-top:10px;overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:99px;background:var(--accent);transition:width .5s cubic-bezier(.2,.8,.2,1),background .3s}
+.track i.done{background:var(--green)}
+.line{display:flex;gap:14px;padding:18px;border-bottom:1px solid var(--line);align-items:center}
+.line img{width:72px;height:72px;border-radius:12px;object-fit:cover}
+.line div{flex:1}
+.line small{color:var(--muted)}
+.upsell{margin:16px 18px;padding:14px;border-radius:14px;border:1.5px dashed #cdbb9b;font-size:14.5px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.upsell button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:8px 14px;font-weight:800}
+.foot{margin-top:auto;padding:18px;border-top:1px solid var(--line)}
+.foot .row{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:12px}
+.x{background:none;border:0;font-size:28px;line-height:1;padding:4px 8px}
+</style>
+</head>
+<body>
+<div class="concept">Concept preview by High Ground Agency · real photos, prices and reviews from organicsuntamed.com</div>
+<div class="bar">Grass-fed tallow, made by hand in Soquel, CA · <b>2-packs ship free</b></div>
+<header>
+  <a href="index.html" aria-label="Untamed Organics home"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Untitled_design_6.png?width=300" alt="Untamed Organics" width="150" height="80"></a>
+  <div class="ic"><button class="cartbtn" id="openCart" aria-label="Open cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><i id="count">0</i></button></div>
+</header>
+
+<main class="wrap">
+  <div class="buy">
+    <div class="gal">
+      <div class="flag">Most popular: <b>2-pack · save 15%</b></div>
+      <div class="slides" id="slides">
+        <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=900" alt="Tallow + Manuka + Black Seed balm on the ranch" width="900" height="900">
+        <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/4_e60453f3-263a-4d73-8bfe-3f92689ca830.png?width=900" alt="Open jar in hand: thick, silky, fast-absorbing" width="900" height="900" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_b208fa6e-90bc-4bf0-9c7d-d1a04ce8c003.png?width=900" alt="The ingredients in the balm" width="900" height="900" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/8_f5701f0d-d623-46a9-aff7-3089e43dcd37.png?width=900" alt="DiMarco with a cow on the ranch" width="900" height="900" loading="lazy">
+      </div>
+      <div class="dots" id="dots"><span class="on"></span><span></span><span></span><span></span></div>
+      <div class="mini">“<b>It's the first time I've tried something that works.</b>” — Elizabeth H. ★★★★★</div>
+    </div>
+
+    <div class="info">
+      <p class="eyebrow">Concentrated skin food</p>
+      <h1>Dry, tired-looking skin? Feed it real ingredients.</h1>
+      <p class="sub">Tallow, Manuka, Black Seed &amp; Frankincense Skin Balm · 2 oz</p>
+      <div class="stars"><span>★★★★★</span><a href="#reviews">4.8 · 16 reviews</a></div>
+      <div class="price"><b id="priceNow">$22.99</b><s id="priceWas">$27.99</s><em id="save">Save 18%</em></div>
+      <ul class="vals">
+        <li>Grass-fed tallow, Manuka honey, black seed oil, frankincense</li>
+        <li>No water. No fillers. No synthetic fragrance.</li>
+        <li>Not in love with it? Full refund, no questions asked.</li>
+      </ul>
+      <div class="ladder" role="radiogroup" aria-label="How many jars">
+        <button class="opt" role="radio" data-n="1" data-p="22.99" data-w="27.99"><span class="r"></span><span><b>1 jar</b><small>Try it</small></span><span class="pr"><b>$22.99</b></span></button>
+        <button class="opt on" role="radio" aria-checked="true" data-n="2" data-p="39.08" data-w="45.98"><span class="tag ship">Ships free</span><span class="r"></span><span><b>2 jars</b><small>$19.54 a jar · one for the bathroom, one for your bag</small></span><span class="pr"><b>$39.08</b><s>$45.98</s></span></button>
+        <button class="opt" role="radio" data-n="3" data-p="55.18" data-w="68.97"><span class="tag">Best value</span><span class="r"></span><span><b>3 jars</b><small>$18.39 a jar · share one</small></span><span class="pr"><b>$55.18</b><s>$68.97</s></span></button>
+      </div>
+      <label class="subs"><input type="checkbox" id="sub"> <span>Subscribe &amp; Save <b>15%</b> on 1 jar · skip or cancel anytime</span></label>
+      <button class="atc" id="atc">Add to cart · <span id="atcPrice">$39.08</span></button>
+      <div class="trust"><div><b>5★</b>13 of 16 reviews</div><div><b>Soquel</b>hand-made</div><div><b>Refund</b>if you don't love it</div></div>
+    </div>
+  </div>
+</main>
+
+<section class="s paper"><div class="wrap">
+  <p class="eyebrow rv">Why it's different</p>
+  <h2 class="rv">Your skin isn't broken. Your lotion is mostly water.</h2>
+  <p class="lead rv">Most moisturizers start with water and add thickeners to hold it together. This one starts with grass-fed tallow. So what are you actually putting on your skin every day?</p>
+  <div class="vs">
+    <div class="old rv"><h3>Typical lotion</h3><ul><li>Water as the first ingredient</li><li>Fillers to stretch the jar</li><li>Synthetic fragrance</li><li>Made by the million</li></ul></div>
+    <div class="new rv"><h3>Untamed balm</h3><ul><li>Grass-fed, grass-finished tallow first</li><li>Manuka honey, black seed oil, jojoba, raw beeswax, frankincense, vitamin E</li><li>No added fragrance</li><li>Made by hand in small batches in Soquel</li></ul></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap">
+  <p class="eyebrow rv">What you'll notice</p>
+  <h2 class="rv">One jar. Face, hands, body.</h2>
+  <div class="bens">
+    <div class="ben rv"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/3_3d3ecaac-8fc7-4561-a49c-cd41b6662837.png?width=600" alt="Balm on a fingertip" loading="lazy" width="600" height="600"><h3>Melts right in</h3><p>Thick in the jar, silky on skin, with no greasy residue.</p></div>
+    <div class="ben rv"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_0be99123-627d-4f4f-a23b-e2edc12d9186.png?width=600" alt="Jar held in hands" loading="lazy" width="600" height="600"><h3>Skin feels soft</h3><p>Use it on dry patches, elbows, cuticles and anywhere that feels rough.</p></div>
+    <div class="ben rv"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=600" alt="DiMarco with a highland cow on the ranch" loading="lazy" width="600" height="600"><h3>You know where it's from</h3><p>Tallow from grass-fed, grass-finished cattle on farms we know by name.</p></div>
+  </div>
+</div></section>
+
+<section class="s paper"><div class="wrap founder">
+  <img class="rv" src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.23_PM.png?width=800" alt="DiMarco Del Curto, founder, on the ranch" loading="lazy" width="800" height="1000">
+  <div>
+    <p class="eyebrow rv">From the founder</p>
+    <h2 class="rv">Raised on a ranch. Rebuilt my skincare from it.</h2>
+    <blockquote class="rv">“College changed things fast. Packaged food, fluorescent lights, and product labels that read like chemistry exams. So I went back to what I knew.”</blockquote>
+    <p class="rv"><cite>DiMarco Del Curto, founder</cite></p>
+  </div>
+</div></section>
+
+<section class="s" id="reviews"><div class="wrap">
+  <p class="eyebrow rv">Reviews</p>
+  <h2 class="rv">4.8 stars from 16 reviews</h2>
+  <div class="revs">
+    <div class="rev rv"><span>★★★★★</span><h3>“The first time I've tried something that works”</h3><p>It's soothing and refreshing and doesn't make me itch.</p><small>Elizabeth H.</small></div>
+    <div class="rev rv"><span>★★★★★</span><h3>“Love the texture”</h3><p>Love the texture, the scent and is very hydrating.</p><small>Wanda D.</small></div>
+    <div class="rev rv"><span>★★★★★</span><h3>“I bought a 2nd jar”</h3><p>It works!! is all I can say.</p><small>Craig B.</small></div>
+  </div>
+</div></section>
+
+<section class="s paper"><div class="wrap">
+  <h2 class="rv">Is it for you?</h2>
+  <div class="fit">
+    <div class="rv"><h3>Yes, if</h3><p>you want one simple balm with ingredients you can pronounce, and your skin feels dry or tired.</p></div>
+    <div class="rv"><h3>Maybe not, if</h3><p>you want a light, watery lotion, or you avoid animal ingredients. Try our facial oil rollers instead.</p></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap" style="max-width:760px">
+  <h2 class="rv">Questions</h2>
+  <details><summary>What's in it?</summary><p>Grass-fed, grass-finished beef tallow, organic jojoba oil, organic raw beeswax, organic black seed oil, Manuka honey (355+ MGO), organic frankincense essential oil, vitamin E.</p></details>
+  <details><summary>How do I use it?</summary><p>Warm a small amount between your fingers and press it into your face, hands, body, elbows, cuticles or dry patches. Patch test first, and give it 4–8 weeks of consistent use.</p></details>
+  <details><summary>How big is the jar?</summary><p>2 oz in a reusable amber glass jar.</p></details>
+  <details><summary>Where is it made?</summary><p>By hand, in small batches, in our facility in Soquel, California.</p></details>
+  <details><summary>What if I don't like it?</summary><p>Full refund, no questions asked.</p></details>
+  <details><summary>How does Subscribe &amp; Save work?</summary><p>15% off the 1-jar size, delivered on your schedule. Multipacks are one-time purchases.</p></details>
+  <div class="final"><h2>Ready to feed your skin?</h2><button class="atc" data-atc>Add 2 jars · $39.08 · ships free</button><p class="g">Full refund if you don't love it.</p></div>
+</div></section>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=120" alt="">
+  <div><b>Tallow + Manuka Balm</b><small>★★★★★ 4.8 · <span id="stickyPrice">2 jars · $39.08</span></small></div>
+  <button class="atc" data-atc>Add to cart</button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <header><h3>Your cart</h3><button class="x" id="closeCart" aria-label="Close cart">×</button></header>
+  <div class="ship"><p id="shipMsg">You unlocked free shipping</p><div class="track"><i id="shipFill"></i></div></div>
+  <div id="lines"></div>
+  <div class="upsell"><span>Add a <b>Tallow Lip Balm 4-pack</b> for $11.99</span><button id="addLip">Add</button></div>
+  <div class="foot"><div class="row"><span>Total</span><span id="total">$0.00</span></div><a class="atc" style="text-decoration:none" href="https://organicsuntamed.com/products/tallow-manuka-black-seed-frankincense-skin-balm" target="_blank" rel="noopener">Checkout</a><p class="g" style="text-align:center">Concept: checkout opens his live store.</p></div>
+</aside>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const money = n => '$' + n.toFixed(2);
+  const FREE = 39; // proposed: free shipping from $39 so the most-popular 2-pack ships free (today it's $40)
+
+  // Gallery dots
+  const slides = $('#slides'), dots = $$('#dots span');
+  slides.addEventListener('scroll', () => { const i = Math.round(slides.scrollLeft / slides.clientWidth); dots.forEach((d, j) => d.classList.toggle('on', i === j)); }, { passive: true });
+
+  // Bundle ladder
+  let pick = { n: 2, p: 39.08, w: 45.98 };
+  const opts = $$('.opt');
+  function render() {
+    const sub = $('#sub').checked && pick.n === 1;
+    const p = sub ? 19.54 : pick.p;
+    $('#priceNow').textContent = money(p);
+    $('#priceWas').textContent = money(pick.n === 1 ? 27.99 : pick.w);
+    const was = pick.n === 1 ? 27.99 : pick.w;
+    $('#save').textContent = 'Save ' + Math.round((1 - p / was) * 100) + '%';
+    $('#atcPrice').textContent = money(p);
+    $('#stickyPrice').textContent = (pick.n === 1 ? '1 jar' : pick.n + ' jars') + ' · ' + money(p);
+  }
+  opts.forEach(o => o.addEventListener('click', () => {
+    opts.forEach(x => { x.classList.toggle('on', x === o); x.setAttribute('aria-checked', x === o); });
+    pick = { n: +o.dataset.n, p: +o.dataset.p, w: +o.dataset.w };
+    if (pick.n !== 1) $('#sub').checked = false;
+    render();
+  }));
+  $('#sub').addEventListener('change', e => { if (e.target.checked) opts[0].click(); render(); });
+
+  // Cart
+  const cart = [];
+  function addBalm() {
+    const sub = $('#sub').checked && pick.n === 1;
+    cart.push({ name: 'Tallow + Manuka Balm', note: (pick.n === 1 ? '1 jar' : pick.n + ' jars') + (sub ? ' · Subscribe & Save' : ''), price: sub ? 19.54 : pick.p, img: 'https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=160' });
+    drawCart(); open(true);
+  }
+  function drawCart() {
+    const tot = cart.reduce((s, l) => s + l.price, 0);
+    $('#lines').innerHTML = cart.map(l => `<div class="line"><img src="${l.img}" alt=""><div><b>${l.name}</b><br><small>${l.note}</small></div><b>${money(l.price)}</b></div>`).join('');
+    $('#total').textContent = money(tot);
+    const left = Math.max(0, FREE - tot);
+    $('#shipFill').style.width = Math.min(100, tot / FREE * 100) + '%';
+    $('#shipFill').classList.toggle('done', left === 0);
+    $('#shipMsg').textContent = left === 0 ? 'You unlocked free shipping' : `You're ${money(left)} away from free shipping`;
+    $('#count').textContent = cart.length; $('#count').classList.toggle('on', cart.length > 0);
+  }
+  function open(on) { $('#drawer').classList.toggle('on', on); $('#scrim').classList.toggle('on', on); $('#drawer').setAttribute('aria-hidden', !on); }
+  $('#atc').addEventListener('click', addBalm);
+  $$('[data-atc]').forEach(b => b.addEventListener('click', () => { if (b.closest('.final')) opts[1].click(); addBalm(); }));
+  $('#addLip').addEventListener('click', () => { cart.push({ name: 'Tallow Lip Balm (4-Pack)', note: 'Unscented', price: 11.99, img: 'https://cdn.shopify.com/s/files/1/0683/0718/9987/files/1_9e9293af-9432-42e5-9836-9051b5092644.png?width=160' }); drawCart(); });
+  $('#openCart').addEventListener('click', () => open(true));
+  $('#closeCart').addEventListener('click', () => open(false));
+  $('#scrim').addEventListener('click', () => open(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape') open(false); });
+  drawCart(); render();
+
+  // Sticky add-to-cart once the main button scrolls away
+  const phone = matchMedia('(max-width:820px)'); // on phones the buy bar is always in reach
+  new IntersectionObserver(([e]) => { const on = phone.matches || (!e.isIntersecting && e.boundingClientRect.top < 0); $('#sticky').classList.toggle('on', on); $('#sticky').setAttribute('aria-hidden', !on); }).observe($('#atc'));
+
+  // Gentle reveals
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
