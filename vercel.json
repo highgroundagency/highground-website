@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/dimarco",
+      "destination": "/dimarco-plan.html"
+    },
+    {
       "source": "/dimarco-del-curto",
       "destination": "/untamed.html"
     },
