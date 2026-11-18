@@ -34,7 +34,15 @@ header.solid nav .navcta{background:var(--ink);color:#fff}
 
 /* Hero */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;color:#fff}
-.hero .bg{position:absolute;inset:-8% 0 0;background:url(https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=1800) center 30%/cover;will-change:transform}
+.hero .bg{position:absolute;inset:-8% 0 0;background:url(https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=1800) center 55%/cover;will-change:transform}
+.proofrow{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.proofrow span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);font-weight:700;font-size:14px;color:#fff}
+.proofrow span b{color:#f6d79b}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7);margin-left:8px}
+footer{background:var(--deep);color:#e9dcc8;padding:40px 24px;text-align:center;font-size:14px}
+footer .soc{display:flex;gap:12px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+footer .soc a{padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.1);text-decoration:none;font-weight:700;color:#fff}
+.flash{animation:flash 1.6s ease}@keyframes flash{30%{box-shadow:inset 0 0 0 6px rgba(225,161,0,.6)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,14,.35),rgba(30,20,14,.15) 40%,rgba(30,20,14,.75))}
 .hero .copy{position:absolute;z-index:2;left:0;right:0;bottom:12vh;padding:0 24px;max-width:1100px;margin:0 auto}
 .hero h1{font-size:clamp(42px,7vw,92px);line-height:1;max-width:900px}
@@ -96,21 +104,36 @@ header.solid nav .navcta{background:var(--ink);color:#fff}
 .end h2{font-size:clamp(32px,5vw,60px);line-height:1.05;margin-bottom:22px}
 .lineup{max-width:1000px;margin:40px auto 0;border-radius:24px;overflow:hidden;aspect-ratio:16/7}
 .lineup img{width:100%;height:100%;object-fit:cover;object-position:center 78%}
+
+/* Split hero: words on his brand brown, the product on the ranch. Clear in five seconds. */
+.hero{background:#2b1e18}
+.hero .bg{inset:-8% 0 0 50%!important}
+.hero::after{left:50%!important;background:linear-gradient(90deg,#2b1e18,rgba(43,30,24,0) 22%)!important}
+.hero .copy{top:50%;bottom:auto!important;right:50%;left:0;margin:0!important;padding:0 48px!important;max-width:none!important;transform:translateY(-42%)}
+.hero h1{font-size:clamp(38px,4.4vw,68px)!important}
+@media (max-width:800px){
+  .hero .bg{inset:0 0 52% 0!important}
+  .hero::after{left:0!important;bottom:52%!important;background:linear-gradient(0deg,#2b1e18,rgba(43,30,24,0) 30%)!important}
+  .hero .copy{top:46%;right:0;padding:0 20px!important;transform:none}
+  .hero h1{font-size:32px!important}
+  .proofrow span:nth-child(3){display:none}
+}
 </style>
 </head>
 <body>
 <div class="concept">Concept homepage by High Ground Agency · real photos and prices from organicsuntamed.com</div>
 <header id="hdr">
   <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Untitled_design_6.png?width=300" alt="Untamed Organics" width="150" height="80">
-  <nav><a href="#story">Our story</a><a href="#shop">Shop</a><a class="navcta" href="balm.html">Best seller →</a></nav>
+  <nav><a href="#story">Our story</a><a href="#shop">Shop</a><a class="navcta" href="balm.html">Shop · 2 ship free</a></nav>
 </header>
 
-<section class="hero">
-  <div class="bg" id="heroBg" role="img" aria-label="DiMarco with a highland cow on the ranch"></div>
+<section class="hero" id="hero">
+  <div class="bg" id="heroBg" role="img" aria-label="Tallow + Manuka balm on the ranch"></div>
   <div class="copy">
-    <h1 id="heroH"><span>Skincare,</span> <span>brought</span> <span>back</span> <span>to</span> <span>its</span> <span>roots.</span></h1>
-    <p>Grass-fed tallow and raw botanicals, made by hand in small batches in Soquel, California.</p>
-    <a class="btn" href="balm.html">Shop the best seller</a>
+    <div class="proofrow" id="proof"><span>★★★★★ <b>4.6</b> from 442 Amazon ratings</span><span><b>2-packs ship free</b></span><span>Full refund if you don't love it</span></div>
+    <h1 id="heroH"><span>Grass-fed</span> <span>tallow</span> <span>skincare.</span> <span>Nothing</span> <span>you</span> <span>can't</span> <span>pronounce.</span></h1>
+    <p>Small-batch balms made by hand in Soquel, California, from a ranch-raised founder who got tired of watery lotions.</p>
+    <a class="btn" href="balm.html">Shop the best seller · from $19.54 a jar</a><a class="btn ghost" href="#story">Our story</a>
   </div>
   <div class="cue">Scroll</div>
 </section>
@@ -125,9 +148,23 @@ header.solid nav .navcta{background:var(--ink);color:#fff}
   <div class="pricechip" id="pchip">★★★★★ <span>4.8</span> · from $19.54 a jar <a href="balm.html">Shop</a></div>
 </section>
 
+<section class="revs" id="reviews">
+  <h2>What people say</h2>
+  <div class="track" aria-label="Customer reviews">
+    <div class="q"><span>★★★★★</span><p>It's the first time I've tried something that works.</p><small>Elizabeth H.</small></div>
+    <div class="q"><span>★★★★★</span><p>Love the texture, the scent and is very hydrating.</p><small>Wanda D.</small></div>
+    <div class="q"><span>★★★★★</span><p>It works!! is all I can say. I bought a 2nd jar.</p><small>Craig B.</small></div>
+    <div class="q"><span>★★★★★</span><p>It's soothing and refreshing and doesn't make me itch.</p><small>Elizabeth H.</small></div>
+    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It's the first time I've tried something that works.</p><small>Elizabeth H.</small></div>
+    <div class="q" aria-hidden="true"><span>★★★★★</span><p>Love the texture, the scent and is very hydrating.</p><small>Wanda D.</small></div>
+    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It works!! is all I can say. I bought a 2nd jar.</p><small>Craig B.</small></div>
+    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It's soothing and refreshing and doesn't make me itch.</p><small>Elizabeth H.</small></div>
+  </div>
+</section>
+
 <div class="story" id="story">
   <div class="row">
-    <div class="pic"><img data-par src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.23_PM.png?width=900" alt="DiMarco on the ranch" loading="lazy"></div>
+    <div class="pic"><img data-par src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=900" alt="DiMarco with a highland cow on the ranch" loading="lazy"></div>
     <div><p class="k">Where it began</p><h2>Raised on a ranch.</h2><p>Horses, animals, eggs at first light, and food from whatever the season gave. Real work. Real food.</p></div>
   </div>
   <div class="row">
@@ -150,25 +187,14 @@ header.solid nav .navcta{background:var(--ink);color:#fff}
   </div>
 </div></section>
 
-<section class="revs">
-  <h2>What people say</h2>
-  <div class="track" aria-label="Customer reviews">
-    <div class="q"><span>★★★★★</span><p>It's the first time I've tried something that works.</p><small>Elizabeth H.</small></div>
-    <div class="q"><span>★★★★★</span><p>Love the texture, the scent and is very hydrating.</p><small>Wanda D.</small></div>
-    <div class="q"><span>★★★★★</span><p>It works!! is all I can say. I bought a 2nd jar.</p><small>Craig B.</small></div>
-    <div class="q"><span>★★★★★</span><p>It's soothing and refreshing and doesn't make me itch.</p><small>Elizabeth H.</small></div>
-    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It's the first time I've tried something that works.</p><small>Elizabeth H.</small></div>
-    <div class="q" aria-hidden="true"><span>★★★★★</span><p>Love the texture, the scent and is very hydrating.</p><small>Wanda D.</small></div>
-    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It works!! is all I can say. I bought a 2nd jar.</p><small>Craig B.</small></div>
-    <div class="q" aria-hidden="true"><span>★★★★★</span><p>It's soothing and refreshing and doesn't make me itch.</p><small>Elizabeth H.</small></div>
-  </div>
-</section>
 
-<section class="end">
+
+<section class="end" id="end">
   <h2>See what small-batch feels like.</h2>
   <a class="btn dark" href="balm.html">Shop the best seller</a>
   <div class="lineup"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=1400" alt="The full Untamed Organics line on a shelf at the ranch" loading="lazy"></div>
 </section>
+<footer id="social"><div class="soc"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>Untamed Organics · Soquel, California · support@organicsuntamed.com</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -178,9 +204,16 @@ header.solid nav .navcta{background:var(--ink);color:#fff}
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hdr = document.getElementById('hdr');
   addEventListener('scroll', () => hdr.classList.toggle('solid', scrollY > innerHeight * 0.6), { passive: true });
+  let lenisRef = null;
+  addEventListener('message', e => {
+    const id = e.data && e.data.goto; const el = id && document.getElementById(id); if (!el) return;
+    const y = el.getBoundingClientRect().top + scrollY - 60;
+    lenisRef ? lenisRef.scrollTo(y, { duration: 1.2 }) : scrollTo({ top: y, behavior: 'smooth' });
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+  });
   if (reduce || !window.gsap) return;
   gsap.registerPlugin(ScrollTrigger);
-  const lenis = new Lenis({ lerp: 0.1 });
+  const lenis = new Lenis({ lerp: 0.1 }); lenisRef = lenis;
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
 
