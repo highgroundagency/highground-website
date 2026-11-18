@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/dimarco-del-curto",
+      "destination": "/untamed.html"
+    },
+    {
+      "source": "/dimarco-del-curto/plan",
+      "destination": "/dimarco-plan.html"
+    },
+    {
       "source": "/justin",
       "destination": "https://hga-lead-boards.vercel.app/justin/"
     },
