@@ -238,7 +238,9 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
 .rv2 p{color:#1c1c1e!important}
 .rv2 mark{background:#fff3a8;color:inherit}
 .rv2 small{color:#6b6b6b;font-size:11px}
-.rv2 .circ{position:absolute;left:4%;top:34%;width:92%;height:30%;pointer-events:none}
+.rv2 .cl{position:relative;display:inline-block;margin-bottom:6px}.rv2 .circ{position:absolute;left:-10px;top:-12px;width:calc(100% + 20px);height:calc(100% + 24px);pointer-events:none}
+#organic .rv2 .rvw{font-size:16px;padding:20px}#organic .nnote .nt{font-size:15px;padding:16px}
+#organic .hand>div{font-size:21px!important;line-height:34px;background:#fffdf6 repeating-linear-gradient(transparent 0 33px,#cfdcef 33px 34px);padding:26px 20px}
 .cap{position:relative}
 .cap .tt{position:absolute;left:8%;right:8%;top:42%;text-align:center;font:800 15px/1.25 -apple-system,'Helvetica Neue',sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 6px #000}
 @media (max-width:560px){.feed{grid-template-columns:repeat(3,minmax(0,1fr))}.cap .tt{font-size:11px}.nnote .nt,.rv2 .rvw{font-size:10px}}
@@ -360,6 +362,7 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
 
 /* 8 · Route */
 .route{display:grid;grid-template-columns:110px repeat(4,minmax(0,1fr));gap:8px;font-size:14.5px}
+.route.r3{grid-template-columns:110px repeat(3,minmax(0,1fr))}.route .s3{grid-column:span 3}
 .route .h{font:800 12px 'Montserrat';letter-spacing:.14em;text-transform:uppercase;color:#6A7A91;padding:6px 4px}
 .route .h.o2{color:#A2470C}
 .route .l{font:800 15px 'Montserrat';color:var(--navy);padding:12px 0}
@@ -367,7 +370,7 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
 .route .b.o2{background:linear-gradient(90deg,#E8641A,#F58A1F)}
 .route .b.add{background:repeating-linear-gradient(135deg,#FFF1E0 0 8px,#FFE2C2 8px 16px);border:2px dashed #F1A35B;color:#A2470C}
 .route .s2{grid-column:span 2}
-@media (max-width:900px){.route{grid-template-columns:minmax(0,1fr)}.route .h,.route .s2{grid-column:auto}.route .h{display:none}}
+@media (max-width:900px){.route,.route.r3{grid-template-columns:minmax(0,1fr)}.route .h,.route .s2,.route .s3{grid-column:auto}.route .h{display:none}}
 
 /* 9 · Price */
 .price{display:flex;flex-direction:column;gap:14px;padding:30px;border-radius:24px;background:#fff;border:1.5px solid var(--line)}
@@ -384,6 +387,64 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
 .land li::before{content:counter(n);flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#EB744A,#F1A35B 55%,#F6C46D);color:var(--navy);font-weight:800}
 .foot{position:relative;z-index:3;padding:24px;text-align:center;font-size:13px;color:#6A7A91;background:#fff;border-top:1px solid var(--line)}
 .kbd{display:inline-block;padding:1px 7px;border-radius:6px;border:1px solid #C9D6E4;font:700 12px 'Montserrat'}
+
+/* course quote cards */
+.cq{position:relative;padding:18px 20px 18px 22px;border-radius:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--orange)}
+.cq small{display:block;font:800 10.5px 'Montserrat';letter-spacing:.16em;text-transform:uppercase;color:#A2470C;margin-bottom:6px}
+.cq q{display:block;font:600 17px/1.45 'Nunito Sans';color:var(--navy);quotes:"“" "”"}
+.cq span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+.dark .cq{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);border-left-color:var(--gold)}
+.dark .cq q{color:#fff}.dark .cq small{color:var(--gold)}.dark .cq span{color:#CFDDEE}
+.cqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+/* products */
+.prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.prods .card b{font:800 18px 'Montserrat';color:var(--navy)}.prods .card p{font-size:15px}
+.prods .n{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font:800 13px 'Montserrat'}
+/* ratings out of 10 */
+.rate{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rate .st{font-size:22px;letter-spacing:2px;color:#E3EBF3}.rate .st i{font-style:normal;color:var(--orange)}
+.rate b{font:800 26px 'Montserrat';color:var(--navy)}
+/* statics */
+#organic .uvp{grid-template-columns:minmax(0,1fr)}
+#organic .uvp .feed{grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px}
+.hand>div{font-size:16px!important}
+.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.hand>div{background:#fffdf6 repeating-linear-gradient(transparent 0 25px,#cfdcef 25px 26px);padding:18px 16px;font:700 17px/26px 'Kalam',cursive;color:#1b2a6b;transform:rotate(-1.2deg)}
+.hand u{text-decoration:none;border-bottom:2px solid #c62828}
+.postit{position:relative}
+.postit>div{position:relative}.postit img{width:100%;height:100%;object-fit:cover}
+.postit .pi{position:absolute;right:8%;top:10%;width:52%;padding:12px;background:#FFE873;box-shadow:0 8px 14px -6px rgba(0,0,0,.45);transform:rotate(4deg);font:700 15px/1.25 'Kalam',cursive;color:#222}
+.usvs>div{display:grid;grid-template-columns:1fr 1fr;align-content:center;background:#fff!important;font:600 12.5px/1.3 -apple-system,'Helvetica Neue',sans-serif;color:#222}
+.usvs .hd{padding:10px 8px;font-weight:800;text-align:center;font-size:13px}
+.usvs .hd.l{background:#eee}.usvs .hd.r{background:#2b2118;color:#F3E3C3}
+.usvs .c{padding:9px 8px;border-top:1px solid #eee;text-align:center}
+.usvs .c.r{background:#faf4ea;font-weight:800}
+@media (max-width:900px){#organic .hand>div{font-size:13px!important;line-height:21px;background:#fffdf6 repeating-linear-gradient(transparent 0 20px,#cfdcef 20px 21px);padding:12px 10px}#organic .rv2 .rvw{font-size:11.5px;padding:10px}#organic .nnote .nt{font-size:11px;padding:10px}.usvs>div{font-size:10.5px}.usvs .c,.usvs .hd{padding:6px 4px}.postit .pi{font-size:12px;padding:8px}}
+/* UGC */
+.ugc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px;align-items:start}
+.steps3{display:grid;gap:12px}
+.steps3 .card{flex-direction:row;align-items:flex-start;gap:14px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:none}
+.steps3 .card b{display:block;color:#fff;font:800 16px 'Montserrat'}.steps3 .card p{font-size:14.5px;color:#CFDDEE}
+.steps3 .n{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);font:800 13px 'Montserrat'}
+.script{background:#fff;border-radius:22px;padding:22px;color:var(--ink)}
+.script h4{margin:0 0 4px;font:800 18px 'Montserrat';color:var(--navy)}
+.script .meta{font-size:13.5px;color:var(--muted);margin-bottom:12px}
+.script .sec{font:800 10.5px 'Montserrat';letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:14px 0 6px}
+.script .ln{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+.script .ln>span:first-child{font:800 12px 'Montserrat';color:#A2470C}
+.script .src,.script p{color:var(--muted)!important}.script .sec{color:var(--blue)!important}
+.script .ln em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
+/* time */
+.time{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}
+.time input{width:100%;accent-color:var(--orange)}
+.time .big2{font:800 54px/1 'Montserrat';color:var(--navy);letter-spacing:-.02em}
+.time ul{display:grid;gap:6px;font-size:15.5px;padding-left:18px;margin:0}
+/* website markers */
+.shot{position:relative}
+.mk{position:absolute;left:3px;right:3px;border:3px solid var(--orange);border-radius:8px;box-shadow:0 0 0 9999px rgba(20,39,78,.10),0 0 18px rgba(232,100,26,.55);pointer-events:none;transition:top .45s ease,height .45s ease;z-index:2}
+.why .crop{display:block;margin-top:10px;border-radius:8px;border:2px solid var(--orange);background-repeat:no-repeat;max-width:100%}
+.price3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+@media (max-width:900px){.prods,.stat-grid,.ugc,.time,.price3{grid-template-columns:minmax(0,1fr)}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -459,12 +520,22 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
             <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/1_67010764-4faf-485d-b4a8-ce7c9b581897.png?width=400" alt=""><div><b>Real reviews</b><small>“first thing that works”</small></div></div>
             <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/6_5ed5ef83-5626-4a6c-92f7-c4d9b1a5ba6d.png?width=400" alt="" style="object-position:left center"><div><b>Gift buyers</b><small>the 3-pack, for the holidays</small></div></div>
             <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=400" alt=""><div><b>Lotion swap</b><small>keep his best hook</small></div></div>
-            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=400" alt="" style="object-position:center 85%"><div><b>Men &amp; outdoors</b><small>pomade, cologne, tick balm</small></div></div>
+            <div class="angle"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=400" alt="" style="object-position:center 85%"><div><b>Guys who work outside</b><small>the same balm, for rough hands</small></div></div>
           </div>
           <p>Each one reaches a different buyer: moms, label readers, gift shoppers, guys who'd never click a “skincare” ad.</p>
         </div>
       </div>
       <p class="src" style="margin-top:16px">Meta Ad Library, active ads for “Untamed Organics”, captured Nov 17, 2026.</p>
+
+      <h3 data-r style="margin:60px 0 6px;font-size:26px">Which products we'll advertise: not all 18</h3>
+      <p data-r style="margin-bottom:16px">Eight reasons to buy, one product to buy. Every ad sends people to the same place.</p>
+      <div class="cq" data-r><small>From the ads training we're part of</small><q>It's not the best idea to just advertise to every product. It's a good idea to advertise to your best products, and then if people find out the other ones, that's fine.</q></div>
+      <div class="prods">
+        <div class="card" data-r><span class="n">1</span><b>Your best-selling balm</b><p>Every ad leads here. We confirm which one it is from your Shopify sales before we start.</p></div>
+        <div class="card" data-r><span class="n">2</span><b>Its 2-pack</b><p>The offer. Two jars, one order, so each sale is worth more.</p></div>
+        <div class="card" data-r><span class="n">3</span><b>A gift set in December</b><p>The same balm, packaged for the holidays, for people buying for someone else.</p></div>
+      </div>
+      <p class="src" style="margin-top:12px">Your other products still sell: people find them on your site and in the cart.</p>
       <p class="notes">“Your skin isn't broken” has run since Aug 8, the longest of the four. Keep it, fix the wording. Every new campaign is built paused for his approval.</p>
     </div>
   </section>
@@ -472,7 +543,11 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   <!-- 3 · Words -->
   <section class="leg pale" id="words" data-name="Your ad wording">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 3 · The words in your ads</p><h2 data-r>A few words could get your ads shut off</h2><p data-r>Meta treats skin-condition and medical words as health claims. Those ads get rejected or quietly shown to fewer people. Here are your real lines, before and after.</p></div>
+      <div class="head"><p class="eyebrow" data-r>Stop 3 · The words in your ads</p><h2 data-r>Some of your ad words put the account at risk</h2><p data-r>Meta treats skin-condition and medical words as health claims, and rejected ads count against the whole ad account. Here are your real lines, before and after.</p></div>
+      <div class="cqs" style="margin-bottom:26px">
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>It is crucial to adhere to Facebook's guidelines and avoid questionable tactics to prevent penalties such as ad takedowns or account bans.</q></div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Having fewer ad disapprovals is beneficial for the health of your ad account.</q></div>
+      </div>
       <div class="copyrow" data-r><div class="b">“Your skin isn't broken. It's <mark class="r">inflamed</mark>.”<small>Live ad, on the image</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“Your skin isn't broken. It's <mark class="g">thirsty</mark>.”<small>Same punch, no condition named</small></div></div>
       <div class="copyrow" data-r><div class="b">“<mark class="r">Nature's Botox</mark> in a Jar”<small>Live headline</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“<mark class="g">Nature's night cream</mark> in a jar”<small>Keeps the “nature beats the lab” idea</small></div></div>
       <div class="copyrow" data-r><div class="b">“<mark class="r">Athlete's foot. Jock itch. Ringworm.</mark> Stubborn <mark class="r">fungal infections</mark>.”<small>Live ad</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="a">“<mark class="g">Hard-working feet. Cracked heels.</mark> Skin that takes a beating.”<small>Talks to the same person</small></div></div>
@@ -480,7 +555,7 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
       <div class="whybuy">
         <h3 data-r style="font-size:24px;margin-bottom:16px">So why will people still buy?</h3>
         <div class="g3">
-          <div class="card" data-r><b>They buy the feeling, not the diagnosis</b><p>“Soft”, “calm”, “finally works” is what people want. Nobody needs the medical word to picture it.</p></div>
+          <div class="card" data-r><b>Sell the feeling</b><p>“Soft”, “calm”, “finally works” is what people want. Nobody needs the medical word to picture it.</p><div class="cq" style="padding:12px 14px"><small>From the ads training</small><q style="font-size:15px">People buy on emotion, justify with logic. So sell the feeling first and then hand them the logic afterwards.</q></div></div>
           <div class="card" data-r><b>Proof does the persuading</b><p>Reviews, a real founder, texture shots and the ranch make the case harder than any claim can, and Meta can't reject them.</p></div>
           <div class="card" data-r><b>Ads that stay on win</b><p>A slightly softer line that keeps running all month beats a bold one that gets pulled in a week.</p></div>
         </div>
@@ -492,7 +567,11 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   <!-- 4 · Budget -->
   <section class="leg" id="budget" data-name="Your $500 a day">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 4 · Your $500 a day</p><h2 data-r>Four ways to spend the same budget</h2><p data-r>Meta needs about 50 sales a week in an ad set before it really knows who to show it to. How you split the money decides whether you ever get there.</p></div>
+      <div class="head"><p class="eyebrow" data-r>Stop 4 · Your $500 a day</p><h2 data-r>Four ways to spend the same budget</h2><p data-r>Meta learns who to show your ads to from the sales each ad set gets. How you split the money decides how fast it learns. Tap each version.</p></div>
+      <div class="cqs" style="margin-bottom:22px">
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>You only need two campaigns.</q><span>One to test new ads, one that puts more money behind the ones already proven.</span></div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>ABO to test creative fairly, CBO / Advantage+ budget to scale what's proven.</q><span>In plain words: each test gets its own fixed slice of money; winners share one bigger budget Meta moves around.</span></div>
+      </div>
       <div class="plans" role="tablist" data-r>
         <button class="plan" role="tab" data-p="0"><small>Version 1</small><b>Spread thin</b></button>
         <button class="plan on" role="tab" data-p="1"><small>Version 2</small><b>Test + scale</b></button>
@@ -502,15 +581,15 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
       <div class="board" data-r>
         <div class="card">
           <div class="sets" id="sets"></div>
-          <div class="cpa"><span>His cost per sale</span><input type="range" id="cpa" min="15" max="60" step="1" value="30" aria-label="Cost per sale"><b id="cpaV">$30</b></div>
-          <p class="src">Set this to his real number from Ads Manager. Green = the ad set gets 50+ sales a week, so Meta can learn from it. Small testing ad sets don't need to; their job is to find the next winner.</p>
+          <p class="src"><b style="color:#1D5FB3">Blue</b> = testing new ads · <b style="color:#E8641A">Orange</b> = money behind proven winners. Same $500 a day in every version.</p>
         </div>
         <div class="card verdict">
           <span class="tag" id="vTag">Recommended</span>
           <h3 id="vTitle"></h3>
           <p id="vWhat"></p>
-          <div><p class="src" style="margin-bottom:6px">How well it should do</p><div class="meter" id="meter"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div><p class="src" style="margin-bottom:6px">How well we think it would do</p><div class="rate"><span class="st" id="stars"></span><b id="score"></b></div></div>
           <p id="vHow" style="font-size:16px;color:var(--ink)"></p>
+          <p class="src">Our rating, judged against the training's rules. Not a sales promise: that depends on your numbers, which we'll see once we're in your ad account.</p>
         </div>
       </div>
       <p class="notes">Rule of thumb: an ad set's daily budget ≈ cost per sale × 7.14 to reach 50 sales in 7 days. Test fairly with separate ad-set budgets; scale proven winners with one campaign budget. Don't switch off single ads inside an ad set; switch off whole ad sets after 3–7 days.</p>
@@ -518,9 +597,13 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   </section>
 
   <!-- 5 · Organic -->
-  <section class="leg dark" id="organic" data-name="Content without the camera">
+  <section class="leg dark" id="organic" data-name="Content and ads">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 5 · Organic content</p><h2 data-r>Content that looks real, because it is</h2><p data-r>The posts winning right now look like a friend filmed them on a phone. That's good news for you: the ranch, your hands and your customers already look like that.</p></div>
+      <div class="head"><p class="eyebrow" data-r>Stop 5 · Content and ads</p><h2 data-r>Ads that look like posts get watched</h2><p data-r>People have learned to skip anything that looks like an ad. The ads winning right now look like something a real person posted.</p></div>
+      <div class="cqs" style="margin-bottom:26px">
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Your ads can be literal piles of trash and still perform well.</q></div>
+        <div class="cq" data-r><small>The training's founder, in our community</small><q>Sometimes just keeping it stupid simple and human can also cut through the noise.</q><span>He posted it with a handwritten note on lined paper as the ad.</span></div>
+      </div>
       <div class="uvp" data-r>
         <div class="uvp-col">
           <p class="uvp-h"><span class="tag">Polished</span> Looks like an ad. Thumbs keep scrolling.</p>
@@ -529,26 +612,25 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
             <figure class="post pol"><img src="untamed/creative-fungal.jpg" alt="His current antifungal ad"><figcaption>Staged bathroom, all-caps claims</figcaption></figure>
             <figure class="post pol"><img src="untamed/creative-candle.jpg" alt="His current candle ad" style="object-fit:contain;background:#efe9e0"><figcaption>Magazine-style layout</figcaption></figure>
           </div>
-          <p class="uvp-note">These are his live ads today. Nothing is wrong with them. They just look like ads, and people have learned to skip ads.</p>
+          <p class="uvp-note">These are your live ads today. Nothing is wrong with them. They just look like ads.</p>
         </div>
         <div class="uvp-col">
           <p class="uvp-h"><span class="tag">Ugly</span> Looks like a post. Thumbs stop.</p>
-          <div class="feed">
+          <div class="stat-grid">
+            <figure class="post ugly hand"><div><span>I make Untamed by hand.</span><br><span>My balm has <u>no water</u>.</span><br><span>7 ingredients: grass-fed tallow, manuka honey, black seed oil…</span><br><span>Soquel, CA. — DiMarco</span></div><figcaption>Handwritten note</figcaption></figure>
+            <figure class="post ugly rv2"><div class="rvw"><div class="rvt">★★★★☆ <span>Verified buyer</span></div><p><span class="cl">“It's the first time I've tried something that <mark>works</mark>.<svg class="circ" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M10 34C30 6 170 4 190 26c10 18-60 30-120 28C30 52 0 44 14 22" fill="none" stroke="#E8641A" stroke-width="3" stroke-linecap="round"/></svg></span> It's soothing and refreshing and doesn't make me itch.”</p><small>Elizabeth H. · Tallow + Manuka balm</small></div><figcaption>Review screenshot, circled</figcaption></figure>
+            <figure class="post ugly postit"><div><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_0be99123-627d-4f4f-a23b-e2edc12d9186.png?width=500" alt="Open balm jar in a hand"><span class="pi">thick in the jar.<br>melts right in.</span></div><figcaption>Post-it on a real photo</figcaption></figure>
             <figure class="post ugly nnote"><div class="nt"><div class="nth">‹ Notes</div><b>why I make my own skincare</b><ol><li>grew up on a ranch</li><li>college. skin fell apart</li><li>read the labels. couldn't pronounce half</li><li>went back to tallow, beeswax, honey</li></ol><p>that's the whole brand.</p></div><figcaption>Notes-app screenshot</figcaption></figure>
-            <figure class="post ugly rv2"><div class="rvw"><div class="rvt">★★★★★ <span>Verified buyer</span></div><p>“It's the first time I've tried something that <mark>works</mark>. It's soothing and refreshing and doesn't make me itch.”</p><small>Elizabeth H. · Tallow + Manuka balm</small><svg class="circ" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M10 34C30 6 170 4 190 26c10 18-60 30-120 28C30 52 0 44 14 22" fill="none" stroke="#E8641A" stroke-width="3" stroke-linecap="round"/></svg></div><figcaption>A real review, screenshotted and circled</figcaption></figure>
-            <figure class="post ugly cap"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=500" alt="Tallow being cut by hand"><span class="tt">this is what's actually<br>in my moisturizer</span><figcaption>Raw phone photo + caption</figcaption></figure>
+            <figure class="post ugly usvs"><div><span class="hd l">Lotion</span><span class="hd r">Untamed balm</span><span class="c">First ingredient: water</span><span class="c r">First ingredient: tallow</span><span class="c">Plastic bottle</span><span class="c r">Amber glass</span><span class="c">Thin, runny</span><span class="c r">Thick, melts in</span><span class="c">Made in a factory</span><span class="c r">Made by hand</span></div><figcaption>Us vs. them</figcaption></figure>
+            <figure class="post ugly cap"><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=500" alt="Tallow being cut by hand"><span class="tt">this is what's actually<br>in my moisturizer</span><figcaption>Raw photo + caption</figcaption></figure>
           </div>
-          <p class="uvp-note">Same product, same message. “Ugly” doesn't mean sloppy. It means native: it looks like something a real person posted, so people actually read it.</p>
+          <p class="uvp-note">Mock-ups we built from your real photos, in six of the training's ad styles. For the full set, the training's workflow turns one product photo into 30+ static ads at about 30 cents an image.</p>
         </div>
       </div>
 
       <div class="g2" style="align-items:start;margin-top:40px">
         <div class="callout" data-r><span><b>What we found:</b> organicsuntamed.com has no links to Instagram, TikTok or Facebook anywhere. People who want to check you out hit a dead end.</span></div>
-        <div class="g3" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
-          <div class="card" data-r><span class="tag">Free testing</span><h3 style="font-size:17px">Trial Reels</h3><p style="font-size:14.5px">Shown only to non-followers: a free test of which hook stops strangers.</p></div>
-          <div class="card" data-r><span class="tag">Posts → ads</span><h3 style="font-size:17px">Run the post itself</h3><p style="font-size:14.5px">A post that does well runs as an ad, likes and comments included.</p></div>
-          <div class="card" data-r><span class="tag">Warm buyers</span><h3 style="font-size:17px">Stories</h3><p style="font-size:14.5px">People who watch your Stories tend to see your ads next.</p></div>
-        </div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Bringing in successful organic posts into your ad account allows you to amplify their reach and potentially improve ad performance.</q><span>So your posts double as free ad tests: the ones people like get run as ads, likes and comments included.</span></div>
       </div>
 
       <h3 data-r style="margin:70px 0 6px;font-size:26px">Your first week of content, and exactly how to film it</h3>
@@ -560,39 +642,65 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
       <div class="g3" style="margin-top:18px">
         <div class="card" data-r><span class="tag">The shoot</span><h3 style="font-size:18px">One morning covers the week</h3><p style="font-size:15px">7–8am golden hour at the ranch (Mon, Wed, Sun) · 8–9am in the workshop (Tue, Thu, Sat) · anytime (Fri).</p></div>
         <div class="card" data-r><span class="tag">Phone settings</span><h3 style="font-size:18px">Just an iPhone</h3><p style="font-size:15px">Vertical. 1080p, 30fps. Wipe the lens. Tap and hold to lock focus. Start recording 3 seconds early and stop 3 seconds late.</p></div>
-        <div class="card" data-r><span class="tag">Sound</span><h3 style="font-size:18px">Keep it real</h3><p style="font-size:15px">Real sound (wind, scraping, the lid twisting) beats music. Voice-overs go in a quiet room with the phone 6 inches away, like a voice memo.</p></div>
+        <div class="card" data-r><span class="tag">Sound</span><h3 style="font-size:18px">Captions on everything</h3><p style="font-size:15px">Most people scroll with the sound off, so every video gets captions and works muted. Real sounds (the scoop, the lid) reward the people who turn it on. No popular songs: the training warns about music copyright.</p></div>
       </div>
 
-      <h3 data-r style="margin:60px 0 6px;font-size:24px">Never want to be on camera? You don't have to be.</h3>
-      <p data-r style="margin-bottom:18px">Founder ads are some of the strongest ads out there. Pick a step and stop there. You're already in the photos on your own homepage.</p>
-      <div class="ladder" id="ladder" data-r>
-        <button class="rung on"><small>Step 1</small><b>Voice only</b><span>You tell the ranch story; we lay ranch footage over it.</span></button>
-        <button class="rung"><small>Step 2</small><b>Hands + voice</b><span>Your hands making a batch while you talk.</span></button>
-        <button class="rung"><small>Step 3</small><b>At the ranch</b><span>Filmed from behind or far away, working.</span></button>
-        <button class="rung"><small>Step 4</small><b>One take, phone</b><span>Sixty seconds talking to camera. No crew.</span></button>
+      <h3 data-r style="margin:70px 0 6px;font-size:26px">You asked for UGC. Here's how it works, with you off camera.</h3>
+      <p data-r style="margin-bottom:18px">Creators film the videos on their own phones. You send each one a jar; we handle everything else.</p>
+      <div class="ugc">
+        <div class="steps3">
+          <div class="card" data-r><span class="n">1</span><div><b>We write the brief and the script</b><p>One page per creator: who it's for, what to show, and the words that must never be said.</p></div></div>
+          <div class="card" data-r><span class="n">2</span><div><b>Creators film it at home</b><p>Real people, phone camera, natural light. We find them on creator marketplaces and through freelancers.</p></div></div>
+          <div class="card" data-r><span class="n">3</span><div><b>One video, three ads</b><p>Each creator films three different openings over the same middle and ending. Meta tests all three.</p></div></div>
+          <div class="cq" data-r><small>From the ads training we're part of</small><q>I really would recommend having multiple hooks and multiple bodies.</q></div>
+        </div>
+        <div class="script" data-r>
+          <h4>Example script: “The lotion swap”</h4>
+          <p class="meta">UGC creator · 20–25 seconds · vertical · captions on</p>
+          <p class="sec">Opening, first 3 seconds (film all three)</p>
+          <div class="ln"><span>A</span><span>“I stopped buying lotion. This is what I use now.”<em>Holds the jar up to the camera</em></span></div>
+          <div class="ln"><span>B</span><span>“POV: your whole winter routine fits in one jar.”<em>Close-up: thumb twists the lid open</em></span></div>
+          <div class="ln"><span>C</span><span>“Flip your lotion over. What's the first ingredient?”<em>Points at the back of a lotion bottle</em></span></div>
+          <p class="sec">Middle</p>
+          <div class="ln"><span>4–12 s</span><span>“It's grass-fed tallow, manuka honey and black seed oil. Seven ingredients. No water.”<em>Scoops some out with a fingertip</em></span></div>
+          <div class="ln"><span>12–18 s</span><span>“It's thick in the jar, then it just melts in. Not greasy.”<em>Rubs it into the back of the hand</em></span></div>
+          <div class="ln"><span>18–22 s</span><span>“A guy who grew up on a ranch makes it by hand in California.”<em>Jar on a wood counter</em></span></div>
+          <p class="sec">Ending</p>
+          <div class="ln"><span>22–25 s</span><span>“Get the 2-pack. Link's right here.”<em>Points down at the button</em></span></div>
+          <p class="src" style="margin-top:12px">The training doesn't set a length; its UGC-style templates run 15 to 25 seconds. No skin conditions named and no promised results, so Meta has nothing to reject.</p>
+        </div>
       </div>
 
-      <h3 data-r style="margin:60px 0 6px;font-size:24px">On AI: you're right to be careful</h3>
-      <p data-r style="margin-bottom:18px">New York now fines ads with AI-made people that aren't labeled: $1,000, then $5,000 for each repeat. And AI video that's too clean looks fake to people scrolling. So here's the line we draw.</p>
+      <h3 data-r style="margin:70px 0 6px;font-size:24px">On AI: you're right to be careful</h3>
+      <p data-r style="margin-bottom:18px">If an ad shows AI-made people, it has to say so. New York now fines unlabeled AI people in ads: $1,000, then $5,000 for each repeat. And AI video that's too clean looks fake to people scrolling. So here's the line we draw.</p>
+      <div class="cqs" style="margin-bottom:14px">
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Make sure to disclose that the content features AI actors and not real people to comply with regulations and ethics.</q></div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Claymation and Pixar-style ads. The most brand-safe AI ads, and they've been working well in health and supplements.</q></div>
+      </div>
       <div class="aiw">
         <div class="card" data-r><span class="tag">AI we won't use</span><ul><li>✕ AI people pretending to be customers</li><li>✕ An AI “founder” or fake testimonials</li><li>✕ Anything that could pass as a real person and isn't</li></ul></div>
-        <div class="card" data-r><span class="tag">AI that just saves time</span><ul><li>✓ Dozens of static ads made from your real product photos</li><li>✓ Editing your real footage into finished videos</li><li>✓ Writing several versions of each ad's text</li><li>✓ Clearly cartoon or claymation ads nobody mistakes for real</li></ul></div>
+        <div class="card" data-r><span class="tag">AI that just saves time</span><ul><li>✓ Static ads made from your real product photos</li><li>✓ Editing real footage into finished videos</li><li>✓ Writing several versions of each ad's text</li><li>✓ Clearly cartoon or claymation ads nobody mistakes for real</li></ul></div>
       </div>
-      <p class="notes">Behind this: the “yaps beat UGC” thread (raw iPhone energy beats produced UGC), the Trial Reels tip, running organic post IDs as ads, the NY AI-disclosure law post, the “your AI video is too clean” post, and the perfect founder ad example.</p>
+      <p class="notes">Quotes come from the AI Ads Alchemists course text (lesson summaries), Caleb's “Ugly Ads Still Work” post, his New York AI-law post, and the Meta Ads Mastery copywriting call. Don't name the course on screen. The example script uses Cai's multiple-hooks advice and the course's POV template. “2-pack” offer and free shipping are our suggestions, not his current offer.</p>
     </div>
   </section>
 
   <!-- 6 · Website -->
   <section class="leg pale" id="site" data-name="Your website">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 6 · Your website</p><h2 data-r>Someone taps your ad. Here's what they get, and what they should get.</h2><p data-r>Scroll either screen yourself. Tap a reason and both screens jump to that spot.</p></div>
+      <div class="head"><p class="eyebrow" data-r>Stop 6 · Your website</p><h2 data-r>Someone taps your ad. Here's what they get, and what they should get.</h2><p data-r>Tap a reason: both screens jump to it, and the orange box shows the exact spot. It stays on that spot while you scroll.</p></div>
+      <div class="cqs" style="margin-bottom:30px">
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>57% of total viewing time on a landing page happens above the fold.</q><span>The first screen, before anyone scrolls. The coach cited a Nielsen Norman Group study.</span></div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>Users should avoid directing to landing pages with excessive ads or pop-ups for a better user experience.</q></div>
+        <div class="cq" data-r><small>From the ads training we're part of</small><q>You really want to be optimized for like three to 5% conversion rate.</q><span>Out of every 100 visitors, 3 to 5 buy.</span></div>
+      </div>
 
       <div class="cmp" id="cmpPhone" data-r>
         <div class="devs">
           <div class="dev">
             <p class="devlab"><span class="tag bad">Today</span> organicsuntamed.com</p>
             <div class="phone2">
-              <div class="pane" id="todayPhone" data-lenis-prevent><img src="untamed/today-pdp-phone.jpg" alt="His product page today, full length" data-w="390"></div>
+              <div class="pane" id="todayPhone" data-lenis-prevent><div class="shot"><img src="untamed/today-pdp-phone.jpg" alt="His product page today, full length" data-w="390"><i class="mk"></i></div></div>
               <div class="popup" id="popup"><img src="untamed/today-popup.jpg" alt="10% off pop-up that appears on load"><button aria-label="Close pop-up" id="popX"></button></div>
             </div>
           </div>
@@ -611,7 +719,7 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
         <div class="devs">
           <div class="dev">
             <p class="devlab"><span class="tag bad">Today</span> organicsuntamed.com</p>
-            <div class="browser2"><div class="bar"><i></i><i></i><i></i><span>organicsuntamed.com</span></div><div class="pane" id="todayDesk" data-lenis-prevent><img id="todayDeskImg" src="untamed/today-home-desktop.jpg" alt="His website today on a laptop, full length" data-w="1440"></div></div>
+            <div class="browser2"><div class="bar"><i></i><i></i><i></i><span>organicsuntamed.com</span></div><div class="pane" id="todayDesk" data-lenis-prevent><div class="shot"><img id="todayDeskImg" src="untamed/today-home-desktop.jpg" alt="His website today on a laptop, full length" data-w="1440"><i class="mk"></i></div></div></div>
           </div>
           <div class="dev">
             <p class="devlab"><span class="tag ok">Rebuilt</span> <a id="rbDeskLink" href="untamed-site/index.html" target="_blank" rel="noopener">open full page ↗</a></p>
@@ -620,71 +728,47 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
         </div>
         <ol class="why two" id="whyDesk"></ol>
       </div>
-      <p class="src" style="margin-top:18px">Left: full-length captures of organicsuntamed.com on an iPhone 13 and a 1440px laptop, Nov 17, 2026 (his site blocks being embedded, so it can't run live here). Right: the rebuilt pages, live, using his real photos, prices and reviews. Free shipping at $39 is our suggestion. A Google-commissioned Deloitte study found mobile retail sites 0.1 seconds faster converted 8.4% more (<a href="https://web.dev/case-studies/milliseconds-make-millions">web.dev</a>).</p>
+      <p class="src" style="margin-top:18px">Left: full-length captures of organicsuntamed.com on an iPhone 13 and a 1440px laptop, Nov 17, 2026 (his site blocks being embedded, so it can't run live here). Right: the rebuilt pages, live, using his real photos, prices and reviews. Free shipping at $39 is our suggestion. A Google-commissioned Deloitte study found mobile retail sites 0.1 seconds faster converted 8.4% more; the training itself gives no load-speed number (<a href="https://web.dev/case-studies/milliseconds-make-millions">web.dev</a>).</p>
       <p class="notes">Every rule here comes from the product-page blueprint and teardowns in the community: sell in 5 seconds, product in use on the hero, offer on the image, proof by the price, bundle ladder with the middle anchored, sticky mobile CTA, old-vs-new with specifics, benefits before features, ingredients shown visually, testimonials throughout, founder, who it's for / not for, objection FAQ above the last button, cosmetic wording, and a cart with a progress bar, social proof, guarantee and a high-contrast checkout.</p>
     </div>
   </section>
 
-  <!-- 7 · Speed + money -->
-  <section class="leg" id="speed" data-name="Speed and money">
+  <!-- 7 · Time -->
+  <section class="leg" id="speed" data-name="Your time">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 7 · How we move this fast</p><h2 data-r>What used to take weeks now takes an afternoon</h2><p data-r>We run an AI production system behind the scenes. You approve everything; it does the busywork.</p></div>
-      <div class="speed">
-        <div class="card" data-r><b>30+</b><p>static ads from one of your product photos, at about 30 cents an image</p></div>
-        <div class="card" data-r><b>50</b><p>finished ads and a paused campaign, built in a single sitting</p></div>
-        <div class="card" data-r><b>5</b><p>versions of the ad text for each ad, so Meta can test them</p></div>
-        <div class="card" data-r><b>1</b><p>folder of your raw phone clips in, edited videos out</p></div>
-      </div>
-      <div class="calc">
+      <div class="head"><p class="eyebrow" data-r>Stop 7 · Your time</p><h2 data-r>How much of your week goes to marketing?</h2><p data-r>Filming, posting, making ads, watching the numbers. Slide it to your honest answer.</p></div>
+      <div class="time">
         <div class="card" data-r>
-          <p class="try">Move the sliders</p>
-          <div class="fld"><label>New ads a month <b id="nAds">40</b></label><input type="range" id="sAds" min="8" max="80" step="4" value="40"></div>
-          <div class="fld"><label>Hours per ad, the old way <b id="nOld">2 h</b></label><input type="range" id="sOld" min="0.5" max="4" step="0.5" value="2"></div>
-          <div class="fld"><label>Hours per ad, with our system <b id="nNew">0.25 h</b></label><input type="range" id="sNew" min="0.1" max="1" step="0.05" value="0.25"></div>
-          <div class="bars2"><div><span>Old way</span><i class="old" id="bOld"></i></div><div><span>With us</span><i class="new" id="bNew"></i></div></div>
-          <p class="src" style="margin-top:10px">Hours are estimates; set them with him live.</p>
+          <label for="sHrs" style="font:700 16px Montserrat;color:var(--navy)">Hours a week on marketing: <b id="nHrs">8</b></label>
+          <input type="range" id="sHrs" min="1" max="30" step="1" value="8">
+          <p class="src">That's</p>
+          <div class="big2" id="hMonth">35 hours</div>
+          <p>a month, or <b id="hDays">52</b> full 8-hour workdays a year, not spent at the ranch or making product.</p>
         </div>
-        <div class="card" data-r style="justify-content:center">
-          <p class="src">Time saved every month</p>
-          <div class="big" id="saved">70 h</div>
-          <p style="margin-top:6px">That's time back for the ranch, making product and filming, instead of building ads.</p>
-        </div>
-      </div>
-
-      <h3 data-r style="margin:70px 0 6px;font-size:26px">What a bigger cart is worth at the same ad spend</h3>
-      <p data-r style="margin-bottom:20px">Same $500 a day, same number of sales. The only change: more people pick the 2-pack because it ships free.</p>
-      <div class="calc">
         <div class="card" data-r>
-          <div class="fld"><label>His cost per sale <b id="mCpaV">$30</b></label><input type="range" id="mCpa" min="15" max="60" step="1" value="30"></div>
-          <div class="fld"><label>Buyers choosing the 2-pack today <b id="mTodayV">15%</b></label><input type="range" id="mToday" min="0" max="60" step="5" value="15"></div>
-          <div class="fld"><label>…after it ships free <b id="mAfterV">40%</b></label><input type="range" id="mAfter" min="0" max="80" step="5" value="40"></div>
-          <p class="src">Uses his real prices: $22.99 for 1 jar, $39.08 for the 2-pack. Set the percentages from his Shopify numbers.</p>
-        </div>
-        <div class="card" data-r style="justify-content:center">
-          <p class="src">Sales a month at $500/day: <b id="mSales" style="color:var(--navy)">500</b></p>
-          <div class="bars2" style="margin:14px 0"><div><span>Today</span><i class="old" id="mbT"></i></div><div><span>After</span><i class="new" id="mbA"></i></div></div>
-          <p class="src">Extra revenue a month</p>
-          <div class="big" id="mExtra">$0</div>
+          <span class="tag ok">We take over</span>
+          <ul><li>Scripts and briefs for UGC creators</li><li>Finding and managing the creators</li><li>Static ads from your photos</li><li>Building, testing and watching the ads</li><li>A weekly report in plain words</li></ul>
+          <span class="tag" style="margin-top:10px">What stays with you</span>
+          <ul><li>Approving ads and wording before anything goes live</li><li>Sending a jar to each creator</li></ul>
         </div>
       </div>
-      <p class="notes">Production numbers come from the system's own lessons (one photo → 30+ statics at ~30¢/image; 50 creatives + paused campaign; 5 text versions per ad; raw clips → edited video). The hours and percentages are estimates; set them with him.</p>
     </div>
   </section>
 
   <!-- 8 · Route -->
-  <section class="leg pale" id="timeline" data-name="The first 60 days">
+  <section class="leg pale" id="timeline" data-name="The first 90 days">
     <div class="wrap">
-      <div class="head"><p class="eyebrow" data-r>Stop 8 · When it all shows up</p><h2 data-r>New ads live by day 10, then something new every week</h2></div>
-      <div class="route" id="routeGrid">
-        <span class="h"></span><span class="h">Days 1–10</span><span class="h">Days 11–30</span><span class="h o2">Days 31–45</span><span class="h o2">Days 46–60</span>
-        <span class="l">Ads</span><span class="b">Fix wording, rebuild, launch</span><span class="b">5–8 new ads a week</span><span class="b o2 s2">Scale winners, gift-buyer tests</span>
-        <span class="l">Content</span><span class="b">Ranch shoot day</span><span class="b">Weekly edits + statics</span><span class="b o2">Shoot 2 + winner versions</span><span class="b o2">Creator partnership ads</span>
-        <span class="l">Organic</span><span class="b">Social links on site</span><span class="b">Trial Reels every week</span><span class="b o2 s2">Best posts run as ads</span>
-        <span class="l">Website</span><span class="b s2">Product page: pop-up, screen one, sticky cart, free-ship 2-pack</span><span class="b add s2">Motion homepage (add-on)</span>
-        <span class="l">Reports</span><span class="b s2">Weekly report · Day 30 report</span><span class="b o2 s2">Weekly report · Day 60 report</span>
+      <div class="head"><p class="eyebrow" data-r>Stop 8 · When it all shows up</p><h2 data-r>Three cycles, each building on the last</h2><p data-r>Every cycle ends with finished work and a report on what won.</p></div>
+      <div class="route r3" id="routeGrid">
+        <span class="h"></span><span class="h">Cycle 1 · days 1–30</span><span class="h">Cycle 2 · days 31–60</span><span class="h o2">Cycle 3 · days 61–90</span>
+        <span class="l">Ads</span><span class="b">Fix the wording, set up test + scale</span><span class="b">New ads into testing every week</span><span class="b o2">More budget behind proven winners</span>
+        <span class="l">UGC</span><span class="b">Briefs, scripts, first creator videos</span><span class="b">Second round, built from what won</span><span class="b o2">Third round + new versions of winners</span>
+        <span class="l">Statics</span><span class="b">First batch from your photos</span><span class="b s2">New statics every week</span>
+        <span class="l">Website</span><span class="b">Product page fixes</span><span class="b add s2">Motion homepage (add-on)</span>
+        <span class="l">Organic</span><span class="b s3">We'll plan this together</span>
+        <span class="l">Reports</span><span class="b s3">Weekly report · a full report at the end of each cycle</span>
       </div>
-      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;font:700 14px 'Montserrat';color:var(--navy)" data-r><span><i style="display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-2px;background:#1F74C9"></i>Option 1</span><span><i style="display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-2px;background:#E8641A"></i>What Option 2 adds</span></div>
-      <p class="notes">If he starts before Black Friday (Nov 27), his current ads keep running untouched through the sale (budget Version 4).</p>
+      <p class="notes">Deliverable counts left off on purpose; agree them live. Trial Reels removed for now (to discuss). If he starts before Black Friday (Nov 27), his current ads keep running untouched through the sale (budget Version 4).</p>
     </div>
   </section>
 
@@ -692,11 +776,12 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   <section class="leg" id="price" data-name="Pick your starting point">
     <div class="wrap">
       <div class="head"><p class="eyebrow" data-r>Stop 9 · Pick your starting point</p><h2 data-r>Pay per cycle. Each one ends with finished work.</h2></div>
-      <div class="g2" style="align-items:stretch">
-        <div class="price" data-r><span class="tag">Option 1 · 30 days</span><h3>One cycle</h3><p class="p">$2,000</p><ul class="list"><li>Ad wording fixed, new ads live by day 10</li><li>Ranch shoot day</li><li>About 35–40 new ads</li><li>Product page fixes</li><li>Weekly reports + day 30 report</li></ul></div>
-        <div class="price hot" data-r><span class="tag warn">Option 2 · 60 days</span><h3>Two cycles</h3><p class="p">$4,000</p><ul class="list"><li>Everything in Option 1, plus:</li><li>Second shoot + 10–20 versions of each winner</li><li>Creator partnership ads</li><li>Budget scaling + gift-buyer tests</li><li>60-day report</li></ul></div>
+      <div class="price3">
+        <div class="price" data-r><span class="tag">Option 1 · 30 days</span><h3>One cycle</h3><p class="p">$2,000</p><ul class="list"><li>Ad wording fixed, test + scale set up</li><li>First UGC round: briefs, scripts, creators</li><li>First batch of static ads</li><li>Product page fixes</li><li>Weekly reports + 30-day report</li></ul></div>
+        <div class="price" data-r><span class="tag">Option 2 · 60 days</span><h3>Two cycles</h3><p class="p">$4,000</p><ul class="list"><li>Everything in Option 1, plus:</li><li>Second UGC round, built from what won</li><li>New static ads every week</li><li>Winners moved up and scaled</li><li>60-day report</li></ul></div>
+        <div class="price hot" data-r><span class="tag warn">Option 3 · 90 days · Recommended</span><h3>Three cycles</h3><p class="p">$6,000</p><ul class="list"><li>Everything in Option 2, plus:</li><li>Third UGC round + new versions of winners</li><li>More budget behind proven ads</li><li>90-day report and the plan for what's next</li></ul></div>
       </div>
-      <p class="src" data-r style="margin-top:18px">Ad spend and creator fees are separate · Motion homepage quoted separately [$__] · Recommended: 3 cycles</p>
+      <p class="src" data-r style="margin-top:18px">Ad spend, creator fees and the jars sent to creators are separate · Motion homepage quoted separately [$__]</p>
     </div>
   </section>
 
@@ -705,7 +790,7 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
     <div class="wrap">
       <p class="eyebrow" data-r>Final stop · Next steps</p>
       <h1 data-r style="color:#fff;margin-top:16px">Let's pick a start date</h1>
-      <ol><li data-r>Choose one or two cycles</li><li data-r>Share Meta ad account and Shopify access</li><li data-r>Book the ranch shoot and pick your camera step</li><li data-r>Approve the new ad wording</li></ol>
+      <ol><li data-r>Choose one, two or three cycles</li><li data-r>Share Meta ad account and Shopify access</li><li data-r>Approve the first creator brief and script</li><li data-r>Approve the new ad wording</li></ol>
       <p data-r style="margin-top:36px;font:700 18px 'Montserrat';color:#CFDDEE">Mike Panero · High Ground Agency</p>
     </div>
   </section>
@@ -819,50 +904,46 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
 
   // ---------- Budget versions ----------
   const PLANS = [
-    { title: 'Spread thin: 8 ad sets at about $62 each', tag: 'What most accounts do', score: 1,
-      sets: [['Ingredients', 62, 't'], ['Founder', 62, 't'], ['Reviews', 62, 't'], ['Gifts', 62, 't'], ['Texture', 63, 't'], ['Ranch', 63, 't'], ['Men', 63, 't'], ['Candles', 63, 't']],
-      what: 'Lots of separate tests at once, each with a small slice of the money.',
-      how: 'No ad set gets enough sales for Meta to learn who buys. Costs stay high and results bounce around week to week.' },
-    { title: 'Test + scale: $150 testing, $350 on winners', tag: 'Recommended', score: 4,
-      sets: [['Test: founder + ranch', 75, 't'], ['Test: reviews + texture', 75, 't'], ['Scale: proven winners', 350, 's']],
-      what: 'Two small testing ad sets try new ads every week. Anything that works moves into one scaling campaign with most of the money.',
-      how: 'A steady stream of new winners, while most of the budget always sits behind ads already proven to sell. The best balance for $500 a day.' },
-    { title: 'Learn fast: two big ad sets', tag: 'Most stable', score: 3,
-      sets: [['Persona A: everyday skin', 250, 's'], ['Persona B: gifts + men', 250, 's']],
-      what: 'All the money in two ad sets, each loaded with 5–10 very different ads for one type of buyer.',
+    { title: 'Spread thin: 8 ad sets at about $62 each', tag: 'What most accounts do', score: 3,
+      sets: [['Ingredients', 62, 't'], ['Founder', 62, 't'], ['Reviews', 62, 't'], ['Gifts', 62, 't'], ['Texture', 63, 't'], ['Ranch', 63, 't'], ['Outdoors', 63, 't'], ['Candles', 63, 't']],
+      what: 'Lots of separate tests at once, each with a small slice of the money, and nothing set aside for winners.',
+      how: 'Each ad set gets too few sales for Meta to learn who buys. Costs stay high and results bounce around week to week.' },
+    { title: 'Test + scale: $150 testing, $350 on winners', tag: 'Recommended', score: 9,
+      sets: [['Test: founder + ranch', 50, 't'], ['Test: reviews + texture', 50, 't'], ['Test: ugly + statics', 50, 't'], ['Scale: proven winners', 350, 's']],
+      what: 'Three testing ad sets at $50 a day try new ads every week, 3 to 5 very different ads in each. Anything that works moves into one scaling campaign with most of the money.',
+      how: 'A steady stream of new winners, while most of the budget always sits behind ads already proven to sell. This is the two-campaign setup the training teaches.' },
+    { title: 'Learn fast: two big ad sets', tag: 'Most stable', score: 7,
+      sets: [['Buyer A: everyday skin', 250, 's'], ['Buyer B: gifts + outdoors', 250, 's']],
+      what: 'All the money in two ad sets, one per type of buyer, each loaded with 5 to 10 very different ads.',
       how: 'Meta learns fastest and costs settle quickly, but fewer new ideas get tested, so winners wear out sooner.' },
-    { title: 'Holiday hold: protect what works', tag: 'Black Friday to New Year', score: 3,
+    { title: 'Holiday hold: protect what works', tag: 'Black Friday to New Year', score: 6,
       sets: [['Current best ads (untouched)', 400, 's'], ['Light testing', 100, 't']],
       what: 'Through the holidays, proven ads keep 80% of the money and nobody touches them. A small test budget gets new ads ready for January.',
-      how: 'The safest way through the most expensive weeks of the year. Bigger tests wait until costs drop in January.' }
+      how: 'The safest way through the most expensive weeks of the year, but very little gets learned until January.' }
   ];
   let plan = 1;
   function drawPlan(animate) {
-    const P = PLANS[plan], cpa = +$('#cpa').value;
-    $('#cpaV').textContent = '$' + cpa;
-    $('#sets').innerHTML = P.sets.map(([n, b, k]) => {
-      const wk = Math.round(b / cpa * 7), ok = wk >= 50;
-      return `<div class="set"><span class="nm">${n}<small>$${b}/day</small></span><span class="bar"><i class="${k}" style="width:${Math.max(10, b / 400 * 100)}%">$${b}</i></span><span class="ok ${ok ? 'y' : 'n'}">${wk} sales/wk ${ok ? '✓' : '✕'}</span></div>`;
-    }).join('');
+    const P = PLANS[plan];
+    $('#sets').innerHTML = P.sets.map(([n, b, k]) => `<div class="set" style="grid-template-columns:170px minmax(0,1fr)"><span class="nm">${n}<small>$${b}/day · ${k === 's' ? 'winners' : 'testing'}</small></span><span class="bar"><i class="${k}" style="width:${Math.max(12, b / 400 * 100)}%">$${b}</i></span></div>`).join('');
     $('#vTitle').textContent = P.title; $('#vTag').textContent = P.tag;
     $('#vTag').className = 'tag' + (plan === 1 ? ' ok' : plan === 0 ? ' bad' : '');
     $('#vWhat').textContent = P.what; $('#vHow').textContent = P.how;
-    $$('#meter i').forEach((m, i) => m.classList.toggle('on', i <= P.score));
+    $('#stars').innerHTML = '<i>' + '★'.repeat(P.score) + '</i>' + '★'.repeat(10 - P.score);
+    $('#score').textContent = P.score + ' / 10';
     if (animate && hasGsap && !reduce) {
       gsap.from('#sets .bar i', { scaleX: 0, transformOrigin: 'left', duration: .6, stagger: .05, ease: 'power3.out' });
       gsap.from('.verdict > *', { y: 10, opacity: 0, duration: .45, stagger: .05, ease: 'power2.out' });
     }
   }
   $$('.plan').forEach(b => b.addEventListener('click', () => { plan = +b.dataset.p; $$('.plan').forEach(x => x.classList.toggle('on', x === b)); drawPlan(true); }));
-  $('#cpa').addEventListener('input', () => drawPlan(false));
   drawPlan(false);
-  console.assert(Math.round(75 / 30 * 7) === 18 && Math.round(250 / 30 * 7) === 58, 'budget math');
+  console.assert(PLANS.every(P => P.sets.reduce((t, x) => t + x[1], 0) === 500), 'every version spends $500');
 
 
   // ---------- Content plan ----------
   const IMG = 'https://cdn.shopify.com/s/files/1/0683/0718/9987/files/';
   const PLAN = [
-    { d:'Mon', t:'Ranch morning story', step:'Step 1 · voice only', len:'30–45 s', img:IMG+'Screenshot_2025-06-16_at_8.54.47_PM.png?width=500', hook:"I was raised on a ranch. College wrecked my skin.",
+    { d:'Mon', t:'Ranch morning story', step:'Voice only', len:'30–45 s', img:IMG+'Screenshot_2025-06-16_at_8.54.47_PM.png?width=500', hook:"I was raised on a ranch. College wrecked my skin.",
       shots:['Wide: the pasture at sunrise, phone on a fence post, 10 s <i>(no one in frame)</i>','Walk-away: you walking toward the cows, filmed from behind, 8 s','Close: hand on a fence rail or a cow, 5 s','Voice memo, recorded after: why you started, in your words, under 40 s'],
       ad:'Becomes: the founder-story ad, with his voice over these clips.' },
     { d:'Tue', t:'Rendering day', step:'Hands only', len:'15–20 s', img:IMG+'7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=500', hook:"This is what's actually in my moisturizer",
@@ -897,52 +978,57 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   $$('.cp-day').forEach(b => b.addEventListener('click', () => { day = +b.dataset.i; $$('.cp-day').forEach(x => x.classList.toggle('on', x === b)); drawDay(); }));
   drawDay();
 
-  // ---------- Founder ladder ----------
-  $$('#ladder .rung').forEach((r, i, all) => r.addEventListener('click', () => all.forEach((x, j) => x.classList.toggle('on', j <= i))));
 
   // ---------- Website comparisons ----------
   // y = pixels from the top of his live page (measured with Playwright). Rebuilt targets are section ids.
   const WHY = {
     phone: [
-      { y: 0, id: 'hero', pop: true, t: 'Nothing between them and the product', today: 'A 10% pop-up covers the title and price, and its code excludes sale items: the very product the ads promote.', rb: 'No pop-up on load. The offer sits on the photo instead.', why: 'People who tap an ad decide in seconds. Anything in the way loses the sale.' },
-      { y: 0, id: 'hero', t: 'The product in someone’s hand, offer on the photo', today: 'A jar on a fence post. The offer isn’t anywhere on screen one.', rb: 'A hand holding the open jar, with “2 jars ship free” on the image.', why: 'A shopper should know what it is within five seconds, and your best offer belongs on the first image.' },
-      { y: 760, id: 'price', t: 'Proof and price together, no math', today: 'Price is below the first screen; the stars are tiny.', rb: 'Stars, a real review, and the price with the old price crossed out and “You save $6.90”.', why: 'Proof works best right where the decision happens. Don’t make people do math.' },
-      { y: 1300, id: 'bundles', t: 'A bundle ladder that ships free', today: 'The “Most Popular” 2-pack is $39.08, 92 cents short of free shipping.', rb: 'Starter / Most popular (pre-picked) / Best value, with the price per jar. 2 jars ship free.', why: 'People pick the middle option. A bigger cart at the same ad cost is pure profit.' },
-      { y: 1500, id: 'hero', t: 'The buy button always in reach', today: 'Add to Cart is 2.6 phone screens down.', rb: 'A sticky bar with the price and an Add to Cart button on every screen.', why: 'Every extra scroll before the button loses people.' },
-      { y: 2760, id: 'compare', t: 'Old way vs. new way, in safe words', today: 'A long paragraph, plus “eczema-prone” and “eczema-care research” on the page.', rb: 'A lotion vs. balm table: water first vs. tallow first, 7 ingredients, no added fragrance.', why: 'Specifics sell and vague claims don’t. Medical words put his ads and page at risk with Meta.' },
-      { y: 3080, id: 'ingredients', t: 'Show it, don’t tell it', today: 'Stock photos of tallow and oil, each with a paragraph.', rb: 'The ingredients arranged around his actual jar, plus a 3-step how-to with hands.', why: 'On a phone, pictures beat paragraphs.' },
-      { y: 9150, id: 'clips', t: 'Real people and reviews all the way down', today: 'Reviews only at the very bottom. No customer video.', rb: 'A review under the photo, one mid-page, a full reviews section, and slots for customer clips.', why: 'In skincare, other people’s words do the selling.' },
-      { y: 10400, id: 'founder', t: 'The founder story on the page', today: 'Only on the About page. Ad visitors never see it.', rb: 'DiMarco’s photo and his own words, right before the reviews.', why: 'A real ranch-raised founder is trust no competitor can copy.' },
-      { y: 10400, id: 'faq', t: 'Answer doubts before the last button', today: 'Three closed tabs: Ingredients, How To Use, Size.', rb: '“Will it smell like beef?” “Is there an unscented one?” “On my face?” “Refund?”, then the final button.', why: 'Every unanswered question is a reason to leave.' },
-      { y: 1500, id: 'cart', t: 'A cart that finishes the sale', today: 'A standard cart.', rb: 'A free-shipping progress bar, a review, the guarantee, a lip-balm add-on, and a green checkout button.', why: 'Add-to-carts that don’t check out are the cheapest sales to win back.' }
+      { y: 0, h: 880, id: 'hero', pop: true, t: 'Nothing between them and the product', today: 'A 10% pop-up covers the title and price, and its code excludes sale items: the very product the ads promote.', rb: 'No pop-up on load. The offer sits on the photo instead.', why: 'People who tap an ad decide in seconds. Anything in the way loses the sale.' },
+      { y: 230, h: 365, id: 'hero', t: 'The product in someone’s hand, offer on the photo', today: 'A jar on a fence post. The offer isn’t anywhere on the first screen.', rb: 'A hand holding the open jar, with “2 jars ship free” on the image.', why: 'A shopper should know what it is within five seconds, and the best offer belongs on the first image.' },
+      { y: 712, h: 290, id: 'price', t: 'Proof and price together, no math', today: 'Price under a long title; the stars are tiny and come after it.', rb: 'Stars, a real review, and the price with the old price crossed out and “You save $6.90”.', why: 'Proof works best right where the decision happens. Don’t make people do math.' },
+      { y: 1385, h: 375, id: 'bundles', t: 'Buy 2, shipping is free', today: 'You already sell a 2-pack for $39.08. Free shipping starts at $40, so the 2-pack misses it by 92 cents.', rb: 'Three choices (1 jar, 2 jars, 3 jars) with the price per jar. The 2-jar option is picked for them and ships free.', why: 'Most people pick the middle option. More jars per order, at the same ad cost.' },
+      { y: 1788, h: 64, id: 'hero', t: 'The buy button always in reach', today: 'Add to Cart is about two phone screens down.', rb: 'A bar with the price and an Add to Cart button stays on screen the whole way down.', why: 'Every extra scroll before the button loses people.' },
+      { y: 2440, h: 580, id: 'compare', t: 'Old way vs. new way, in safe words', today: 'A long paragraph, plus “eczema-prone” and “eczema-care research” on the page.', rb: 'A lotion vs. balm table: water first vs. tallow first, 7 ingredients, no added fragrance.', why: 'Specifics sell and vague claims don’t. Medical words put the ads and the page at risk with Meta.' },
+      { y: 3060, h: 760, id: 'ingredients', t: 'Show it, don’t tell it', today: 'Stock photos of tallow and oil, each with a paragraph. Four of them, about four phone screens long.', rb: 'The ingredients arranged around the actual jar, plus a 3-step how-to with hands.', why: 'On a phone, pictures beat paragraphs.' },
+      { y: 9300, h: 1640, id: 'clips', t: 'Real people and reviews all the way down', today: 'Reviews only at the very bottom, after everything else. No customer video.', rb: 'A review under the photo, one mid-page, a full reviews section, and slots for customer clips.', why: 'In skincare, other people’s words do the selling.' },
+      { y: 7905, h: 245, id: 'founder', t: 'The founder story on the page', today: 'One “Read our story” link near the bottom. Ad visitors never see the story.', rb: 'DiMarco’s photo and his own words, right before the reviews.', why: 'A real ranch-raised founder is trust no competitor can copy.' },
+      { y: 8415, h: 210, id: 'faq', t: 'Answer doubts before the last button', today: 'A short FAQ near the very bottom, and the first question asks about eczema.', rb: '“Will it smell like beef?” “Is there an unscented one?” “On my face?” “Refund?”, then the final button.', why: 'Every unanswered question is a reason to leave.' },
+      { y: 1788, h: 64, id: 'cart', t: 'A cart that finishes the sale', today: 'A standard cart opens from this button.', rb: 'A free-shipping progress bar, a review, the guarantee, a lip-balm add-on, and a green checkout button.', why: 'People who add to cart and don’t check out are the cheapest sales to win back.' }
     ],
     home: [
-      { y: 0, id: 'hero', t: 'Clear in five seconds', today: 'A shelf of 15 products behind a dark text box.', rb: 'One hero product on the ranch, and a headline that says exactly what it is.', why: 'If people can’t tell what you sell instantly, they leave.' },
-      { y: 0, id: 'proof', t: 'Proof and offer on the first screen', today: 'Only the free-shipping bar.', rb: '4.6★ from 442 ratings, “2-packs ship free” and the refund promise, right in the hero.', why: 'Trust and a reason to buy now, before the first scroll.' },
-      { y: 930, id: 'jarsec', t: 'Lead with the best seller, in safe words', today: '“Nature’s Botox … reduces the appearance of wrinkles.”', rb: 'The jar grows in as you scroll, its four key ingredients float in, and a price chip lands.', why: 'Motion belongs on the homepage. It earns attention without slowing the product page.' },
-      { y: 1360, id: 'reviews', t: 'Reviews on the homepage', today: 'None. Star counts are tiny under the products.', rb: 'Real reviews, moving, right after the product.', why: 'Social proof early keeps people scrolling.' },
-      { y: 1890, id: 'story', t: 'His story, told properly', today: 'Three small cards with a few lines each.', rb: 'Three chapters in his words with drifting ranch photos.', why: 'The story is the edge. It should feel like the brand, not a footnote.' },
-      { y: 4360, id: 'social', t: 'Social links', today: 'None anywhere on the site.', rb: 'Instagram, TikTok and Facebook in the footer.', why: 'People who want to check you out shouldn’t hit a dead end.' }
+      { y: 340, h: 555, id: 'hero', t: 'Clear in five seconds', today: 'A shelf of 15 products behind a dark text box.', rb: 'One hero product on the ranch, and a headline that says exactly what it is.', why: 'If people can’t tell what you sell instantly, they leave.' },
+      { y: 0, h: 40, id: 'proof', t: 'Proof and offer on the first screen', today: 'Only the free-shipping bar at the very top.', rb: '4.6★ from 442 ratings, “2-packs ship free” and the refund promise, right in the hero.', why: 'Trust and a reason to buy now, before the first scroll.' },
+      { y: 915, h: 390, id: 'jarsec', t: 'Lead with the best seller, in safe words', today: '“Nature’s Botox … reduces the appearance of wrinkles.”', rb: 'The jar grows in as you scroll, its four key ingredients float in, and a price chip lands.', why: 'Motion belongs on the homepage. It earns attention without slowing the product page.' },
+      { y: 1335, h: 410, id: 'reviews', t: 'Reviews on the homepage', today: 'No reviews. Just tiny star counts under the products.', rb: 'Real reviews, moving, right after the product.', why: 'Social proof early keeps people scrolling.' },
+      { y: 1870, h: 540, id: 'story', t: 'His story, told properly', today: 'Three small cards with a few lines each.', rb: 'Three chapters in his words with drifting ranch photos.', why: 'The story is the edge. It should feel like the brand, not a footnote.' },
+      { y: 4300, h: 317, id: 'social', t: 'Social links', today: 'None anywhere on the site, including the footer.', rb: 'Instagram, TikTok and Facebook in the footer.', why: 'People who want to check you out shouldn’t hit a dead end.' }
     ],
     pdp: [
-      { y: 0, id: 'hero', t: 'Everything to buy on the first screen', today: 'Big photo, title, then the price further down.', rb: 'Photo with offer, stars, review, price, savings, bundles and Add to Cart side by side.', why: 'On a laptop there’s room for all of it. Use it.' },
-      { y: 720, id: 'bundles', t: 'Bundle ladder, middle pre-picked', today: 'Bundles below the price; 2-pack misses free shipping by 92¢.', rb: 'Starter / Most popular / Best value with price per jar. 2+ ship free.', why: 'Anchoring the middle option lifts the average order.' },
-      { y: 2250, id: 'compare', t: 'Old way vs. new way', today: '“Eczema-prone” wording and long paragraphs.', rb: 'A clear comparison table in cosmetic words.', why: 'Specifics sell; medical words get flagged.' },
-      { y: 2420, id: 'ingredients', t: 'Ingredients you can see', today: 'Stock photos and paragraphs.', rb: 'Ingredients around the real jar, plus how to apply it.', why: 'Pictures beat paragraphs.' },
-      { y: 6550, id: 'reviews', t: 'Reviews with a score breakdown', today: 'At the bottom of a very long page.', rb: '4.8 score, star breakdown, and reviews near the top too.', why: 'Proof where people decide.' },
-      { y: 6550, id: 'cart', t: 'A cart that closes', today: 'A standard cart.', rb: 'Progress bar, review, guarantee, add-on, green checkout.', why: 'Win back the people who already said yes once.' }
+      { y: 370, h: 630, id: 'hero', t: 'Everything to buy on the first screen', today: 'Big photo and title; the buying options start further down.', rb: 'Photo with offer, stars, review, price, savings, jar choices and Add to Cart side by side.', why: 'On a laptop there’s room for all of it. Use it.' },
+      { y: 1005, h: 375, id: 'bundles', t: 'Buy 2, shipping is free', today: 'The 2-pack is $39.08 and free shipping starts at $40: 92 cents short.', rb: '1, 2 or 3 jars with the price per jar. 2 jars is picked for them and ships free.', why: 'Most people pick the middle option, so each order is worth more.' },
+      { y: 2000, h: 350, id: 'compare', t: 'Old way vs. new way', today: '“Eczema-prone” wording and long paragraphs.', rb: 'A clear comparison table in cosmetic words.', why: 'Specifics sell; medical words get flagged.' },
+      { y: 2385, h: 930, id: 'ingredients', t: 'Ingredients you can see', today: 'Stock photos and paragraphs.', rb: 'Ingredients around the real jar, plus how to apply it.', why: 'Pictures beat paragraphs.' },
+      { y: 6620, h: 1550, id: 'reviews', t: 'Reviews with a score breakdown', today: 'At the very bottom of a long page.', rb: '4.8 score, star breakdown, and reviews near the top too.', why: 'Proof where people decide.' },
+      { y: 1405, h: 52, id: 'cart', t: 'A cart that closes', today: 'A standard cart opens from this button.', rb: 'Progress bar, review, guarantee, add-on, green checkout.', why: 'Win back the people who already said yes once.' }
     ]
   };
   const scaleOf = pane => { const im = pane.querySelector('img'); return im.clientWidth / +im.dataset.w; };
   function drawWhy(list, items, todayPane, frame) {
-    list.innerHTML = items.map((w, i) => `<li${i ? '' : ' class="on"'}><button><b>${w.t}</b><span class="more"><span class="in"><span class="p t"><span>Today</span>${w.today}</span><span class="p r"><span>Rebuilt</span>${w.rb}</span><span class="p y"><span>Why</span>${w.why}</span></span></span></button></li>`).join('');
-    [...list.children].forEach((li, i) => li.firstChild.addEventListener('click', () => {
-      [...list.children].forEach(x => x.classList.toggle('on', x === li));
-      const w = items[i];
-      todayPane.scrollTo({ top: Math.max(0, w.y * scaleOf(todayPane) - 20), behavior: 'smooth' });
+    const im = todayPane.querySelector('img'), mk = todayPane.querySelector('.mk'), W = +im.dataset.w;
+    const crop = w => { const cw = 260, k = cw / W, ch = Math.min(170, Math.max(40, w.h * k)); return `<span class="crop" role="img" aria-label="That spot on the site today" style="width:${cw}px;height:${ch}px;background-image:url('${im.getAttribute('src')}');background-size:${cw}px auto;background-position:0 ${-w.y * k}px"></span>`; };
+    list.innerHTML = items.map((w, i) => `<li${i ? '' : ' class="on"'}><button><b>${w.t}</b><span class="more"><span class="in"><span class="p t"><span>Today</span>${w.today}${crop(w)}</span><span class="p r"><span>Rebuilt</span>${w.rb}</span><span class="p y"><span>Why</span>${w.why}</span></span></span></button></li>`).join('');
+    const pick = (i, jump) => {
+      [...list.children].forEach((x, j) => x.classList.toggle('on', j === i));
+      const w = items[i], k = scaleOf(todayPane);
+      mk.style.top = (w.y * k - 3) + 'px'; mk.style.height = (w.h * k + 6) + 'px';
+      if (!jump) return;
+      todayPane.scrollTo({ top: Math.max(0, w.y * k - 30), behavior: 'smooth' });
       if (frame.contentWindow) frame.contentWindow.postMessage({ goto: w.id }, location.origin);
       if (todayPane.id === 'todayPhone') $('#popup').classList.toggle('hide', !w.pop);
-    }));
+    };
+    [...list.children].forEach((li, i) => li.firstChild.addEventListener('click', () => pick(i, true)));
+    list._redraw = () => pick(Math.max(0, [...list.children].findIndex(x => x.classList.contains('on'))), false);
+    im.complete ? list._redraw() : im.addEventListener('load', list._redraw, { once: true });
   }
   drawWhy($('#whyPhone'), WHY.phone, $('#todayPhone'), $('#rbPhone'));
   $('#popX').addEventListener('click', () => $('#popup').classList.add('hide'));
@@ -961,32 +1047,17 @@ mark.g{background:linear-gradient(transparent 55%,rgba(23,160,90,.22) 55%);color
   }
   $$('[data-tab]').forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
   setTab('home');
-  addEventListener('resize', fitDesk);
+  addEventListener('resize', () => { fitDesk(); $('#whyPhone')._redraw(); $('#whyDesk')._redraw(); });
 
-  // ---------- Time saved ----------
-  function drawTime() {
-    const n = +$('#sAds').value, o = +$('#sOld').value, w = +$('#sNew').value;
-    $('#nAds').textContent = n; $('#nOld').textContent = o + ' h'; $('#nNew').textContent = w + ' h';
-    const oh = n * o, nh = n * w;
-    $('#bOld').style.width = '100%'; $('#bOld').textContent = Math.round(oh) + ' hours';
-    $('#bNew').style.width = Math.max(6, nh / oh * 100) + '%'; $('#bNew').textContent = Math.round(nh) + ' h';
-    $('#saved').textContent = Math.round(oh - nh) + ' h';
+  // ---------- Time on marketing ----------
+  function drawHours() {
+    const h = +$('#sHrs').value;
+    $('#nHrs').textContent = h;
+    $('#hMonth').textContent = Math.round(h * 52 / 12) + ' hours';
+    $('#hDays').textContent = Math.round(h * 52 / 8);
   }
-  ['#sAds', '#sOld', '#sNew'].forEach(s => $(s).addEventListener('input', drawTime)); drawTime();
-
-  // ---------- Bigger cart ----------
-  function drawMoney() {
-    const cpa = +$('#mCpa').value, t = +$('#mToday').value / 100, a = +$('#mAfter').value / 100;
-    $('#mCpaV').textContent = '$' + cpa; $('#mTodayV').textContent = Math.round(t * 100) + '%'; $('#mAfterV').textContent = Math.round(a * 100) + '%';
-    const sales = 500 * 30 / cpa, aov = s => s * 39.08 + (1 - s) * 22.99;
-    const rT = sales * aov(t), rA = sales * aov(a), mx = Math.max(rT, rA);
-    $('#mSales').textContent = Math.round(sales).toLocaleString('en-US');
-    $('#mbT').style.width = (rT / mx * 100) + '%'; $('#mbT').textContent = money(rT);
-    $('#mbA').style.width = (rA / mx * 100) + '%'; $('#mbA').textContent = money(rA);
-    $('#mExtra').textContent = (rA >= rT ? '+' : '−') + money(Math.abs(rA - rT));
-  }
-  ['#mCpa', '#mToday', '#mAfter'].forEach(s => $(s).addEventListener('input', drawMoney)); drawMoney();
-  console.assert(Math.round(500 * 30 / 30 * (0.25 * 16.09)) === 2011, 'cart math');
+  $('#sHrs').addEventListener('input', drawHours); drawHours();
+  console.assert(Math.round(8 * 52 / 12) === 35 && Math.round(8 * 52 / 8) === 52, 'hours math');
 })();
 </script>
 </body>

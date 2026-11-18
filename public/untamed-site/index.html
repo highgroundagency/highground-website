@@ -118,6 +118,7 @@ footer .soc a{padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.
   .hero h1{font-size:32px!important}
   .proofrow span:nth-child(3){display:none}
 }
+.hl{outline:4px solid #E8641A;outline-offset:-4px;border-radius:6px;transition:outline-color .3s}
 </style>
 </head>
 <body>
@@ -207,9 +208,9 @@ footer .soc a{padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.
   let lenisRef = null;
   addEventListener('message', e => {
     const id = e.data && e.data.goto; const el = id && document.getElementById(id); if (!el) return;
-    const y = el.getBoundingClientRect().top + scrollY - 60;
+    const y = id === 'hero' ? 0 : el.getBoundingClientRect().top + scrollY - (hdr.offsetHeight || 60) - 8;
     lenisRef ? lenisRef.scrollTo(y, { duration: 1.2 }) : scrollTo({ top: y, behavior: 'smooth' });
-    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    document.querySelectorAll('.hl').forEach(x => x.classList.remove('hl')); el.classList.add('hl'); // stays on until the next reason is picked
   });
   if (reduce || !window.gsap) return;
   gsap.registerPlugin(ScrollTrigger);

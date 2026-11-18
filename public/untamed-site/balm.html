@@ -90,7 +90,7 @@ header nav a{text-decoration:none}
 .atc.light{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
 .guar{display:flex;gap:10px;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--ink)}
 .guar svg{flex:none}
-@media (max-width:820px){.buy{grid-template-columns:minmax(0,1fr);gap:12px;padding-top:10px}.gal{position:static}.info{gap:10px}.slides img{aspect-ratio:4/3}.quote,.facts{display:none}.offerflag{padding:8px 12px;font-size:13px}.offerflag b{font-size:14px}body{padding-bottom:78px}header img{height:36px}}
+@media (max-width:820px){.buy{grid-template-columns:minmax(0,1fr);gap:12px;padding-top:10px}.gal{position:static}.info{gap:10px}.slides img{aspect-ratio:1/1}.quote,.facts{display:none}.offerflag{padding:8px 12px;font-size:13px}.offerflag b{font-size:14px}body{padding-bottom:78px}header img{height:36px}}
 
 /* ---- Sections ---- */
 section.s{padding:60px 0;border-top:1px solid var(--line)}
@@ -220,6 +220,7 @@ footer .soc a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;bo
 .foot .atc{background:var(--green);font-size:18px}
 .foot .atc:hover{background:#255733}
 .g{color:var(--muted);font-size:13.5px;text-align:center;margin-top:8px}
+.hl{outline:4px solid #E8641A;outline-offset:-4px;border-radius:6px;transition:outline-color .3s}
 </style>
 </head>
 <body>
@@ -322,7 +323,7 @@ footer .soc a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;bo
 </div></section>
 
 <section class="s paper" id="founder"><div class="wrap founder">
-  <img class="rv" src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.23_PM.png?width=800" alt="DiMarco Del Curto, founder, on the ranch" loading="lazy">
+  <img class="rv" src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=1100" alt="DiMarco Del Curto, founder, with one of the ranch's highland cows" loading="lazy" style="aspect-ratio:1/1;object-position:62% center">
   <div>
     <p class="eyebrow rv">From the founder</p>
     <h2 class="rv">Raised on a ranch. Rebuilt my skincare from it.</h2>
@@ -464,8 +465,9 @@ footer .soc a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;bo
     open(false);
     const el = document.getElementById(id); if (!el) return;
     $$('.rv').forEach(r => r.classList.add('in'));
-    scrollTo({ top: el.getBoundingClientRect().top + scrollY - 60, behavior: 'smooth' });
-    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    const hdr = document.querySelector('header').offsetHeight; // sticky header would cover the top of the section
+    scrollTo({ top: id === 'hero' ? 0 : el.getBoundingClientRect().top + scrollY - hdr - 8, behavior: 'smooth' });
+    document.querySelectorAll('.hl').forEach(x => x.classList.remove('hl')); el.classList.add('hl'); // stays on until the next reason is picked
   });
 })();
 </script>
