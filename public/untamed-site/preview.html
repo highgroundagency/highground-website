@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Untamed Organics · before and after</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Review page for DiMarco: today vs the new homepage in phone frames, then each photo spot with the shot we'd take. */
+:root{--ink:#2b1e18;--deep:#4b403a;--muted:#6b5d4f;--line:#e3d8c4;--paper:#faf6ef;--card:#fff;--wheat:#f1e6d0;--accent:#8a6d4b;--r:12px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 'Assistant',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Spectral',Georgia,serif;font-weight:600;margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #b9770a;outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font:800 12px/1.4 'Assistant';letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+section{padding:56px 0}
+.top{background:var(--ink);color:#fff;padding:40px 0 36px}
+.top img{height:56px;width:auto;background:#fff;border-radius:10px;padding:4px 8px;margin-bottom:20px}
+.top h1{font-size:clamp(30px,4.6vw,52px);margin:8px 0 12px}
+.top p{color:#f4ebdd;max-width:620px}
+.top .eyebrow{color:#d9bd8c}
+h2{font-size:clamp(26px,3.4vw,40px);margin:6px 0 10px}
+.lede{color:var(--muted);max-width:640px}
+
+/* Phones */
+.tabs{display:none;gap:8px;margin:20px 0 4px}
+.tabs button{flex:1;min-height:48px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:800 16px 'Assistant';cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.phones{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:28px}
+.phone{display:flex;flex-direction:column;align-items:center;gap:14px}
+.phone h3{font:800 13px/1 'Assistant';letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.bezel{width:406px;height:796px;padding:8px;border-radius:52px;background:#1a1411;box-shadow:0 30px 60px -30px rgba(43,30,24,.6)}
+.screen{width:390px;height:780px;border-radius:44px;overflow:hidden;background:#fff}
+.screen.scroll{overflow-y:auto;overscroll-behavior:contain}
+.screen img{display:block;width:100%;height:auto}
+.screen iframe{display:block;width:390px;height:780px;border:0}
+.phone a{font-weight:700}
+.phone .note{font-size:14px;color:var(--muted);text-align:center;max-width:380px}
+@media (max-width:900px){
+  .tabs{display:flex}
+  .phone[hidden]{display:none}
+  .phones{margin-top:12px}
+}
+@media (max-width:440px){
+  .bezel{width:100%;height:76svh;padding:6px;border-radius:40px}
+  .screen,.screen iframe{width:100%;height:100%;border-radius:34px}
+}
+
+/* Photo spots */
+.spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:28px}
+.spot{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.spot header{padding:16px 18px 12px}
+.spot h3{font-size:22px}
+.spot header p{font-size:14px;color:var(--muted)}
+.view{position:relative;aspect-ratio:4/5;background:var(--wheat)}
+.frame{position:absolute;inset:0;display:grid;place-items:center}
+.frame[hidden]{display:none}
+.frame img{width:100%;height:100%;object-fit:contain}
+.frame .ph{display:none;place-items:center;text-align:center;padding:28px;margin:18px;border:2px dashed #c9b48f;border-radius:var(--r);color:var(--muted);font-size:15px;align-self:stretch;justify-self:stretch}
+.frame .ph b{display:block;color:var(--ink);font:600 19px/1.3 'Spectral';margin-bottom:6px}
+.frame.missing img{display:none}
+.frame.missing .ph{display:grid}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(43,30,24,.82);color:#fff;font:700 26px/1 'Assistant';cursor:pointer;display:grid;place-items:center}
+.arrow:hover{background:var(--ink)}
+.prev{left:10px}.next{right:10px}
+.count{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.9);border-radius:999px;padding:4px 10px;font:700 13px 'Assistant'}
+.cap{padding:14px 18px 18px;font-size:16px;line-height:1.45;min-height:96px}
+.chip{display:inline-block;font:800 11px/1 'Assistant';letter-spacing:.12em;text-transform:uppercase;padding:6px 9px;border-radius:999px;margin-right:6px;vertical-align:2px}
+.chip.now{background:#e9e2d6;color:var(--deep)}
+.chip.shoot{background:var(--ink);color:#fff}
+.chip.keep{background:#dfe9d6;color:#2f4a1f}
+
+/* Shot list */
+.list{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:24px}
+.groups h3{font-size:20px;margin-bottom:8px}
+.groups ol{margin:0;padding-left:22px}
+.groups li{margin-bottom:8px}
+.groups li small{display:block;color:var(--muted);font-size:14px}
+.rules{margin-top:28px;padding:18px 20px;border-radius:var(--r);background:var(--wheat)}
+.rules p+p{margin-top:8px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Untitled_design_6.png?width=300" alt="Untamed Organics" width="150" height="80">
+  <p class="eyebrow">For DiMarco · from High Ground Agency</p>
+  <h1>Your homepage, before and after</h1>
+  <p>Scroll both phones. The new one is live, so you can tap around in it. Below that, every photo spot on the new page, with the shot we'd take for it in December.</p>
+</div></div>
+
+<section id="compare"><div class="wrap">
+  <p class="eyebrow">On a phone</p>
+  <h2>Today and new, side by side</h2>
+  <p class="lede">Most people who tap an ad land on a phone, so this is the view that counts.</p>
+  <div class="tabs" role="tablist" aria-label="Choose a version">
+    <button role="tab" id="tab-new" aria-controls="ph-new" aria-selected="true">New</button>
+    <button role="tab" id="tab-today" aria-controls="ph-today" aria-selected="false">Today</button>
+  </div>
+  <div class="phones">
+    <div class="phone" id="ph-today" role="tabpanel" aria-labelledby="tab-today">
+      <h3>Today</h3>
+      <div class="bezel"><div class="screen scroll" tabindex="0" aria-label="Your homepage today, scrollable screenshot"><img src="../untamed/today-home-phone.jpg" alt="organicsuntamed.com today on an iPhone, full length, with the sign-up pop-up that shows on arrival" width="780" height="12422" loading="lazy"></div></div>
+      <a href="https://organicsuntamed.com/" target="_blank" rel="noopener">Open your live site</a>
+      <p class="note">A screenshot from Nov 23. Your store doesn't allow itself to be shown inside another page.</p>
+    </div>
+    <div class="phone" id="ph-new" role="tabpanel" aria-labelledby="tab-new">
+      <h3>New</h3>
+      <div class="bezel"><div class="screen"><iframe src="index.html" title="The new homepage, live and scrollable"></iframe></div></div>
+      <a href="index.html" target="_blank" rel="noopener">Open the new page full screen</a>
+      <p class="note">Real photos, prices and reviews from your store. Not live for customers.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="photos" style="padding-top:8px"><div class="wrap">
+  <p class="eyebrow">Photos</p>
+  <h2>What's there now, and what we'd shoot</h2>
+  <p class="lede">Tap the arrows on each spot. "Now" is the photo on the page today. "Shoot" is a sketch of the shot we'd take instead. Sketches show the framing only; the real photos come from the December shoot.</p>
+
+  <div class="spots">
+
+    <article class="spot">
+      <header><h3>Top of the page</h3><p>The first thing people see</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="Your jar on the rail at the ranch. Strong photo, but it's one jar. The offer is two."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Tallow-Manuka-Black-Seed-1080x1080.png?width=900" alt="One jar of the Manuka balm on a wood rail at the ranch"></div>
+        <div class="frame" data-kind="shoot" data-cap="Two jars side by side on the same rail, late-afternoon sun from one side, one lid off. Camera at rail height, looking slightly up." hidden><img src="shots/01-hero-two-jars.png" alt="Sketch: two jars side by side on the ranch rail" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Two jars on the ranch rail, one lid off</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>"One to keep. One to give."</h3><p>The offer section. No photo here today.</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="No photo here today. Just the price cards."><div class="ph" style="display:grid"><span><b>No photo today</b>Price cards only</span></div></div>
+        <div class="frame" data-kind="shoot" data-cap="Straight down from above: two closed jars and one open jar, lid beside it, on linen over wood, soft window light. Room on one side for words." hidden><img src="shots/02-offer-flat-lay.png" alt="Sketch: flat lay of three jars from above" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Flat lay from above, two jars and one open</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>What's in the jar</h3><p>The ingredients section. No photo here today.</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="No photo here today. Just the four ingredient boxes."><div class="ph" style="display:grid"><span><b>No photo today</b>Ingredient boxes only</span></div></div>
+        <div class="frame" data-kind="shoot" data-cap="Close-up: a fingertip lifting a small scoop of balm, the open jar soft behind it, daylight. Shows the texture." hidden><img src="shots/03-fingertip-scoop.png" alt="Sketch: fingertip with a scoop of balm" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Fingertip with a scoop of balm</span></div></div>
+        <div class="frame" data-kind="shoot" data-cap="Hands only, seen from your own eyes: rubbing balm into the back of one hand outdoors in sun, jar in the other hand. Shoot it tall." hidden><img src="shots/04-back-of-hand.png" alt="Sketch: rubbing balm into the back of a hand" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Rubbing balm into the back of a hand</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>"Raised on a ranch."</h3><p>Your story, part one</p></header>
+      <div class="view">
+        <div class="frame" data-kind="keep" data-cap="You and the highland cow. Keep this one. It's real and nobody else has it."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-16_at_8.54.47_PM.png?width=900" alt="DiMarco reaching up to a highland cow on the ranch"></div>
+        <div class="frame" data-kind="shoot" data-cap="An extra for this spot: a wide of the ranch at golden hour, fence line leading in, you small in the frame walking away." hidden><img src="shots/05-ranch-wide.png" alt="Sketch: wide shot of the ranch at golden hour" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Wide of the ranch at golden hour</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>"Then the labels got long."</h3><p>Your story, part two</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="You with the whole line. Good, but the jars are tiny at phone size."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/Screenshot_2025-06-21_at_11.07.39_AM.png?width=900" alt="DiMarco kneeling beside the full product line at the ranch"></div>
+        <div class="frame" data-kind="shoot" data-cap="Waist up, holding the jar at chest height with the label to camera, looking at the lens. Camera at chest height, hills behind." hidden><img src="shots/06-portrait-with-jar.png" alt="Sketch: waist-up portrait holding the jar" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Waist-up portrait with the jar</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>"Small batches."</h3><p>How it's made</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="Tallow being cut by hand. Real, but it doesn't show your jars."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/7_4708244d-0ce4-4a97-9c44-48c920cbf2ac.png?width=900" alt="A block of tallow being cut by hand"></div>
+        <div class="frame" data-kind="shoot" data-cap="In the Soquel pour room: close on your hands pouring warm balm into a row of open amber jars. Indoors, not at the ranch, since the tallow comes from Illinois." hidden><img src="shots/07-hand-pour.png" alt="Sketch: hands pouring balm into a row of jars" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>Hand-pouring into a row of jars</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>The last photo</h3><p>Right above the final button</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="The full line on a shelf. Nice, but it sells everything at once."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/2_03f2e9dd-7d67-4302-8bf4-cc2406f447bc.png?width=900" alt="The full Untamed Organics line on a shelf"></div>
+        <div class="frame" data-kind="shoot" data-cap="For December: two people's hands passing a small wrapped gift, two jars peeking out, warm indoor light." hidden><img src="shots/08-gift-handoff.png" alt="Sketch: two hands passing a wrapped gift with two jars" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>A gift of two jars changing hands</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+    <article class="spot">
+      <header><h3>Product page, main photo</h3><p>Next up after the homepage</p></header>
+      <div class="view">
+        <div class="frame" data-kind="now" data-cap="Today your product photos mostly have words printed on them. Ads and catalogs work better with a clean one."><img src="https://cdn.shopify.com/s/files/1/0683/0718/9987/files/5_403882ff-c07b-49e1-89de-d61f68232d91.png?width=900" alt="Product image with ingredient text printed on it"></div>
+        <div class="frame" data-kind="shoot" data-cap="The jar alone, label straight to camera, plain white background, soft even light. No words on the photo. This one photo feeds most of the ads." hidden><img src="shots/09-clean-jar-white.png" alt="Sketch: the jar alone on a white background" onerror="this.parentNode.classList.add('missing')"><div class="ph"><span><b>Sketch coming</b>The jar alone on plain white</span></div></div>
+      </div>
+      <p class="cap" aria-live="polite"></p>
+    </article>
+
+  </div>
+</div></section>
+
+<section class="list" id="shotlist"><div class="wrap">
+  <p class="eyebrow">Shoot day</p>
+  <h2>The full shot list</h2>
+  <p class="lede">All on a phone. Shoot video tall and keep you or the jar in the middle, so it crops to square too.</p>
+  <div class="groups">
+    <div><h3>The jar</h3><ol>
+      <li>Label straight to camera, plain background, no words. One jar, then two together.</li>
+      <li>The same jar three ways: plain white, flat from above, on a counter or the rail.</li>
+      <li>Open jar from above at an angle, lid beside it.<small>So the balm shows.</small></li>
+    </ol></div>
+    <div><h3>Hands and texture</h3><ol start="4">
+      <li>Hands only, from your own eyes: open, scoop, rub into the back of the hand, in sun.</li>
+      <li>Fingertip with a scoop of balm, close. A few shots straight down on one dark surface.</li>
+      <li>Jar held up to the camera at chest height.</li>
+    </ol></div>
+    <div><h3>You</h3><ol start="7">
+      <li>Talking to camera at eye level while someone asks you questions. Indoors and at the ranch. Start and end with the jar in your hand.<small>Five to ten different first lines.</small></li>
+      <li>The pour in Soquel: pouring, labeling, packing. Close on hands, plus one wide of the room.</li>
+      <li>Portrait, waist up, holding the jar. One tall, one wide.</li>
+    </ol></div>
+    <div><h3>Ranch and gifts</h3><ol start="10">
+      <li>Ranch wides and you with the animals, for your story.</li>
+      <li>Two jars wrapped as a gift: box to camera, opening, one close-up, a real hand-off between two people.</li>
+      <li>Creators film themselves outside: some selfie, some filmed by a friend, some full body.</li>
+    </ol></div>
+  </div>
+  <div class="rules">
+    <p><b>Never:</b> before and after photos, skin problems, or words printed on the photo.</p>
+    <p><b>Ranch photos</b> tell your story. They don't go next to "how it's made", because the tallow comes from the farm in Illinois.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Made for DiMarco Del Curto by High Ground Agency. Sketches are planning drawings, not photos.</div></footer>
+
+<script>
+// Arrows on each photo spot.
+document.querySelectorAll('.spot').forEach(spot => {
+  const frames = [...spot.querySelectorAll('.frame')], cap = spot.querySelector('.cap'), view = spot.querySelector('.view');
+  const label = { now: 'Now', keep: 'Now · keep', shoot: 'Shoot' };
+  let i = 0;
+  const show = n => {
+    i = (n + frames.length) % frames.length;
+    frames.forEach((f, k) => f.hidden = k !== i);
+    const f = frames[i];
+    cap.innerHTML = '<span class="chip ' + f.dataset.kind + '">' + label[f.dataset.kind] + '</span>';
+    cap.append(f.dataset.cap);
+    count.textContent = (i + 1) + ' / ' + frames.length;
+  };
+  const btn = (cls, text, aria, d) => { const b = document.createElement('button'); b.className = 'arrow ' + cls; b.textContent = text; b.setAttribute('aria-label', aria); b.onclick = () => show(i + d); view.append(b); };
+  const count = document.createElement('span'); count.className = 'count'; view.append(count);
+  btn('prev', '‹', 'Previous photo', -1); btn('next', '›', 'Next photo', 1);
+  show(0);
+});
+// Today / New tabs on small screens.
+const tabs = [...document.querySelectorAll('[role=tab]')];
+const pick = t => tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); document.getElementById(x.getAttribute('aria-controls')).hidden = !on && matchMedia('(max-width:900px)').matches; });
+tabs.forEach(t => t.onclick = () => pick(t));
+matchMedia('(max-width:900px)').addEventListener('change', () => pick(tabs.find(t => t.getAttribute('aria-selected') === 'true')));
+pick(tabs[0]);
+</script>
+</body>
+</html>
