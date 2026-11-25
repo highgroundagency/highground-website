@@ -49,6 +49,18 @@
       "destination": "https://hga-lead-boards.vercel.app/hga/:path+"
     },
     {
+      "source": "/intake",
+      "destination": "https://hga-lead-boards.vercel.app/intake/"
+    },
+    {
+      "source": "/intake/",
+      "destination": "https://hga-lead-boards.vercel.app/intake/"
+    },
+    {
+      "source": "/intake/:path+",
+      "destination": "https://hga-lead-boards.vercel.app/intake/:path+"
+    },
+    {
       "source": "/boards",
       "destination": "https://hga-lead-boards.vercel.app/boards/"
     },
